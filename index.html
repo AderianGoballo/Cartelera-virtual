@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAIA UCV | Disciplinas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: { extend: { fontFamily: { 'display': ['Poppins', 'sans-serif'], 'sans': ['Inter', 'sans-serif'], }, colors: { ucv: { blue: '#1E2B5A', orange: '#FF6B35', lime: '#9EF01A', dark: '#0F172A', } } } }
+        }
+    </script>
+    <style>
+        html { background-color: #f8fafc; transition: background-color 0.3s; }
+        html.dark { background-color: #0b1120; }
+        body { background-color: #f8fafc; color: #1e293b; min-height: 100vh; margin: 0; font-family: 'Inter', sans-serif; position: relative; transition: all 0.3s; }
+        .dark body { background-color: #0b1120; color: #e5e7eb; }
+        
+        body::before { content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; transition: all 0.3s; background-image: radial-gradient(circle at 30% 40%, rgba(30,43,90,0.08) 0%, transparent 30%), radial-gradient(circle at 70% 60%, rgba(255,107,53,0.08) 0%, transparent 40%), repeating-linear-gradient(45deg, rgba(0,0,0,0.02) 0px, rgba(0,0,0,0.02) 2px, transparent 2px, transparent 8px); }
+        .dark body::before { background-image: radial-gradient(circle at 30% 40%, rgba(30,43,90,0.6) 0%, transparent 30%), radial-gradient(circle at 70% 60%, rgba(255,107,53,0.5) 0%, transparent 40%), repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 2px, transparent 2px, transparent 8px); }
+
+        nav { background-color: rgba(255,255,255,0.9); border-color: rgba(0,0,0,0.1); transition: all 0.3s; }
+        .dark nav { background-color: rgba(30,43,90,0.8); border-color: rgba(255,107,53,0.3); }
+
+        .disciplina-card { position: relative; overflow: hidden; border-radius: 2rem; transition: all 0.4s; cursor: pointer; border: 1px solid rgba(0,0,0,0.1); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+        .dark .disciplina-card { border-color: rgba(255,255,255,0.1); box-shadow: none; }
+        .disciplina-card:hover { transform: scale(1.02); }
+        .disciplina-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(30,43,90,0.9), transparent); opacity: 0.8; transition: opacity 0.4s; }
+        .disciplina-card:hover .disciplina-overlay { opacity: 1; }
+        
+        .disciplina-detalles { max-height: 0; overflow: hidden; transition: max-height 0.5s ease-out; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-top: 1px solid rgba(0,0,0,0.1); }
+        .dark .disciplina-detalles { background: rgba(0,0,0,0.6); border-top-color: rgba(255,107,53,0.3); }
+        .disciplina-detalles.open { max-height: 800px; }
+        
+        .fade-up { opacity: 0; transform: translateY(30px) scale(0.98); transition: opacity 0.8s, transform 0.8s; }
+        .fade-up.visible { opacity: 1; transform: translateY(0) scale(1); }
+        .custom-scroll::-webkit-scrollbar { width: 6px; }
+        .custom-scroll::-webkit-scrollbar-track { background: rgba(0,0,0,0.1); }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #FF6B35; border-radius: 10px; }
+    </style>
+</head>
+<body class="font-sans antialiased flex flex-col">
+
+    <nav class="fixed w-full z-50 backdrop-blur-md border-b shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Logo_Universidad_Central_de_Venezuela.svg/1280px-Logo_Universidad_Central_de_Venezuela.svg.png" alt="UCV" class="h-10 w-auto drop-shadow-md">
+                    <img src="http://www.ucv.ve/typo3temp/pics/ec85477bf0.jpg" alt="Dirección de Deportes" class="h-10 w-auto bg-white p-0.5 rounded-md shadow-sm hidden sm:block">
+                </a>
+                
+                <div class="hidden md:flex space-x-8 text-slate-700 dark:text-white text-sm font-semibold">
+                    <a href="index.html" class="hover:text-ucv-orange transition">Inicio</a>
+                    <a href="disciplinas.html" class="text-ucv-orange transition relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-ucv-orange">Disciplinas</a>
+                    <a href="servicios.html" class="hover:text-ucv-orange transition">Servicios DAIA</a>
+                    <a href="articulo25.html" class="hover:text-ucv-orange transition">Artículo 25</a>
+                </div>
+                
+                <div class="flex items-center gap-3">
+                    <a href="index.html" class="hover:opacity-80 transition-opacity">
+                        <img src="http://www.ucv.ve/typo3temp/pics/b74500906e.gif" alt="DAIA" class="h-10 w-auto bg-white p-0.5 rounded-md shadow-sm">
+                    </a>
+                    <button id="theme-toggle" class="ml-2 p-2 rounded-xl bg-slate-200 dark:bg-white/10 text-slate-800 dark:text-white hover:bg-slate-300 dark:hover:bg-white/20 transition-colors border border-transparent dark:border-white/10 shadow-sm focus:outline-none">
+                        <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
+                        <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow pt-32 pb-16 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-up">
+                <span class="text-ucv-lime dark:text-ucv-lime font-black text-sm tracking-[0.3em] uppercase">Oferta deportiva</span>
+                <h1 class="font-display text-5xl md:text-6xl font-black text-slate-900 dark:text-white mt-2">DISCIPLINAS <span class="text-ucv-orange">DE ÉLITE</span></h1>
+                <div class="w-32 h-1 bg-gradient-to-r from-ucv-lime to-ucv-orange mx-auto mt-6 rounded-full"></div>
+                <p class="text-slate-600 dark:text-gray-300 mt-6 max-w-2xl mx-auto text-lg">Conoce a nuestros entrenadores, horarios y recintos de entrenamiento. Haz clic en cada disciplina para expandir la información.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 fade-up">
+                
+                <div class="disciplina-card group" onclick="toggleDisciplina('disc-voley')">
+                    <div class="relative h-64"><img src="https://images.unsplash.com/photo-1592656094267-764a45160876?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover"><div class="disciplina-overlay"></div><div class="absolute bottom-0 left-0 right-0 p-6 z-10"><h3 class="font-display text-3xl font-black text-white flex justify-between items-center">VOLEIBOL <i data-lucide="chevron-down" class="h-8 w-8 text-ucv-orange transition-transform" id="icon-disc-voley"></i></h3></div></div>
+                    <div id="disc-voley" class="disciplina-detalles">
+                        <div class="p-6 text-slate-700 dark:text-gray-300 space-y-4">
+                            <div><p class="text-xs text-orange-600 dark:text-ucv-orange font-bold">ENTRENADORES</p><p class="font-bold text-slate-900 dark:text-white">Dennis Garcia (Masc) | Yanis Rojas (Fem)</p></div>
+                            <div class="flex items-start gap-2"><i data-lucide="map-pin" class="h-4 w-4 text-orange-600 dark:text-ucv-orange mt-1"></i> Gimnasio Cubierto "La Cachucha"</div>
+                            <div class="text-sm space-y-1"><p><strong class="text-green-700 dark:text-ucv-lime">Sel. Masc:</strong> Mar y Jue 5:00pm - 7:00pm</p><p><strong class="text-green-700 dark:text-ucv-lime">Sel. Fem:</strong> Jue 6:30pm - 8:00pm</p><p><strong>Iniciación:</strong> Mar y Jue 2:30pm - 4:30pm</p></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="disciplina-card group" onclick="toggleDisciplina('disc-basket')">
+                    <div class="relative h-64"><img src="https://images.unsplash.com/photo-1519861531473-9200262188bf?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover"><div class="disciplina-overlay"></div><div class="absolute bottom-0 left-0 right-0 p-6 z-10"><h3 class="font-display text-3xl font-black text-white flex justify-between items-center">BALONCESTO <i data-lucide="chevron-down" class="h-8 w-8 text-ucv-lime transition-transform" id="icon-disc-basket"></i></h3></div></div>
+                    <div id="disc-basket" class="disciplina-detalles">
+                        <div class="p-6 text-slate-700 dark:text-gray-300 space-y-4">
+                            <div><p class="text-xs text-green-700 dark:text-ucv-lime font-bold">ENTRENADORES</p><p class="font-bold text-slate-900 dark:text-white">Freddy Rengifo (Masc) | Jannette Aponte (Fem)</p></div>
+                            <div class="flex items-start gap-2"><i data-lucide="map-pin" class="h-4 w-4 text-green-700 dark:text-ucv-lime mt-1"></i> Gimnasio Cubierto "La Cachucha"</div>
+                            <div class="text-sm space-y-1"><p><strong class="text-green-700 dark:text-ucv-lime">Sel. Masc:</strong> Lun, Mié y Vie 7:00pm - 10:00pm</p><p><strong class="text-green-700 dark:text-ucv-lime">Sel. Fem:</strong> Lun, Mié y Vie 5:00pm - 7:00pm</p></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="disciplina-card group" onclick="toggleDisciplina('disc-futcampo')">
+                    <div class="relative h-64"><img src="https://images.unsplash.com/photo-1511886929837-354d827aae26?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover"><div class="disciplina-overlay"></div><div class="absolute bottom-0 left-0 right-0 p-6 z-10"><h3 class="font-display text-3xl font-black text-white flex justify-between items-center">FÚTBOL CAMPO <i data-lucide="chevron-down" class="h-8 w-8 text-ucv-blue transition-transform" id="icon-disc-futcampo"></i></h3></div></div>
+                    <div id="disc-futcampo" class="disciplina-detalles">
+                        <div class="p-6 text-slate-700 dark:text-gray-300 space-y-4 max-h-64 overflow-y-auto custom-scroll">
+                            <div><p class="text-xs text-ucv-blue dark:text-blue-400 font-bold">ENTRENADORES</p><p class="font-bold text-slate-900 dark:text-white">Lau Nam, R. Campos, L. Cesar, A. Meza</p></div>
+                            <div class="flex items-start gap-2"><i data-lucide="map-pin" class="h-4 w-4 text-ucv-blue dark:text-blue-400 mt-1"></i> Est. Olímpico / Campo Sierra Maestra / C. Honor</div>
+                            <div class="text-sm space-y-1"><p><strong class="text-green-700 dark:text-ucv-lime">Sel. Fem:</strong> Lun/Mar 7:30am, Mié a Vie 11am-5pm</p><p><strong class="text-green-700 dark:text-ucv-lime">Sel. Masc 1:</strong> Mié a Vie 8:00am - 11:00am</p><p><strong class="text-green-700 dark:text-ucv-lime">Sel. Masc 2:</strong> Lun y Mar 8:00am - 10:30am</p></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="disciplina-card group" onclick="toggleDisciplina('disc-futsala')">
+                    <div class="relative h-64"><img src="https://www.trujillanos-fc.com.ve/wp-content/uploads/2024/06/photo-73.png" class="w-full h-full object-cover"><div class="disciplina-overlay"></div><div class="absolute bottom-0 left-0 right-0 p-6 z-10"><h3 class="font-display text-3xl font-black text-white flex justify-between items-center">FÚTBOL SALA <i data-lucide="chevron-down" class="h-8 w-8 text-ucv-orange transition-transform" id="icon-disc-futsala"></i></h3></div></div>
+                    <div id="disc-futsala" class="disciplina-detalles">
+                        <div class="p-6 text-slate-700 dark:text-gray-300 space-y-4">
+                            <div><p class="text-xs text-orange-600 dark:text-ucv-orange font-bold">ENTRENADORES</p><p class="font-bold text-slate-900 dark:text-white">Cesar Moreno (Fem) / Por Asignar (Masc)</p></div>
+                            <div class="flex items-start gap-2"><i data-lucide="map-pin" class="h-4 w-4 text-orange-600 dark:text-ucv-orange mt-1"></i> Gimnasio "La Cachucha" / C. Comunicación</div>
+                            <div class="text-sm space-y-1"><p><strong class="text-green-700 dark:text-ucv-lime">Sel. Masc:</strong> Lun, Mié y Vie 12:00pm - 3:00pm</p><p><strong class="text-green-700 dark:text-ucv-lime">Sel. Fem:</strong> Mar, Jue y Vie 5:00pm - 7:00pm</p></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="disciplina-card group" onclick="toggleDisciplina('disc-agua')">
+                    <div class="relative h-64"><img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover"><div class="disciplina-overlay"></div><div class="absolute bottom-0 left-0 right-0 p-6 z-10"><h3 class="font-display text-2xl md:text-3xl font-black text-white flex justify-between items-center">DEP. ACUÁTICOS <i data-lucide="chevron-down" class="h-8 w-8 text-ucv-lime transition-transform" id="icon-disc-agua"></i></h3></div></div>
+                    <div id="disc-agua" class="disciplina-detalles">
+                        <div class="p-6 text-slate-700 dark:text-gray-300 space-y-4">
+                            <div><p class="text-xs text-green-700 dark:text-ucv-lime font-bold">ENTRENADORES</p><p class="font-bold text-slate-900 dark:text-white">Jesús Andrade (Natación) | Miguel Piñar (Polo)</p></div>
+                            <div class="flex items-start gap-2"><i data-lucide="map-pin" class="h-4 w-4 text-green-700 dark:text-ucv-lime mt-1"></i> Piscinas Olímpicas (Primer piso)</div>
+                            <div class="text-sm space-y-1"><p><strong class="text-slate-900 dark:text-white">Natación:</strong> Mar a Vie 9:00am - 12:00pm</p><p><strong class="text-slate-900 dark:text-white">Polo Acuático:</strong> Mar a Vie 4:00pm</p></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="disciplina-card group" onclick="toggleDisciplina('disc-atletismo')">
+                    <div class="relative h-64"><img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover"><div class="disciplina-overlay"></div><div class="absolute bottom-0 left-0 right-0 p-6 z-10"><h3 class="font-display text-3xl font-black text-white flex justify-between items-center">ATLETISMO <i data-lucide="chevron-down" class="h-8 w-8 text-ucv-blue transition-transform" id="icon-disc-atletismo"></i></h3></div></div>
+                    <div id="disc-atletismo" class="disciplina-detalles">
+                        <div class="p-6 text-slate-700 dark:text-gray-300 space-y-4">
+                            <div><p class="text-xs text-ucv-blue dark:text-blue-400 font-bold">ENTRENADORES</p><p class="font-bold text-slate-900 dark:text-white">A. Hernandez, F. Ortiz, J. Sucre, A. Castro</p></div>
+                            <div class="flex items-start gap-2"><i data-lucide="map-pin" class="h-4 w-4 text-ucv-blue dark:text-blue-400 mt-1"></i> Estadio Olímpico</div>
+                            <div class="text-sm space-y-1"><p><strong class="text-green-700 dark:text-ucv-lime">Horario General:</strong></p><p>Lunes a Viernes 3:00pm - 7:30pm</p></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="disciplina-card group" onclick="toggleDisciplina('disc-artes')">
+                    <div class="relative h-64"><img src="https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover"><div class="disciplina-overlay"></div><div class="absolute bottom-0 left-0 right-0 p-6 z-10"><h3 class="font-display text-2xl lg:text-3xl font-black text-white flex justify-between items-center">ARTES MARCIALES <i data-lucide="chevron-down" class="h-8 w-8 text-ucv-orange transition-transform" id="icon-disc-artes"></i></h3></div></div>
+                    <div id="disc-artes" class="disciplina-detalles">
+                        <div class="p-6 text-slate-700 dark:text-gray-300 space-y-4 max-h-64 overflow-y-auto custom-scroll">
+                            <div><p class="text-xs text-orange-600 dark:text-ucv-orange font-bold">ENTRENADORES</p><p class="font-bold text-slate-900 dark:text-white">H. Jansen (Judo), G. Rojas (Taekwondo), G. Carrillo (Karate)</p></div>
+                            <div class="flex items-start gap-2"><i data-lucide="map-pin" class="h-4 w-4 text-orange-600 dark:text-ucv-orange mt-1"></i> PB Deportes / Estadio Olímpico / La Cachucha</div>
+                            <div class="text-sm space-y-2"><p><strong class="text-slate-900 dark:text-white">Judo:</strong> Lun/Mié/Vie 12pm - 2pm (Egresados)</p><p><strong class="text-slate-900 dark:text-white">Taekwondo:</strong> Lun/Mié/Vie 12pm - 1:30pm / 6pm - 7pm</p><p><strong class="text-slate-900 dark:text-white">Kenpo:</strong> Mar/Jue 7:30pm - 9:00pm</p><p><strong class="text-slate-900 dark:text-white">Karate Do:</strong> Lun a Vie 9am - 1:30pm (Materia)</p></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="disciplina-card group" onclick="toggleDisciplina('disc-tenis')">
+                    <div class="relative h-64"><img src="https://rccnoticias.com.do/wp-content/uploads/2025/12/tenis-calonge-palamos-sant-antoni.jpeg" class="w-full h-full object-cover"><div class="disciplina-overlay"></div><div class="absolute bottom-0 left-0 right-0 p-6 z-10"><h3 class="font-display text-3xl font-black text-white flex justify-between items-center">TENIS <i data-lucide="chevron-down" class="h-8 w-8 text-ucv-lime transition-transform" id="icon-disc-tenis"></i></h3></div></div>
+                    <div id="disc-tenis" class="disciplina-detalles">
+                        <div class="p-6 text-slate-700 dark:text-gray-300 space-y-4">
+                            <div><p class="text-xs text-green-700 dark:text-ucv-lime font-bold">ENTRENADORES</p><p class="font-bold text-slate-900 dark:text-white">Oliver Espinoza (Mesa) | Sin Asignar (Campo)</p></div>
+                            <div class="flex items-start gap-2"><i data-lucide="map-pin" class="h-4 w-4 text-green-700 dark:text-ucv-lime mt-1"></i> PA Deportes (Mesa) / Estadio Olímpico (Campo)</div>
+                            <div class="text-sm space-y-1"><p><strong class="text-slate-900 dark:text-white">Tenis de Mesa:</strong> Lun a Jue 1:00pm - 6:00pm</p><p><strong class="text-slate-900 dark:text-white">Tenis de Campo:</strong> Lun a Vie 12:00pm - 2:00pm</p></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="disciplina-card group" onclick="toggleDisciplina('disc-beisbol')">
+                    <div class="relative h-64"><img src="https://www.prensa-latina.cu/wp-content/uploads/2024/10/Beisbol-1-1-2-3.jpg" class="w-full h-full object-cover"><div class="disciplina-overlay"></div><div class="absolute bottom-0 left-0 right-0 p-6 z-10"><h3 class="font-display text-3xl font-black text-white flex justify-between items-center">BÉISBOL <i data-lucide="chevron-down" class="h-8 w-8 text-ucv-blue transition-transform" id="icon-disc-beisbol"></i></h3></div></div>
+                    <div id="disc-beisbol" class="disciplina-detalles">
+                        <div class="p-6 text-slate-700 dark:text-gray-300 space-y-4">
+                            <div><p class="text-xs text-ucv-blue dark:text-blue-400 font-bold">ENTRENADORES</p><p class="font-bold text-slate-900 dark:text-white">Miguel León | Luís Cesar</p></div>
+                            <div class="flex items-start gap-2"><i data-lucide="map-pin" class="h-4 w-4 text-ucv-blue dark:text-blue-400 mt-1"></i> Estadio Universitario</div>
+                            <div class="text-sm space-y-1"><p><strong class="text-green-700 dark:text-ucv-lime">Selección UCV:</strong></p><p>Martes y Jueves 10:00am - 4:00pm</p></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="disciplina-card group" onclick="toggleDisciplina('disc-rugby')">
+                    <div class="relative h-64"><img src="https://images.ecestaticos.com/L65v5Qb6XbtZZRosqT8ywBz_Mns=/0x0:2272x1515/996x747/filters:fill(white):format(jpg)/f.elconfidencial.com%2Foriginal%2Fff9%2F7b4%2Fef5%2Fff97b4ef5fec5c547a68ca88dcb9d890.jpg" class="w-full h-full object-cover"><div class="disciplina-overlay"></div><div class="absolute bottom-0 left-0 right-0 p-6 z-10"><h3 class="font-display text-3xl font-black text-white flex justify-between items-center">RUGBY <i data-lucide="chevron-down" class="h-8 w-8 text-ucv-orange transition-transform" id="icon-disc-rugby"></i></h3></div></div>
+                    <div id="disc-rugby" class="disciplina-detalles">
+                        <div class="p-6 text-slate-700 dark:text-gray-300 space-y-4">
+                            <div><p class="text-xs text-orange-600 dark:text-ucv-orange font-bold">ENTRENADORA</p><p class="font-bold text-slate-900 dark:text-white">Mariangel Salas</p></div>
+                            <div class="flex items-start gap-2"><i data-lucide="map-pin" class="h-4 w-4 text-orange-600 dark:text-ucv-orange mt-1"></i> Cancha de Fútbol</div>
+                            <div class="text-sm space-y-1"><p><strong class="text-slate-900 dark:text-white">Femenino:</strong> Lun y Mié 5:00pm - 7:00pm</p></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="disciplina-card group" onclick="toggleDisciplina('disc-kickingball')">
+                    <div class="relative h-64"><img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover"><div class="disciplina-overlay"></div><div class="absolute bottom-0 left-0 right-0 p-6 z-10"><h3 class="font-display text-3xl font-black text-white flex justify-between items-center">KICKINGBALL <i data-lucide="chevron-down" class="h-8 w-8 text-ucv-lime transition-transform" id="icon-disc-kickingball"></i></h3></div></div>
+                    <div id="disc-kickingball" class="disciplina-detalles">
+                        <div class="p-6 text-slate-700 dark:text-gray-300 space-y-4">
+                            <div><p class="text-xs text-green-700 dark:text-ucv-lime font-bold">ENTRENADOR</p><p class="font-bold text-slate-900 dark:text-white">Rene Molina</p></div>
+                            <div class="flex items-start gap-2"><i data-lucide="map-pin" class="h-4 w-4 text-green-700 dark:text-ucv-lime mt-1"></i> Por Asignar</div>
+                            <div class="text-sm space-y-1"><p><strong class="text-slate-900 dark:text-white">Horario:</strong> Por asignar</p></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="disciplina-card group" onclick="toggleDisciplina('disc-esgrima')">
+                    <div class="relative h-64"><img src="https://seumelhorjogo.com/wp-content/uploads/2024/05/esgrima-glosario.jpg" class="w-full h-full object-cover"><div class="disciplina-overlay"></div><div class="absolute bottom-0 left-0 right-0 p-6 z-10"><h3 class="font-display text-3xl font-black text-white flex justify-between items-center">ESGRIMA <i data-lucide="chevron-down" class="h-8 w-8 text-ucv-lime transition-transform" id="icon-disc-esgrima"></i></h3></div></div>
+                    <div id="disc-esgrima" class="disciplina-detalles">
+                        <div class="p-6 text-slate-700 dark:text-gray-300 space-y-4">
+                            <div><p class="text-xs text-green-700 dark:text-ucv-lime font-bold">ENTRENADOR</p><p class="font-bold text-slate-900 dark:text-white">Yhonnathan Pino</p></div>
+                            <div class="flex items-start gap-2"><i data-lucide="map-pin" class="h-4 w-4 text-green-700 dark:text-ucv-lime mt-1"></i> Sala de esgrima, PB Deportes</div>
+                            <div class="text-sm space-y-1"><p><strong class="text-slate-900 dark:text-white">Todas las categorías:</strong></p><p>Lunes a Viernes 2:00pm a 5:00pm</p></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="disciplina-card group" onclick="toggleDisciplina('disc-ajedrez')">
+                    <div class="relative h-64"><img src="https://images.unsplash.com/photo-1529699211952-734e80c4d42b?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover"><div class="disciplina-overlay"></div><div class="absolute bottom-0 left-0 right-0 p-6 z-10"><h3 class="font-display text-3xl font-black text-white flex justify-between items-center">AJEDREZ <i data-lucide="chevron-down" class="h-8 w-8 text-ucv-blue transition-transform" id="icon-disc-ajedrez"></i></h3></div></div>
+                    <div id="disc-ajedrez" class="disciplina-detalles">
+                        <div class="p-6 text-slate-700 dark:text-gray-300 space-y-4 max-h-64 overflow-y-auto custom-scroll">
+                            <div><p class="text-xs text-ucv-blue dark:text-blue-400 font-bold">ENTRENADOR</p><p class="font-bold text-slate-900 dark:text-white">Pedro Pulido</p></div>
+                            <div class="flex items-start gap-2"><i data-lucide="map-pin" class="h-4 w-4 text-ucv-blue dark:text-blue-400 mt-1"></i> Estadio olímpico</div>
+                            <div class="text-sm space-y-2"><p><strong class="text-slate-900 dark:text-white">Selección UCV:</strong> Lun, Mié y Vie 2:30pm a 4:00pm</p><p><strong class="text-slate-900 dark:text-white">Iniciación (Hasta 14a):</strong> Lun a Vie 2:00pm a 4:00pm</p><p><strong class="text-slate-900 dark:text-white">Iniciación (+15a):</strong> Lun a Vie 4:00pm a 6:30pm</p></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="disciplina-card group" onclick="toggleDisciplina('disc-boxeo')">
+                    <div class="relative h-64"><img src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover"><div class="disciplina-overlay"></div><div class="absolute bottom-0 left-0 right-0 p-6 z-10"><h3 class="font-display text-3xl font-black text-white flex justify-between items-center">BOXEO <i data-lucide="chevron-down" class="h-8 w-8 text-ucv-orange transition-transform" id="icon-disc-boxeo"></i></h3></div></div>
+                    <div id="disc-boxeo" class="disciplina-detalles">
+                        <div class="p-6 text-slate-700 dark:text-gray-300 space-y-4">
+                            <div><p class="text-xs text-orange-600 dark:text-ucv-orange font-bold">ENTRENADOR</p><p class="font-bold text-slate-900 dark:text-white">Por asignar</p></div>
+                            <div class="flex items-start gap-2"><i data-lucide="map-pin" class="h-4 w-4 text-orange-600 dark:text-ucv-orange mt-1"></i> Gimnasio cubierto</div>
+                            <div class="text-sm space-y-1"><p><strong class="text-slate-900 dark:text-white">Horario:</strong> Lunes a Viernes 1:00pm a 7:00pm</p></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="disciplina-card group" onclick="toggleDisciplina('disc-porrismo')">
+                    <div class="relative h-64"><img src="https://i.pinimg.com/736x/15/33/e0/1533e097258939f734650d3d4b5a5047.jpg" class="w-full h-full object-cover"><div class="disciplina-overlay"></div><div class="absolute bottom-0 left-0 right-0 p-6 z-10"><h3 class="font-display text-3xl font-black text-white flex justify-between items-center">PORRISMO <i data-lucide="chevron-down" class="h-8 w-8 text-ucv-lime transition-transform" id="icon-disc-porrismo"></i></h3></div></div>
+                    <div id="disc-porrismo" class="disciplina-detalles">
+                        <div class="p-6 text-slate-700 dark:text-gray-300 space-y-4 max-h-64 overflow-y-auto custom-scroll">
+                            <div><p class="text-xs text-green-700 dark:text-ucv-lime font-bold">ENTRENADOR</p><p class="font-bold text-slate-900 dark:text-white">Cuerpo Técnico</p></div>
+                            <div class="flex items-start gap-2"><i data-lucide="map-pin" class="h-4 w-4 text-green-700 dark:text-ucv-lime mt-1"></i> Estadio olímpico</div>
+                            <div class="text-sm space-y-2"><p><strong class="text-slate-900 dark:text-white">Nuevos Ingresos:</strong> Lun, Mié y Vie 2:30pm a 4:00pm</p><p><strong class="text-slate-900 dark:text-white">Nivel I:</strong> Lun, Mié y Vie 3:00pm a 5:00pm</p><p><strong class="text-slate-900 dark:text-white">Nivel II:</strong> Lun, Mié y Vie 4:00pm a 7:00pm</p></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="disciplina-card group" onclick="toggleDisciplina('disc-yoga')">
+                    <div class="relative h-64"><img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover"><div class="disciplina-overlay"></div><div class="absolute bottom-0 left-0 right-0 p-6 z-10"><h3 class="font-display text-3xl font-black text-white flex justify-between items-center">YOGA <i data-lucide="chevron-down" class="h-8 w-8 text-ucv-blue transition-transform" id="icon-disc-yoga"></i></h3></div></div>
+                    <div id="disc-yoga" class="disciplina-detalles">
+                        <div class="p-6 text-slate-700 dark:text-gray-300 space-y-4">
+                            <div><p class="text-xs text-ucv-blue dark:text-blue-400 font-bold">ENTRENADORA</p><p class="font-bold text-slate-900 dark:text-white">Deisy Canache</p></div>
+                            <div class="flex items-start gap-2"><i data-lucide="map-pin" class="h-4 w-4 text-ucv-blue dark:text-blue-400 mt-1"></i> Estadio olímpico</div>
+                            <div class="text-sm space-y-2"><p><strong class="text-slate-900 dark:text-white">Horario Semanal:</strong> Martes y jueves 7:00am a 6:00pm</p><p><strong class="text-slate-900 dark:text-white">Horario Sabatino:</strong> Sábado 8:40am a 1:30pm</p></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="backdrop-blur-lg border-t border-slate-200 dark:border-ucv-orange/30 py-12 mt-auto relative z-10 bg-white/50 dark:bg-transparent">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex justify-center items-center gap-4 sm:gap-8 mb-6">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Logo_Universidad_Central_de_Venezuela.svg/1280px-Logo_Universidad_Central_de_Venezuela.svg.png" alt="UCV" class="h-16 sm:h-20 w-auto drop-shadow-lg">
+                <img src="http://www.ucv.ve/typo3temp/pics/ec85477bf0.jpg" alt="Dirección de Deportes" class="h-14 sm:h-16 w-auto bg-white p-1 rounded-xl shadow-md">
+                <img src="http://www.ucv.ve/typo3temp/pics/b74500906e.gif" alt="DAIA" class="h-14 sm:h-16 w-auto bg-white p-1 rounded-xl shadow-md">
+            </div>
+            <p class="text-gray-500 dark:text-gray-400 text-sm mt-4">Formando atletas integrales para el futuro de Venezuela</p>
+            <div class="flex justify-center gap-6 mt-6">
+                <i data-lucide="facebook" class="text-gray-500 hover:text-ucv-orange cursor-pointer transition-colors"></i>
+                <i data-lucide="twitter" class="text-gray-500 hover:text-ucv-orange cursor-pointer transition-colors"></i>
+                <i data-lucide="instagram" class="text-gray-500 hover:text-ucv-orange cursor-pointer transition-colors"></i>
+            </div>
+            <p class="text-xs text-gray-500 mt-8">© 2024 Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        const htmlEl = document.documentElement;
+        if (localStorage.getItem('color-theme') === 'light') { htmlEl.classList.remove('dark'); } 
+        else { htmlEl.classList.add('dark'); }
+        lucide.createIcons();
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        themeToggleBtn.addEventListener('click', () => {
+            htmlEl.classList.toggle('dark');
+            localStorage.setItem('color-theme', htmlEl.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        window.toggleDisciplina = function(id) {
+            const el = document.getElementById(id);
+            const icon = document.getElementById('icon-' + id);
+            if (el.classList.contains('open')) {
+                el.classList.remove('open');
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                el.classList.add('open');
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+        const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
