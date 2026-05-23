@@ -4,16 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DAIA UCV | Inicio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdn.tailwindcss.com">
-    <link rel="preconnect" href="https://unpkg.com">
-    <link rel="preconnect" href="https://images.unsplash.com">
-    <link rel="preconnect" href="https://upload.wikimedia.org">
-    <link rel="dns-prefetch" href="http://www.ucv.ve">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -93,9 +86,9 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="carousel-container mb-20 border-2 border-ucv-orange/30">
                 <div id="carousel-slide" class="carousel-slide">
-                    <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&q=80&w=2000" class="w-full h-[500px] object-cover flex-shrink-0" fetchpriority="high" width="2000" height="500">
-                    <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&q=80&w=2000" class="w-full h-[500px] object-cover flex-shrink-0" loading="lazy" width="2000" height="500">
-                    <img src="https://images.unsplash.com/photo-1511886929837-354d827aae26?auto=format&fit=crop&q=80&w=2000" class="w-full h-[500px] object-cover flex-shrink-0" loading="lazy" width="2000" height="500">
+                    <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&q=80&w=2000" class="w-full h-[500px] object-cover flex-shrink-0">
+                    <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&q=80&w=2000" class="w-full h-[500px] object-cover flex-shrink-0">
+                    <img src="https://images.unsplash.com/photo-1511886929837-354d827aae26?auto=format&fit=crop&q=80&w=2000" class="w-full h-[500px] object-cover flex-shrink-0">
                 </div>
                 <button id="carousel-prev" class="carousel-btn left-4">‹</button>
                 <button id="carousel-next" class="carousel-btn right-4">›</button>
@@ -137,11 +130,11 @@
                     <div class="w-32 h-1 bg-gradient-to-r from-ucv-orange to-ucv-lime mx-auto mt-4 rounded-full"></div>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
-                    <div class="bg-white dark:bg-white/5 backdrop-blur-lg rounded-3xl p-6 text-center hover-glow shadow-md dark:shadow-none border border-slate-100 dark:border-transparent"><img src="maria.jpg" class="w-28 h-28 rounded-full mx-auto object-cover border-4 border-orange-200 dark:border-ucv-orange/50 mb-4" loading="lazy" width="112" height="112"><h3 class="font-display text-xl font-bold text-slate-900 dark:text-white">Lic. María José</h3><p class="text-orange-600 dark:text-ucv-orange font-medium">Jefa de división</p></div>
-                    <div class="bg-white dark:bg-white/5 backdrop-blur-lg rounded-3xl p-6 text-center hover-glow shadow-md dark:shadow-none border border-slate-100 dark:border-transparent"><img src="lenin.jpg" class="w-28 h-28 rounded-full mx-auto object-cover border-4 border-lime-200 dark:border-ucv-lime/50 mb-4" loading="lazy" width="112" height="112"><h3 class="font-display text-xl font-bold text-slate-900 dark:text-white">Lic. Lenin Lucena</h3><p class="text-green-600 dark:text-ucv-lime font-medium">Psicólogo clínico</p></div>
-                    <div class="bg-white dark:bg-white/5 backdrop-blur-lg rounded-3xl p-6 text-center hover-glow shadow-md dark:shadow-none border border-slate-100 dark:border-transparent"><img src="edgar.jpg" class="w-28 h-28 rounded-full mx-auto object-cover border-4 border-blue-200 dark:border-ucv-blue/50 mb-4" loading="lazy" width="112" height="112"><h3 class="font-display text-xl font-bold text-slate-900 dark:text-white">Lic. Edgar Somoza</h3><p class="text-ucv-blue dark:text-blue-400 font-medium">Psicólogo orientador</p></div>
-                    <div class="bg-white dark:bg-white/5 backdrop-blur-lg rounded-3xl p-6 text-center hover-glow shadow-md dark:shadow-none border border-slate-100 dark:border-transparent"><img src="viviana.jpg" class="w-28 h-28 rounded-full mx-auto object-cover border-4 border-orange-200 dark:border-ucv-orange/50 mb-4" loading="lazy" width="112" height="112"><h3 class="font-display text-xl font-bold text-slate-900 dark:text-white">Viviana García</h3><p class="text-orange-600 dark:text-ucv-orange font-medium">Secretaria</p></div>
-                    <div class="bg-white dark:bg-white/5 backdrop-blur-lg rounded-3xl p-6 text-center hover-glow shadow-md dark:shadow-none border border-slate-100 dark:border-transparent"><img src="jesus.jpg" class="w-28 h-28 rounded-full mx-auto object-cover border-4 border-lime-200 dark:border-ucv-lime/50 mb-4" loading="lazy" width="112" height="112"><h3 class="font-display text-xl font-bold text-slate-900 dark:text-white">Lic. Jesús Godoy</h3><p class="text-green-600 dark:text-ucv-lime font-medium">Psicólogo general</p></div>
+                    <div class="bg-white dark:bg-white/5 backdrop-blur-lg rounded-3xl p-6 text-center hover-glow shadow-md dark:shadow-none border border-slate-100 dark:border-transparent"><img src="maria.jpg" class="w-28 h-28 rounded-full mx-auto object-cover border-4 border-orange-200 dark:border-ucv-orange/50 mb-4"><h3 class="font-display text-xl font-bold text-slate-900 dark:text-white">Lic. María José</h3><p class="text-orange-600 dark:text-ucv-orange font-medium">Jefa de división</p></div>
+                    <div class="bg-white dark:bg-white/5 backdrop-blur-lg rounded-3xl p-6 text-center hover-glow shadow-md dark:shadow-none border border-slate-100 dark:border-transparent"><img src="lenin.jpg" class="w-28 h-28 rounded-full mx-auto object-cover border-4 border-lime-200 dark:border-ucv-lime/50 mb-4"><h3 class="font-display text-xl font-bold text-slate-900 dark:text-white">Lic. Lenin Lucena</h3><p class="text-green-600 dark:text-ucv-lime font-medium">Psicólogo clínico</p></div>
+                    <div class="bg-white dark:bg-white/5 backdrop-blur-lg rounded-3xl p-6 text-center hover-glow shadow-md dark:shadow-none border border-slate-100 dark:border-transparent"><img src="edgar.jpg" class="w-28 h-28 rounded-full mx-auto object-cover border-4 border-blue-200 dark:border-ucv-blue/50 mb-4"><h3 class="font-display text-xl font-bold text-slate-900 dark:text-white">Lic. Edgar Somoza</h3><p class="text-ucv-blue dark:text-blue-400 font-medium">Psicólogo orientador</p></div>
+                    <div class="bg-white dark:bg-white/5 backdrop-blur-lg rounded-3xl p-6 text-center hover-glow shadow-md dark:shadow-none border border-slate-100 dark:border-transparent"><img src="viviana.jpg" class="w-28 h-28 rounded-full mx-auto object-cover border-4 border-orange-200 dark:border-ucv-orange/50 mb-4"><h3 class="font-display text-xl font-bold text-slate-900 dark:text-white">Viviana García</h3><p class="text-orange-600 dark:text-ucv-orange font-medium">Secretaria</p></div>
+                    <div class="bg-white dark:bg-white/5 backdrop-blur-lg rounded-3xl p-6 text-center hover-glow shadow-md dark:shadow-none border border-slate-100 dark:border-transparent"><img src="jesus.jpg" class="w-28 h-28 rounded-full mx-auto object-cover border-4 border-lime-200 dark:border-ucv-lime/50 mb-4"><h3 class="font-display text-xl font-bold text-slate-900 dark:text-white">Lic. Jesús Godoy</h3><p class="text-green-600 dark:text-ucv-lime font-medium">Psicólogo general</p></div>
                 </div>
             </section>
 
@@ -177,9 +170,9 @@
     <footer class="backdrop-blur-lg border-t py-12 mt-auto relative z-10 border-slate-200 dark:border-white/10 bg-white/50 dark:bg-transparent">
         <div class="max-w-7xl mx-auto px-4 text-center">
             <div class="flex justify-center items-center gap-6 sm:gap-10 mb-8">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Logo_Universidad_Central_de_Venezuela.svg/1280px-Logo_Universidad_Central_de_Venezuela.svg.png" alt="UCV" class="h-16 sm:h-20 w-auto drop-shadow-lg" loading="lazy" width="128" height="128">
-                <img src="http://www.ucv.ve/typo3temp/pics/ec85477bf0.jpg" alt="Dirección de Deportes" class="h-14 sm:h-16 w-auto bg-white p-1 rounded-xl shadow-md" loading="lazy" width="64" height="64">
-                <img src="http://www.ucv.ve/typo3temp/pics/b74500906e.gif" alt="DAIA" class="h-14 sm:h-16 w-auto bg-white p-1 rounded-xl shadow-md" loading="lazy" width="64" height="64">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Logo_Universidad_Central_de_Venezuela.svg/1280px-Logo_Universidad_Central_de_Venezuela.svg.png" alt="UCV" class="h-16 sm:h-20 w-auto drop-shadow-lg">
+                <img src="http://www.ucv.ve/typo3temp/pics/ec85477bf0.jpg" alt="Dirección de Deportes" class="h-14 sm:h-16 w-auto bg-white p-1 rounded-xl shadow-md">
+                <img src="http://www.ucv.ve/typo3temp/pics/b74500906e.gif" alt="DAIA" class="h-14 sm:h-16 w-auto bg-white p-1 rounded-xl shadow-md">
             </div>
             
             <p class="text-gray-500 dark:text-gray-400 text-sm mt-2">Formando atletas integrales para el futuro de Venezuela</p>
