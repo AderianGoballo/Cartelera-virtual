@@ -3,31 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DAIA UCV | Guía Artículo 25</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' unpkg.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' fonts.gstatic.com; connect-src 'self';">
+    <title>DAIA UCV | Artículo 25</title>
+    <meta name="description" content="Guía completa sobre el ingreso a la UCV por el Artículo 25: beneficios, requisitos y proceso de postulación para atletas de alto rendimiento.">
+    <link rel="icon" type="image/webp" href="deportes.webp">
+    
     <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: { extend: { fontFamily: { 'display': ['Poppins', 'sans-serif'], 'sans': ['Inter', 'sans-serif'], }, colors: { ucv: { blue: '#1E2B5A', orange: '#FF6B35', lime: '#9EF01A', dark: '#0F172A', } } } }
-        }
+        // Synchronous theme check to prevent FOUC and forced reflow
+        (function() {
+            const theme = localStorage.getItem('color-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (theme === 'dark') document.documentElement.classList.add('dark');
+            else document.documentElement.classList.remove('dark');
+            window.__INITIAL_THEME = theme;
+        })();
     </script>
-    <style>
-        html { background-color: #f8fafc; transition: background-color 0.3s; }
-        html.dark { background-color: #0b1120; }
-        body { background-color: #f8fafc; color: #1e293b; min-height: 100vh; margin: 0; font-family: 'Inter', sans-serif; position: relative; transition: all 0.3s; }
-        .dark body { background-color: #0b1120; color: #e5e7eb; }
-        
-        body::before { content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; transition: all 0.3s; background-image: radial-gradient(circle at 30% 40%, rgba(30,43,90,0.08) 0%, transparent 30%), radial-gradient(circle at 70% 60%, rgba(255,107,53,0.08) 0%, transparent 40%), repeating-linear-gradient(45deg, rgba(0,0,0,0.02) 0px, rgba(0,0,0,0.02) 2px, transparent 2px, transparent 8px); }
-        .dark body::before { background-image: radial-gradient(circle at 30% 40%, rgba(30,43,90,0.6) 0%, transparent 30%), radial-gradient(circle at 70% 60%, rgba(255,107,53,0.5) 0%, transparent 40%), repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 2px, transparent 2px, transparent 8px); }
 
-        nav { background-color: rgba(255,255,255,0.9); border-color: rgba(0,0,0,0.1); transition: all 0.3s; }
-        .dark nav { background-color: rgba(30,43,90,0.8); border-color: rgba(255,107,53,0.3); }
-        
-        .fade-up { opacity: 0; transform: translateY(40px); transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1); }
-        .fade-up.visible { opacity: 1; transform: translateY(0); }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"></noscript>
+    <link rel='stylesheet' href='style.css'>
+    
+    <script src="https://unpkg.com/lucide@latest" defer></script>
 </head>
 <body class="font-sans antialiased flex flex-col">
 
@@ -35,209 +33,301 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
                 <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Logo_Universidad_Central_de_Venezuela.svg/1280px-Logo_Universidad_Central_de_Venezuela.svg.png" alt="UCV" class="h-10 w-auto drop-shadow-md">
-                    <img src="http://www.ucv.ve/typo3temp/pics/ec85477bf0.jpg" alt="Dirección de Deportes" class="h-10 w-auto bg-white p-0.5 rounded-md shadow-sm hidden sm:block">
+                    <img src="ucv.webp" alt="Universidad Central de Venezuela" width="128" height="40" class="h-10 w-auto drop-shadow-md" loading="eager" decoding="async" fetchpriority="high">
+                    <img src="deportes.webp" alt="Dirección de Deportes UCV" width="40" height="40" class="h-10 w-auto bg-white p-0.5 rounded-md shadow-sm hidden sm:block" loading="eager" decoding="async" fetchpriority="high">
                 </a>
                 
                 <div class="hidden md:flex space-x-8 text-slate-700 dark:text-white text-sm font-semibold">
-                    <a href="index.html" class="hover:text-ucv-orange transition">Inicio</a>
-                    <a href="disciplinas.html" class="hover:text-ucv-orange transition">Disciplinas</a>
-                    <a href="servicios.html" class="hover:text-ucv-orange transition">Servicios DAIA</a>
-                    <a href="articulo25.html" class="text-ucv-orange transition relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-ucv-orange">Artículo 25</a>
+                    <a href="index.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Inicio</a>
+                    <a href="disciplinas.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Disciplinas</a>
+                    <a href="servicios.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Servicios DAIA</a>
+                    <a href="articulo25.html" class="text-blue-600 dark:text-blue-400 transition relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-blue-600 dark:after:bg-blue-400">Artículo 25</a>
                 </div>
-                
+
                 <div class="flex items-center gap-3">
                     <a href="index.html" class="hover:opacity-80 transition-opacity">
-                        <img src="http://www.ucv.ve/typo3temp/pics/b74500906e.gif" alt="DAIA" class="h-10 w-auto bg-white p-0.5 rounded-md shadow-sm">
+                        <img src="daia.webp" alt="DAIA UCV" width="40" height="40" class="h-10 w-auto bg-white p-0.5 rounded-md shadow-sm" loading="eager" decoding="async" fetchpriority="high">
                     </a>
-                    <button id="theme-toggle" class="ml-2 p-2 rounded-xl bg-slate-200 dark:bg-white/10 text-slate-800 dark:text-white hover:bg-slate-300 dark:hover:bg-white/20 transition-colors border border-transparent dark:border-white/10 shadow-sm focus:outline-none">
+                    <button id="theme-toggle" aria-label="Cambiar tema (claro/oscuro)" class="ml-2 p-2 rounded-xl bg-slate-200 dark:bg-white/10 text-slate-800 dark:text-white hover:bg-slate-300 dark:hover:bg-white/20 transition-colors border border-transparent dark:border-white/10 shadow-sm focus:outline-none">
                         <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
                         <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
                     </button>
+                    <button id="menu-toggle" aria-label="Abrir menú" class="md:hidden p-2 rounded-xl bg-slate-200 dark:bg-white/10 text-slate-800 dark:text-white border border-transparent dark:border-white/10 shadow-sm focus:outline-none">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden pb-6 pt-2 border-t border-slate-200 dark:border-white/10">
+                <div class="flex flex-col space-y-4 text-slate-700 dark:text-white text-sm font-semibold">
+                    <a href="index.html" class="hover:text-blue-600 dark:hover:text-blue-400 py-2 border-b border-slate-100 dark:border-white/5">Inicio</a>
+                    <a href="disciplinas.html" class="hover:text-blue-600 dark:hover:text-blue-400 py-2 border-b border-slate-100 dark:border-white/5">Disciplinas</a>
+                    <a href="servicios.html" class="hover:text-blue-600 dark:hover:text-blue-400 py-2 border-b border-slate-100 dark:border-white/5">Servicios DAIA</a>
+                    <a href="articulo25.html" class="text-blue-600 dark:text-blue-400 py-2">Artículo 25</a>
                 </div>
             </div>
         </div>
     </nav>
 
     <main class="flex-grow pt-32 pb-16 relative z-10">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 major-container">
             
-            <div class="text-center mb-20 fade-up">
-                <span class="text-ucv-orange font-black text-sm tracking-[0.3em] uppercase bg-ucv-orange/10 px-4 py-1 rounded-full border border-ucv-orange/30">Admisión Deportiva</span>
-                <h1 class="font-display text-5xl md:text-6xl font-black text-slate-900 dark:text-white mt-6 mb-4">INGRESO POR <span class="text-transparent bg-clip-text bg-gradient-to-r from-ucv-orange to-ucv-lime">ARTÍCULO 25</span></h1>
-                <p class="text-slate-600 dark:text-gray-300 text-xl max-w-3xl mx-auto">Toda la información, requisitos y formatos que necesitas conocer para postularte a la Universidad Central de Venezuela por méritos deportivos, en un solo lugar.</p>
+            <div class="text-center mb-16 fade-up">
+                <span class="text-blue-600 dark:text-blue-400 font-black text-sm tracking-[0.3em] uppercase bg-blue-100 dark:bg-white/10 px-4 py-1 rounded-full">Proceso de Ingreso</span>
+                <h1 class="font-display text-4xl md:text-6xl font-black text-slate-900 dark:text-white mt-6 mb-4">INGRESO POR <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400">ARTÍCULO 25</span></h1>
+                <p class="text-slate-600 dark:text-gray-300 mt-4 max-w-3xl mx-auto text-lg leading-relaxed">El Artículo 25 es una vía de admisión especial para atletas de alto rendimiento que desean cursar estudios de pregrado en la Universidad Central de Venezuela.</p>
             </div>
 
-            <section class="bg-white dark:bg-white/5 backdrop-blur-xl rounded-[2.5rem] p-8 md:p-12 shadow-xl dark:shadow-2xl border border-slate-200 dark:border-white/10 border-l-8 border-l-ucv-orange mb-12 fade-up relative overflow-hidden">
-                <div class="absolute -right-10 -top-10 opacity-10"><i data-lucide="book-open" class="w-64 h-64 text-ucv-orange"></i></div>
-                <div class="flex flex-col md:flex-row gap-10 items-center relative z-10">
+            <section class="bg-white dark:bg-white/5 backdrop-blur-xl rounded-[2.5rem] p-8 md:p-12 shadow-xl dark:shadow-2xl border border-slate-200 dark:border-white/10 mb-12 fade-up">
+                <div class="flex flex-col md:flex-row gap-10 items-center">
                     <div class="md:w-1/2">
-                        <img src="https://iamvenezuela.org/wp-content/uploads/sites/4/2019/09/narvc3a1ez-el-atleta-estadio-ucv-14.jpg" class="rounded-2xl shadow-lg border-2 border-ucv-orange/30 w-full object-cover h-auto">
+                        <img src="https://iamvenezuela.org/wp-content/uploads/sites/4/2019/09/narvc3a1ez-el-atleta-estadio-ucv-14.jpg" alt="Estatua El Atleta" width="800" height="600" fetchpriority="high" loading="eager" decoding="async" class="rounded-2xl shadow-lg border-2 border-blue-600/30 w-full object-cover h-auto">
                     </div>
                     <div class="md:w-1/2">
-                        <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-ucv-orange/20 text-ucv-orange mb-6"><span class="font-black text-xl">1</span></div>
+                        <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-blue-600/20 text-blue-600 mb-4"><span class="font-black text-xl">1</span></div>
                         <h2 class="font-display text-3xl font-bold text-slate-900 dark:text-white mb-6">¿Qué es el Artículo 25?</h2>
-                        <blockquote class="border-l-4 border-slate-300 dark:border-gray-500 pl-6 italic text-slate-600 dark:text-gray-300 text-xl mb-6 leading-relaxed">
-                            “Con el fin de facilitar el ingreso como alumnos a la UCV de artistas y deportistas de destacada trayectoria...”
-                        </blockquote>
-                        <p class="text-gray-500 dark:text-gray-400 text-sm">— Reglamento de Admisión, Gaceta de la UCV, 2000.</p>
-                        <p class="mt-6 text-slate-700 dark:text-gray-300">Este artículo representa la vía directa para que atletas de alto rendimiento puedan cursar estudios universitarios representando los colores de la UCV, combinando la excelencia académica con la deportiva.</p>
+                        <p class="text-slate-700 dark:text-gray-300 mb-4 text-lg">Es un reglamento interno de la UCV que permite la reserva de cupos en las distintas facultades para bachilleres con una trayectoria deportiva destacada a nivel nacional o internacional.</p>
+                        <p class="text-slate-700 dark:text-gray-300 text-lg">La <strong class="text-blue-600">DAIA</strong> es el ente encargado de evaluar técnica y administrativamente a los postulantes para garantizar que cumplan con el perfil de excelencia requerido.</p>
                     </div>
                 </div>
             </section>
 
-            <section class="bg-white dark:bg-gradient-to-br dark:from-[#0F172A]/80 dark:to-[#1E2B5A]/80 backdrop-blur-xl rounded-[2.5rem] p-8 md:p-12 shadow-xl dark:shadow-2xl border border-slate-200 dark:border-ucv-lime/30 mb-12 fade-up">
+            <section class="bg-white dark:bg-white/5 backdrop-blur-xl rounded-[2.5rem] p-8 md:p-12 shadow-xl dark:shadow-2xl border border-slate-200 dark:border-white/10 mb-12 fade-up">
                 <div class="text-center mb-10">
-                    <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-ucv-lime/20 text-ucv-lime mb-4"><span class="font-black text-xl">2</span></div>
+                    <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-blue-400/20 text-blue-400 mb-4"><span class="font-black text-xl">2</span></div>
                     <h2 class="font-display text-3xl font-bold text-slate-900 dark:text-white">Aspectos Clave para Postularse</h2>
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="bg-slate-50 dark:bg-white/5 rounded-2xl p-6 border border-slate-200 dark:border-white/10 hover:border-ucv-lime/50 transition duration-300 shadow-sm">
-                        <i data-lucide="award" class="h-10 w-10 text-ucv-lime mb-4"></i>
+                    <div class="bg-slate-50 dark:bg-white/5 rounded-2xl p-6 border border-slate-200 dark:border-white/10 hover:border-blue-400/50 transition duration-300 shadow-sm">
+                        <i data-lucide="award" class="h-10 w-10 text-blue-400 mb-4"></i>
                         <h3 class="font-bold text-slate-800 dark:text-white mb-2 text-lg">Alto Rendimiento</h3>
                         <p class="text-slate-600 dark:text-gray-300 text-sm">Ser atleta de selección Estadal o Nacional activa.</p>
                     </div>
-                    <div class="bg-slate-50 dark:bg-white/5 rounded-2xl p-6 border border-slate-200 dark:border-white/10 hover:border-ucv-lime/50 transition duration-300 shadow-sm">
-                        <i data-lucide="mouse-pointer-click" class="h-10 w-10 text-ucv-lime mb-4"></i>
+                    <div class="bg-slate-50 dark:bg-white/5 rounded-2xl p-6 border border-slate-200 dark:border-white/10 hover:border-blue-400/50 transition duration-300 shadow-sm">
+                        <i data-lucide="mouse-pointer-click" class="h-10 w-10 text-blue-400 mb-4"></i>
                         <h3 class="font-bold text-slate-800 dark:text-white mb-2 text-lg">Registro OPSU</h3>
                         <p class="text-slate-600 dark:text-gray-300 text-sm">Es obligatorio tener a la UCV como primera opción en el SNI.</p>
                     </div>
-                    <div class="bg-slate-50 dark:bg-white/5 rounded-2xl p-6 border border-slate-200 dark:border-white/10 hover:border-ucv-lime/50 transition duration-300 shadow-sm">
-                        <i data-lucide="file-edit" class="h-10 w-10 text-ucv-lime mb-4"></i>
+                    <div class="bg-slate-50 dark:bg-white/5 rounded-2xl p-6 border border-slate-200 dark:border-white/10 hover:border-blue-400/50 transition duration-300 shadow-sm">
+                        <i data-lucide="file-edit" class="h-10 w-10 text-blue-400 mb-4"></i>
                         <h3 class="font-bold text-slate-800 dark:text-white mb-2 text-lg">Prueba Diagnóstica</h3>
                         <p class="text-slate-600 dark:text-gray-300 text-sm">Presentar y aprobar la evaluación diagnóstica de la escuela destino.</p>
                     </div>
-                    <div class="bg-slate-50 dark:bg-white/5 rounded-2xl p-6 border border-slate-200 dark:border-white/10 hover:border-ucv-lime/50 transition duration-300 shadow-sm">
-                        <i data-lucide="check-circle" class="h-10 w-10 text-ucv-lime mb-4"></i>
+                    <div class="bg-slate-50 dark:bg-white/5 rounded-2xl p-6 border border-slate-200 dark:border-white/10 hover:border-blue-400/50 transition duration-300 shadow-sm">
+                        <i data-lucide="check-circle" class="h-10 w-10 text-blue-400 mb-4"></i>
                         <h3 class="font-bold text-slate-800 dark:text-white mb-2 text-lg">Aprobación Técnica</h3>
                         <p class="text-slate-600 dark:text-gray-300 text-sm">Contar con el visto bueno y la evaluación de campo del entrenador UCV.</p>
                     </div>
                 </div>
             </section>
 
-            <section class="bg-white dark:bg-white/5 backdrop-blur-xl rounded-[2.5rem] p-8 md:p-12 shadow-xl dark:shadow-2xl border border-slate-200 dark:border-white/10 border-l-8 border-l-ucv-blue mb-12 fade-up relative overflow-hidden">
+            <section class="section-optimize bg-white dark:bg-white/5 backdrop-blur-xl rounded-[2.5rem] p-8 md:p-12 shadow-xl dark:shadow-2xl border border-slate-200 dark:border-white/10 border-l-8 border-l-blue-900 mb-12 fade-up relative overflow-hidden">
                 <div class="flex flex-col md:flex-row-reverse gap-10 items-center relative z-10">
                     <div class="md:w-2/5">
-                        <img src="https://dharmacon.net/wp-content/uploads/2023/07/106.jpg" class="rounded-2xl shadow-lg border-2 border-ucv-blue/30 w-full object-cover h-auto">
+                        <img src="https://dharmacon.net/wp-content/uploads/2023/07/106.jpg" alt="Carpeta de postulación" width="800" height="533" class="rounded-2xl shadow-lg border-2 border-blue-900/30 w-full object-cover h-auto" loading="lazy" decoding="async">
                     </div>
                     <div class="md:w-3/5">
-                        <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-ucv-blue/20 text-ucv-blue mb-6"><span class="font-black text-xl">3</span></div>
+                        <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-blue-900/20 text-blue-900 mb-6"><span class="font-black text-xl">3</span></div>
                         <h2 class="font-display text-3xl font-bold text-slate-900 dark:text-white mb-6">Requisitos de Consignación</h2>
                         <p class="text-slate-700 dark:text-gray-300 mb-6">La carpeta de postulación debe contener obligatoriamente los siguientes documentos, en orden, con vista a los originales:</p>
                         
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 bg-slate-50 dark:bg-black/30 p-6 rounded-2xl border border-slate-200 dark:border-white/10">
-                            <div class="flex items-center gap-3 text-slate-700 dark:text-gray-300"><i data-lucide="check" class="h-5 w-5 text-ucv-blue"></i> 2 Fotografías tipo carnet</div>
-                            <div class="flex items-center gap-3 text-slate-700 dark:text-gray-300"><i data-lucide="check" class="h-5 w-5 text-ucv-blue"></i> Cédula de Identidad ampliada</div>
-                            
-                            <div class="flex items-center gap-3 text-slate-700 dark:text-gray-300">
-                                <i data-lucide="check" class="h-5 w-5 text-ucv-blue"></i> 
-                                <a href="Planilla_Solicitud_de_Ingreso.pdf" download class="text-ucv-orange font-bold hover:underline inline-flex items-center gap-1 group">
-                                    Solicitud de Ingreso <i data-lucide="download" class="h-4 w-4 group-hover:translate-y-0.5 transition-transform"></i>
-                                </a>
+                            <div class="flex items-center gap-3 text-slate-700 dark:text-gray-300"><i data-lucide="check" class="h-5 w-5 text-blue-900"></i> 2 Fotografías tipo carnet</div>
+                            <div class="flex items-center gap-3 text-slate-700 dark:text-gray-300"><i data-lucide="check" class="h-5 w-5 text-blue-900"></i> Cédula de Identidad ampliada</div>
+                            <div class="flex items-center gap-3 text-slate-700 dark:text-gray-300"><i data-lucide="check" class="h-5 w-5 text-blue-900"></i> 
+                                <a href="lanilla_Solicitud_de_Ingreso.pdf.pdf" download class="text-blue-600 font-bold hover:underline">Solicitud de Ingreso</a>
                             </div>
-
-                            <div class="flex items-center gap-3 text-slate-700 dark:text-gray-300"><i data-lucide="check" class="h-5 w-5 text-ucv-blue"></i> Título de Bachiller</div>
-                            
-                            <div class="flex items-center gap-3 text-slate-700 dark:text-gray-300">
-                                <i data-lucide="check" class="h-5 w-5 text-ucv-blue"></i> 
-                                <a href="Planilla_de_Postulacion.pdf" download class="text-ucv-orange font-bold hover:underline inline-flex items-center gap-1 group">
-                                    Planilla de Postulación <i data-lucide="download" class="h-4 w-4 group-hover:translate-y-0.5 transition-transform"></i>
-                                </a>
+                            <div class="flex items-center gap-3 text-slate-700 dark:text-gray-300"><i data-lucide="check" class="h-5 w-5 text-blue-900"></i> Título de Bachiller</div>
+                            <div class="flex items-center gap-3 text-slate-700 dark:text-gray-300"><i data-lucide="check" class="h-5 w-5 text-blue-900"></i>
+                                <a href="Planilla_de_Postulacion_DAIA.pdf.pdf" download class="text-blue-600 font-bold hover:underline">Planilla de Postulación</a>
                             </div>
-
-                            <div class="flex items-center gap-3 text-slate-700 dark:text-gray-300"><i data-lucide="check" class="h-5 w-5 text-ucv-blue"></i> Notas Certificadas</div>
-                            <div class="flex items-center gap-3 font-bold text-slate-900 dark:text-white bg-ucv-blue/10 dark:bg-ucv-blue/30 p-2 rounded-lg -ml-2"><i data-lucide="file-text" class="h-5 w-5 text-ucv-lime"></i> Currículo Deportivo Minedep</div>
-                            <div class="flex items-center gap-3 text-slate-700 dark:text-gray-300"><i data-lucide="check" class="h-5 w-5 text-ucv-blue"></i> Certificado de Participación OPSU</div>
-                            <div class="flex items-center gap-3 text-slate-700 dark:text-gray-300"><i data-lucide="check" class="h-5 w-5 text-ucv-blue"></i> Evaluación Técnica UCV</div>
-                            <div class="flex items-center gap-3 text-slate-700 dark:text-gray-300"><i data-lucide="check" class="h-5 w-5 text-ucv-blue"></i> Aval de Federación / Asociación</div>
+                            <div class="flex items-center gap-3 text-slate-700 dark:text-gray-300"><i data-lucide="check" class="h-5 w-5 text-blue-900"></i> Notas Certificadas</div>
+                            <div class="flex items-center gap-3 text-slate-700 dark:text-gray-300"><i data-lucide="check" class="h-5 w-5 text-blue-900"></i> Currículo Deportivo Minedep</div>
+                            <div class="flex items-center gap-3 text-slate-700 dark:text-gray-300"><i data-lucide="check" class="h-5 w-5 text-blue-900"></i> Certificado de Participación OPSU</div>
+                            <div class="flex items-center gap-3 text-slate-700 dark:text-gray-300"><i data-lucide="check" class="h-5 w-5 text-blue-900"></i> Evaluación Técnica UCV</div>
+                            <div class="flex items-center gap-3 text-slate-700 dark:text-gray-300"><i data-lucide="check" class="h-5 w-5 text-blue-900"></i> Aval de Federación / Asociación</div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section class="mb-12 fade-up">
-                <div class="text-center mb-8">
-                    <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-slate-200 dark:bg-white/10 text-slate-800 dark:text-white mb-4"><span class="font-black text-xl">4</span></div>
-                    <h2 class="font-display text-3xl font-bold text-slate-900 dark:text-white">Estructura del Currículum Deportivo</h2>
-                    <p class="text-slate-600 dark:text-gray-300 mt-2">El documento debe estar estrictamente estructurado en tres bloques:</p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="bg-white dark:bg-slate-800 p-8 rounded-3xl border border-slate-200 dark:border-ucv-blue/30 text-center shadow-lg dark:shadow-none">
-                        <div class="w-16 h-16 bg-ucv-blue rounded-full flex items-center justify-center mx-auto mb-6"><i data-lucide="user" class="h-8 w-8 text-white"></i></div>
-                        <h3 class="font-bold text-slate-900 dark:text-white text-xl mb-4">Datos Personales</h3>
-                        <ul class="text-slate-600 dark:text-gray-200 space-y-2 text-sm text-left list-disc list-inside"><li>Nombres y Apellidos completos</li><li>Cédula de Identidad</li><li>Fecha de nacimiento</li><li>Dirección de habitación</li><li>Teléfonos y correo electrónico</li></ul>
-                    </div>
-                    
-                    <div class="bg-white dark:bg-slate-800 p-8 rounded-3xl border border-slate-200 dark:border-ucv-lime/30 text-center shadow-lg dark:shadow-none">
-                        <div class="w-16 h-16 bg-ucv-lime rounded-full flex items-center justify-center mx-auto mb-6"><i data-lucide="graduation-cap" class="h-8 w-8 text-ucv-blue"></i></div>
-                        <h3 class="font-bold text-slate-900 dark:text-white text-xl mb-4">Datos Académicos</h3>
-                        <ul class="text-slate-600 dark:text-gray-200 space-y-2 text-sm text-left list-disc list-inside"><li>Institución de procedencia</li><li>Año de egreso</li><li>Promedio de notas</li><li>Carrera de interés en la UCV</li></ul>
-                    </div>
-
-                    <div class="bg-white dark:bg-slate-800 p-8 rounded-3xl border border-slate-200 dark:border-ucv-orange/30 text-center shadow-lg dark:shadow-none">
-                        <div class="w-16 h-16 bg-ucv-orange rounded-full flex items-center justify-center mx-auto mb-6"><i data-lucide="trophy" class="h-8 w-8 text-white"></i></div>
-                        <h3 class="font-bold text-slate-900 dark:text-white text-xl mb-4">Datos Deportivos</h3>
-                        <ul class="text-slate-600 dark:text-gray-200 space-y-2 text-sm text-left list-disc list-inside"><li>Disciplina y categoría</li><li>Asociación o Federación a la que pertenece</li><li>Historial de competencias (3 años)</li><li>Logros y medallas obtenidas</li></ul>
-                    </div>
-                </div>
-            </section>
-
-            <section class="bg-red-50 dark:bg-red-950/20 backdrop-blur-md rounded-[2.5rem] p-10 border border-red-200 dark:border-red-500/30 text-center fade-up relative overflow-hidden shadow-xl dark:shadow-none">
-                <div class="absolute inset-0 bg-[url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22 fill=%22%23EF4444%22 opacity=%220.05%22><path d=%22M0 50 Q 20 30, 40 50 T 80 50 T 120 50%22 stroke=%22%23EF4444%22 fill=%22none%22 stroke-width=%222%22/></svg>')] bg-repeat-x bg-bottom opacity-50"></div>
-                <div class="relative z-10">
-                    <i data-lucide="alert-triangle" class="h-16 w-16 text-red-500 mx-auto mb-6"></i>
-                    <h2 class="font-display text-3xl font-black text-slate-900 dark:text-white mb-8">Consideraciones Finales</h2>
-                    
-                    <div class="max-w-3xl mx-auto space-y-4">
-                        <div class="bg-red-100 dark:bg-red-500/10 border-l-4 border-red-500 p-4 rounded-r-lg text-left">
-                            <p class="text-slate-800 dark:text-gray-200"><strong class="text-slate-900 dark:text-white">Fechas estrictas:</strong> La DAIA no se hace responsable por expedientes no consignados formalmente en los lapsos establecidos por la Dirección de Deportes.</p>
-                        </div>
-                        <div class="bg-white dark:bg-white/5 border-l-4 border-slate-400 dark:border-gray-400 p-4 rounded-r-lg text-left shadow-sm dark:shadow-none">
-                            <p class="text-slate-700 dark:text-gray-300">Todos los documentos deben presentarse en original (solo para vista y cotejo) y una copia legible.</p>
-                        </div>
-                        <div class="bg-ucv-blue/10 dark:bg-ucv-blue/30 border-l-4 border-ucv-lime p-4 rounded-r-lg text-left">
-                            <p class="text-slate-900 dark:text-white"><strong class="text-ucv-lime">Gratuidad:</strong> Todos los trámites para la admisión deportiva ante la DAIA y la Dirección de Deportes son <strong>totalmente gratuitos</strong> y de gestión estrictamente personal.</p>
+            <section class="bg-white dark:bg-white/5 backdrop-blur-xl rounded-[2.5rem] p-8 md:p-12 shadow-xl dark:shadow-2xl border border-slate-200 dark:border-white/10 mb-12 fade-up">
+                <div class="flex flex-col md:flex-row gap-10">
+                    <div class="md:w-full">
+                        <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-slate-200 dark:bg-white/10 text-slate-800 dark:text-white mb-4"><span class="font-black text-xl">4</span></div>
+                        <h2 class="font-display text-3xl font-bold text-slate-900 dark:text-white">Estructura del Currículum Deportivo</h2>
+                        <div class="w-20 h-1 bg-blue-600 mt-4 mb-8 rounded-full"></div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                            <div class="space-y-4">
+                                <h3 class="font-bold text-blue-600 dark:text-blue-400 flex items-center gap-2"><i data-lucide="user"></i> Datos Personales</h3>
+                                <ul class="list-disc list-inside text-slate-700 dark:text-gray-300 space-y-1 text-sm">
+                                    <li>Nombres and Apellidos</li>
+                                    <li>Cédula de Identidad</li>
+                                    <li>Fecha de Nacimiento / Edad</li>
+                                    <li>Dirección de Habitación</li>
+                                    <li>Teléfonos and Correo</li>
+                                </ul>
+                            </div>
+                            <div class="space-y-4">
+                                <h3 class="font-bold text-blue-600 dark:text-blue-400 flex items-center gap-2"><i data-lucide="trophy"></i> Trayectoria Deportiva</h3>
+                                <ul class="list-disc list-inside text-slate-700 dark:text-gray-300 space-y-1 text-sm">
+                                    <li>Disciplina / Especialidad</li>
+                                    <li>Años de práctica</li>
+                                    <li>Selecciones a las que perteneció</li>
+                                    <li>Participación en Nacionales/Juegos</li>
+                                    <li>Participación Internacional</li>
+                                </ul>
+                            </div>
+                            <div class="space-y-4">
+                                <h3 class="font-bold text-blue-600 dark:text-blue-400 flex items-center gap-2"><i data-lucide="star"></i> Logros y Marcas</h3>
+                                <ul class="list-disc list-inside text-slate-700 dark:text-gray-300 space-y-1 text-sm">
+                                    <li>Medallas obtenidas (Oro, Plata, Bronce)</li>
+                                    <li>Récords personales o nacionales</li>
+                                    <li>Títulos de campeón/subcampeón</li>
+                                    <li>Distinciones especiales</li>
+                                    <li>Club o Entrenador actual</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
-
         </div>
     </main>
 
-    <footer class="backdrop-blur-lg border-t border-slate-200 dark:border-ucv-orange/30 py-12 mt-auto relative z-10 bg-white/50 dark:bg-transparent">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <div class="flex justify-center items-center gap-4 sm:gap-8 mb-6">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Logo_Universidad_Central_de_Venezuela.svg/1280px-Logo_Universidad_Central_de_Venezuela.svg.png" alt="UCV" class="h-16 sm:h-20 w-auto drop-shadow-lg">
-                <img src="http://www.ucv.ve/typo3temp/pics/ec85477bf0.jpg" alt="Dirección de Deportes" class="h-14 sm:h-16 w-auto bg-white p-1 rounded-xl shadow-md">
-                <img src="http://www.ucv.ve/typo3temp/pics/b74500906e.gif" alt="DAIA" class="h-14 sm:h-16 w-auto bg-white p-1 rounded-xl shadow-md">
+    <footer class="backdrop-blur-lg border-t py-12 mt-auto relative z-10 border-slate-200 dark:border-white/10 bg-[rgba(239,246,255,0.9)] dark:bg-transparent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 text-center md:text-left">
+                <!-- Column 1: Branding -->
+                <div class="flex flex-col items-center md:items-start gap-4">
+                    <div class="flex items-center gap-3">
+                        <img src="ucv.webp" alt="UCV" width="128" height="40" class="h-10 w-auto drop-shadow-md" loading="lazy" decoding="async">
+                        <img src="daia.webp" alt="DAIA" width="40" height="40" class="h-10 w-auto bg-white p-0.5 rounded-md shadow-sm" loading="lazy" decoding="async">
+                    </div>
+                    <p class="text-gray-800 dark:text-gray-300 text-sm leading-relaxed">Formando atletas integrales para el futuro de Venezuela. Excelencia académica y deportiva en la Universidad Central de Venezuela.</p>
+                </div>
+                
+                <!-- Column 2: Quick Links -->
+                <div>
+                    <h3 class="font-bold text-slate-900 dark:text-white mb-4 text-lg">Enlaces Rápidos</h3>
+                    <ul class="space-y-2 text-sm text-gray-800 dark:text-gray-300">
+                        <li><a href="index.html" class="py-2 inline-block hover:text-blue-600 transition-colors">Inicio</a></li>
+                        <li><a href="disciplinas.html" class="py-2 inline-block hover:text-blue-600 transition-colors">Disciplinas</a></li>
+                        <li><a href="servicios.html" class="py-2 inline-block hover:text-blue-600 transition-colors">Servicios DAIA</a></li>
+                        <li><a href="articulo25.html" class="py-2 inline-block hover:text-blue-600 transition-colors">Artículo 25</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3: Social Media -->
+                <div>
+                    <h3 class="font-bold text-slate-900 dark:text-white mb-4 text-lg">Redes Sociales</h3>
+                    <ul class="space-y-3 text-sm text-gray-800 dark:text-gray-300">
+                        <li><a href="https://www.instagram.com/deportesucv/" target="_blank" rel="noopener noreferrer" class="flex py-2 items-center justify-center md:justify-start gap-2 hover:text-blue-600 transition-colors"><i data-lucide="instagram" class="w-4 h-4"></i> Deportes UCV</a></li>
+                        <li><a href="https://www.instagram.com/daiadeportesucv/" target="_blank" rel="noopener noreferrer" class="flex py-2 items-center justify-center md:justify-start gap-2 hover:text-blue-600 transition-colors"><i data-lucide="instagram" class="w-4 h-4"></i> DAIA UCV</a></li>
+                        <li><a href="https://www.facebook.com/p/DAIA-Deportes-UCV-100076199720429/" target="_blank" rel="noopener noreferrer" class="flex py-2 items-center justify-center md:justify-start gap-2 hover:text-blue-600 transition-colors"><i data-lucide="facebook" class="w-4 h-4"></i> Facebook DAIA</a></li>
+                        <li><a href="https://www.ucv.ve/" target="_blank" rel="noopener noreferrer" class="flex py-2 items-center justify-center md:justify-start gap-2 hover:text-blue-600 transition-colors"><i data-lucide="globe" class="w-4 h-4"></i> Página Oficial UCV</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4: Contact Info -->
+                <div>
+                    <h3 class="font-bold text-slate-900 dark:text-white mb-4 text-lg">Contacto</h3>
+                    <ul class="space-y-3 text-sm text-gray-800 dark:text-gray-300">
+                        <li class="flex items-start justify-center md:justify-start gap-2"><i data-lucide="map-pin" class="w-4 h-4 mt-0.5 flex-shrink-0"></i> <span>Ciudad Universitaria de Caracas, Dirección de Deportes, Edif. Gimnasio Cubierto, Planta Baja.</span></li>
+                        <li class="flex items-center justify-center md:justify-start gap-2"><i data-lucide="phone" class="w-4 h-4 flex-shrink-0"></i> <span>+58 (212) 605-0000</span></li>
+                        <li class="flex items-center justify-center md:justify-start gap-2"><i data-lucide="mail" class="w-4 h-4 flex-shrink-0"></i> <span>daia@deportes.ucv.ve</span></li>
+                    </ul>
+                </div>
             </div>
-            <p class="text-gray-500 dark:text-gray-400 text-sm mt-4">Formando atletas integrales para el futuro de Venezuela</p>
-            <div class="flex justify-center gap-6 mt-6">
-                <i data-lucide="facebook" class="text-gray-500 hover:text-ucv-orange cursor-pointer transition-colors"></i>
-                <i data-lucide="twitter" class="text-gray-500 hover:text-ucv-orange cursor-pointer transition-colors"></i>
-                <i data-lucide="instagram" class="text-gray-500 hover:text-ucv-orange cursor-pointer transition-colors"></i>
+            <div class="border-t border-slate-200 dark:border-white/10 pt-8 flex flex-col md:flex-row justify-center items-center gap-4">
+                <p class="text-xs text-gray-700 dark:text-gray-400">© 2024 DAIA - Universidad Central de Venezuela. Todos los derechos reservados.</p>
             </div>
-            <p class="text-xs text-gray-500 mt-8">© 2024 Todos los derechos reservados.</p>
         </div>
     </footer>
 
     <script>
-        const htmlEl = document.documentElement;
-        if (localStorage.getItem('color-theme') === 'light') { htmlEl.classList.remove('dark'); } 
-        else { htmlEl.classList.add('dark'); }
-        lucide.createIcons();
+        document.addEventListener('DOMContentLoaded', () => {
+            const initIcons = () => {
+                if (!window.lucide) return;
+                setTimeout(() => lucide.createIcons(), 1500);
+            };
+            initIcons();
 
-        const themeToggleBtn = document.getElementById('theme-toggle');
-        themeToggleBtn.addEventListener('click', () => {
-            htmlEl.classList.toggle('dark');
-            localStorage.setItem('color-theme', htmlEl.classList.contains('dark') ? 'dark' : 'light');
+            // Pre-query DOM elements
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const fadeUpElements = document.querySelectorAll('.fade-up');
+
+            // Zero-read Theme Toggle state tracking
+            let isDarkMode = window.__INITIAL_THEME === 'dark';
+            if (themeToggleBtn) {
+                themeToggleBtn.addEventListener('click', () => {
+                    isDarkMode = !isDarkMode;
+                    const action = isDarkMode ? 'add' : 'remove';
+                    const theme = isDarkMode ? 'dark' : 'light';
+                    requestAnimationFrame(() => {
+                        document.documentElement.classList[action]('dark');
+                        localStorage.setItem('color-theme', theme);
+                    });
+                });
+            }
+
+            // Mobile menu toggle
+            const menuToggleBtn = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (menuToggleBtn && mobileMenu) {
+                menuToggleBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('open');
+                    const icon = menuToggleBtn.querySelector('i');
+                    if (icon && window.lucide) {
+                        const isMenu = icon.getAttribute('data-lucide') === 'menu';
+                        icon.setAttribute('data-lucide', isMenu ? 'x' : 'menu');
+                        lucide.createIcons({
+                            attrs: { class: 'w-6 h-6' },
+                            nameAttr: 'data-lucide',
+                            icons: { [isMenu ? 'x' : 'menu']: isMenu ? lucide.icons.X : lucide.icons.Menu }
+                        });
+                    }
+                });
+            }
+
+            if (fadeUpElements.length > 0) {
+                const visibleQueue = [];
+                let isProcessing = false;
+
+                const processQueue = () => {
+                    if (visibleQueue.length > 0) {
+                        const el = visibleQueue.shift();
+                        el.classList.add('visible');
+                        if (visibleQueue.length > 0) {
+                            requestAnimationFrame(processQueue);
+                        } else {
+                            isProcessing = false;
+                        }
+                    } else {
+                        isProcessing = false;
+                    }
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    let added = false;
+                    entries.forEach(e => {
+                        if (e.isIntersecting) {
+                            visibleQueue.push(e.target);
+                            observer.unobserve(e.target);
+                            added = true;
+                        }
+                    });
+                    
+                    if (added && !isProcessing) {
+                        isProcessing = true;
+                        requestAnimationFrame(processQueue);
+                    }
+                }, { threshold: 0.1 });
+                fadeUpElements.forEach(el => observer.observe(el));
+            }
         });
-
-        const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.15 });
-        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>

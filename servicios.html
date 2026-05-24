@@ -3,31 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DAIA UCV | Servicios Integrales</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' unpkg.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' fonts.gstatic.com; connect-src 'self';">
+    <title>DAIA UCV | Servicios</title>
+    <meta name="description" content="Descubre los servicios integrales de la DAIA UCV: atención psicológica, seguimiento académico y orientación vocacional para atletas de la Universidad Central de Venezuela.">
+    <link rel="icon" type="image/webp" href="deportes.webp">
+    
     <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: { extend: { fontFamily: { 'display': ['Poppins', 'sans-serif'], 'sans': ['Inter', 'sans-serif'], }, colors: { ucv: { blue: '#1E2B5A', orange: '#FF6B35', lime: '#9EF01A', dark: '#0F172A', } }, animation: { 'wave': 'wave 8s linear infinite', 'float': 'float 4s ease-in-out infinite', }, keyframes: { float: { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' }, }, wave: { '0%': { backgroundPosition: '0% 0%' }, '100%': { backgroundPosition: '200% 0%' }, } } } }
-        }
+        // Synchronous theme check to prevent FOUC and forced reflow
+        (function() {
+            const theme = localStorage.getItem('color-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (theme === 'dark') document.documentElement.classList.add('dark');
+            else document.documentElement.classList.remove('dark');
+            window.__INITIAL_THEME = theme;
+        })();
     </script>
-    <style>
-        html { background-color: #f8fafc; transition: background-color 0.3s; }
-        html.dark { background-color: #0b1120; }
-        body { background-color: #f8fafc; color: #1e293b; min-height: 100vh; margin: 0; font-family: 'Inter', sans-serif; position: relative; transition: all 0.3s; }
-        .dark body { background-color: #0b1120; color: #e5e7eb; }
-        
-        body::before { content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; transition: all 0.3s; background-image: radial-gradient(circle at 30% 40%, rgba(30,43,90,0.08) 0%, transparent 30%), radial-gradient(circle at 70% 60%, rgba(255,107,53,0.08) 0%, transparent 40%), repeating-linear-gradient(45deg, rgba(0,0,0,0.02) 0px, rgba(0,0,0,0.02) 2px, transparent 2px, transparent 8px); }
-        .dark body::before { background-image: radial-gradient(circle at 30% 40%, rgba(30,43,90,0.6) 0%, transparent 30%), radial-gradient(circle at 70% 60%, rgba(255,107,53,0.5) 0%, transparent 40%), repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 2px, transparent 2px, transparent 8px); }
 
-        nav { background-color: rgba(255,255,255,0.9); border-color: rgba(0,0,0,0.1); transition: all 0.3s; }
-        .dark nav { background-color: rgba(30,43,90,0.8); border-color: rgba(255,107,53,0.3); }
-
-        .fade-up { opacity: 0; transform: translateY(30px) scale(0.98); transition: opacity 0.8s, transform 0.8s; }
-        .fade-up.visible { opacity: 1; transform: translateY(0) scale(1); }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"></noscript>
+    <link rel='stylesheet' href='style.css'>
+    
+    <script src="https://unpkg.com/lucide@latest" defer></script>
 </head>
 <body class="font-sans antialiased flex flex-col">
 
@@ -35,77 +33,89 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
                 <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Logo_Universidad_Central_de_Venezuela.svg/1280px-Logo_Universidad_Central_de_Venezuela.svg.png" alt="UCV" class="h-10 w-auto drop-shadow-md">
-                    <img src="http://www.ucv.ve/typo3temp/pics/ec85477bf0.jpg" alt="Dirección de Deportes" class="h-10 w-auto bg-white p-0.5 rounded-md shadow-sm hidden sm:block">
+                    <img src="ucv.webp" alt="Logo de la Universidad Central de Venezuela" width="128" height="40" class="h-10 w-auto drop-shadow-md" loading="eager" decoding="async" fetchpriority="high">
+                    <img src="deportes.webp" alt="Logo de la Dirección de Deportes UCV" width="40" height="40" class="h-10 w-auto bg-white p-0.5 rounded-md shadow-sm hidden sm:block" loading="eager" decoding="async" fetchpriority="high">
                 </a>
                 
                 <div class="hidden md:flex space-x-8 text-slate-700 dark:text-white text-sm font-semibold">
-                    <a href="index.html" class="hover:text-ucv-orange transition">Inicio</a>
-                    <a href="disciplinas.html" class="hover:text-ucv-orange transition">Disciplinas</a>
-                    <a href="servicios.html" class="text-ucv-orange transition relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-ucv-orange">Servicios DAIA</a>
-                    <a href="articulo25.html" class="hover:text-ucv-orange transition">Artículo 25</a>
+                    <a href="index.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Inicio</a>
+                    <a href="disciplinas.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Disciplinas</a>
+                    <a href="servicios.html" class="text-blue-600 dark:text-blue-400 transition relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-blue-600 dark:after:bg-blue-400">Servicios DAIA</a>
+                    <a href="articulo25.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Artículo 25</a>
                 </div>
-                
+
                 <div class="flex items-center gap-3">
                     <a href="index.html" class="hover:opacity-80 transition-opacity">
-                        <img src="http://www.ucv.ve/typo3temp/pics/b74500906e.gif" alt="DAIA" class="h-10 w-auto bg-white p-0.5 rounded-md shadow-sm">
+                        <img src="daia.webp" alt="Logo de la División de Atención Integral al Atleta (DAIA)" width="40" height="40" class="h-10 w-auto bg-white p-0.5 rounded-md shadow-sm" loading="eager" decoding="async" fetchpriority="high">
                     </a>
-                    <button id="theme-toggle" class="ml-2 p-2 rounded-xl bg-slate-200 dark:bg-white/10 text-slate-800 dark:text-white hover:bg-slate-300 dark:hover:bg-white/20 transition-colors border border-transparent dark:border-white/10 shadow-sm focus:outline-none">
+                    <button id="theme-toggle" aria-label="Cambiar tema (claro/oscuro)" class="ml-2 p-2 rounded-xl bg-slate-200 dark:bg-white/10 text-slate-800 dark:text-white hover:bg-slate-300 dark:hover:bg-white/20 transition-colors border border-transparent dark:border-white/10 shadow-sm focus:outline-none">
                         <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
                         <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
                     </button>
+                    <button id="menu-toggle" aria-label="Abrir menú" class="md:hidden p-2 rounded-xl bg-slate-200 dark:bg-white/10 text-slate-800 dark:text-white border border-transparent dark:border-white/10 shadow-sm focus:outline-none">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden pb-6 pt-2 border-t border-slate-200 dark:border-white/10">
+                <div class="flex flex-col space-y-4 text-slate-700 dark:text-white text-sm font-semibold">
+                    <a href="index.html" class="hover:text-blue-600 dark:hover:text-blue-400 py-2 border-b border-slate-100 dark:border-white/5">Inicio</a>
+                    <a href="disciplinas.html" class="hover:text-blue-600 dark:hover:text-blue-400 py-2 border-b border-slate-100 dark:border-white/5">Disciplinas</a>
+                    <a href="servicios.html" class="text-blue-600 dark:text-blue-400 py-2 border-b border-slate-100 dark:border-white/5">Servicios DAIA</a>
+                    <a href="articulo25.html" class="hover:text-blue-600 dark:hover:text-blue-400 py-2">Artículo 25</a>
                 </div>
             </div>
         </div>
     </nav>
 
     <main class="flex-grow pt-32 pb-16 relative z-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 major-container">
             
             <div class="text-center mb-16 fade-up">
-                <span class="text-ucv-blue dark:text-blue-400 font-black text-sm tracking-[0.3em] uppercase bg-slate-200 dark:bg-white/10 px-4 py-1 rounded-full">Atención Integral</span>
-                <h1 class="font-display text-5xl md:text-6xl font-black text-slate-900 dark:text-white mt-4">SERVICIOS <span class="text-ucv-blue drop-shadow-md">DAIA</span></h1>
+                <span class="text-blue-600 dark:text-blue-400 font-black text-sm tracking-[0.3em] uppercase bg-blue-100 dark:bg-white/10 px-4 py-1 rounded-full">Atención Integral</span>
+                <h1 class="font-display text-5xl md:text-6xl font-black text-slate-900 dark:text-white mt-4">SERVICIOS <span class="text-blue-600 drop-shadow-md">DAIA</span></h1>
                 <p class="text-slate-600 dark:text-gray-300 mt-4 max-w-3xl mx-auto text-lg">Nos preocupamos por tu rendimiento tanto dentro como fuera de las canchas. Conoce nuestras áreas de apoyo para el estudiante-atleta ucevista.</p>
             </div>
 
             <section class="mb-16 fade-up">
-                <div class="bg-white dark:bg-gradient-to-br dark:from-ucv-blue/90 dark:to-ucv-dark/90 backdrop-blur-lg rounded-[3rem] p-10 lg:p-12 border border-slate-200 dark:border-ucv-orange/30 relative overflow-hidden shadow-xl dark:shadow-none">
-                    <div class="absolute inset-0 bg-[url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22 fill=%22%23FF6B35%22 opacity=%220.1%22><path d=%22M0 50 Q 20 30, 40 50 T 80 50 T 120 50%22 stroke=%22%23FF6B35%22 fill=%22none%22 stroke-width=%222%22/></svg>')] bg-repeat-x bg-bottom animate-wave hidden dark:block"></div>
+                <div class="bg-white dark:bg-gradient-to-br dark:from-blue-900/90 dark:to-slate-900/90 backdrop-blur-lg rounded-[3rem] p-10 lg:p-12 border border-slate-200 dark:border-blue-600/30 relative overflow-hidden shadow-xl dark:shadow-none">
+                    <div class="absolute inset-0 bg-[url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22 fill=%22%232563eb%22 opacity=%220.1%22><path d=%22M0 50 Q 20 30, 40 50 T 80 50 T 120 50%22 stroke=%22%232563eb%22 fill=%22none%22 stroke-width=%222%22/></svg>')] bg-repeat-x bg-bottom animate-wave hidden dark:block"></div>
                     <div class="relative z-10 flex flex-col md:flex-row gap-8 items-center">
                         <div class="md:w-3/5">
-                            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-100 dark:bg-ucv-orange/20 text-ucv-orange font-bold mb-6">
+                            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 dark:bg-blue-600/20 text-blue-600 font-bold mb-6">
                                 <i data-lucide="brain-circuit" class="h-5 w-5"></i> SALUD MENTAL
                             </div>
-                            <h2 class="font-display text-4xl font-black text-slate-900 dark:text-white mb-4">ATENCIÓN <span class="text-ucv-orange dark:text-ucv-lime">PSICOLÓGICA</span></h2>
+                            <h2 class="font-display text-4xl font-black text-slate-900 dark:text-white mb-4">ATENCIÓN <span class="text-blue-600 dark:text-blue-400">PSICOLÓGICA</span></h2>
                             <p class="text-slate-600 dark:text-gray-300 text-lg mb-8">El bienestar mental es vital. Ofrecemos <strong class="text-slate-900 dark:text-white">asesoramiento y orientación en psicología deportiva</strong> para manejar el estrés competitivo, mejorar la concentración, superar lesiones y encontrar un equilibrio sano.</p>
-                            <a href="https://forms.office.com/r/R3Ni0UfHdP" target="_blank" class="bg-ucv-orange text-white dark:text-ucv-blue px-8 py-3 rounded-full font-black text-lg inline-flex items-center gap-3 shadow-xl hover:scale-105 transition-transform">
+                            <a href="https://forms.office.com/r/R3Ni0UfHdP" target="_blank" class="bg-blue-600 text-white dark:text-blue-900 px-8 py-3 rounded-full font-black text-lg inline-flex items-center gap-3 shadow-xl hover:scale-105 transition-transform">
                                 SOLICITAR ATENCIÓN <i data-lucide="external-link" class="h-5 w-5"></i>
                             </a>
                         </div>
                         <div class="md:w-2/5">
-                            <img src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?auto=format&fit=crop&q=80&w=800" class="rounded-3xl shadow-2xl border-4 border-ucv-orange/30 animate-float">
+                            <img src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?auto=format&fit=crop&q=80&w=800" alt="Sesión de asesoramiento psicológico deportivo para atletas" width="800" height="533" class="rounded-3xl shadow-2xl border-4 border-blue-600/30 w-full h-auto" loading="lazy" decoding="async">
                         </div>
                     </div>
                 </div>
             </section>
 
             <section class="mb-16 fade-up">
-                <div class="bg-white dark:bg-gradient-to-br dark:from-[#1e293b]/90 dark:to-black/90 backdrop-blur-lg rounded-[3rem] p-10 lg:p-12 border border-slate-200 dark:border-ucv-lime/30 relative overflow-hidden flex flex-col-reverse md:flex-row gap-8 items-center shadow-xl dark:shadow-none">
+                <div class="bg-white dark:bg-gradient-to-br dark:from-[#1e293b]/90 dark:to-black/90 backdrop-blur-lg rounded-[3rem] p-10 lg:p-12 border border-slate-200 dark:border-blue-400/30 relative overflow-hidden flex flex-col-reverse md:flex-row gap-8 items-center shadow-xl dark:shadow-none">
                     <div class="md:w-2/5">
-                        <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=800" class="rounded-3xl shadow-2xl border-4 border-ucv-lime/30 animate-float" style="animation-delay: 1s;">
+                        <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=800" alt="Estudiante atleta planificando sus estudios y horarios académicos" width="800" height="533" class="rounded-3xl shadow-2xl border-4 border-blue-400/30 w-full h-auto" loading="lazy" decoding="async">
                     </div>
                     <div class="md:w-3/5 md:pl-8">
-                        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-lime-100 dark:bg-ucv-lime/20 text-green-700 dark:text-ucv-lime font-bold mb-6">
+                        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 dark:bg-blue-400/20 text-blue-700 dark:text-blue-400 font-bold mb-6">
                             <i data-lucide="book-open" class="h-5 w-5"></i> EXCELENCIA ESTUDIANTIL
                         </div>
-                        <h2 class="font-display text-4xl font-black text-slate-900 dark:text-white mb-4">SEGUIMIENTO <span class="text-green-600 dark:text-ucv-lime">ACADÉMICO</span></h2>
+                        <h2 class="font-display text-4xl font-black text-slate-900 dark:text-white mb-4">SEGUIMIENTO <span class="text-blue-600 dark:text-blue-400">ACADÉMICO</span></h2>
                         <p class="text-slate-600 dark:text-gray-300 text-lg mb-8">Sabemos que representar a la UCV exige tiempo. Brindamos apoyo con tutorías, planificación de horarios de estudio, seguimiento de notas y enlaces con los coordinadores de cada facultad para evitar el solapamiento de evaluaciones con las competencias.</p>
                     </div>
                 </div>
             </section>
 
             <section class="fade-up">
-                <div class="bg-white dark:bg-gradient-to-br dark:from-ucv-blue/90 dark:to-ucv-dark/90 backdrop-blur-lg rounded-[3rem] p-10 lg:p-12 border border-slate-200 dark:border-white/20 relative overflow-hidden flex flex-col md:flex-row gap-8 items-center shadow-xl dark:shadow-none">
+                <div class="bg-white dark:bg-gradient-to-br dark:from-blue-900/90 dark:to-slate-900/90 backdrop-blur-lg rounded-[3rem] p-10 lg:p-12 border border-slate-200 dark:border-white/20 relative overflow-hidden flex flex-col md:flex-row gap-8 items-center shadow-xl dark:shadow-none">
                     <div class="md:w-3/5">
                         <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 dark:bg-blue-400/20 text-blue-600 dark:text-blue-400 font-bold mb-6">
                             <i data-lucide="compass" class="h-5 w-5"></i> PROYECTO DE VIDA
@@ -114,44 +124,144 @@
                         <p class="text-slate-600 dark:text-gray-300 text-lg mb-8">Te ayudamos a alinear tu carrera deportiva con tus objetivos profesionales a largo plazo. Talleres de liderazgo, manejo del tiempo, transición profesional post-deporte y desarrollo de habilidades blandas vitales para tu futuro.</p>
                     </div>
                     <div class="md:w-2/5">
-                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800" class="rounded-3xl shadow-2xl border-4 border-blue-400/30 animate-float" style="animation-delay: 2s;">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800" alt="Grupo de jóvenes atletas en un taller de orientación vocacional y liderazgo" width="800" height="533" class="rounded-3xl shadow-2xl border-4 border-blue-400/30 w-full h-auto" loading="lazy" decoding="async">
                     </div>
                 </div>
             </section>
         </div>
     </main>
 
-    <footer class="backdrop-blur-lg border-t border-slate-200 dark:border-ucv-orange/30 py-12 mt-auto relative z-10 bg-white/50 dark:bg-transparent">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <div class="flex justify-center items-center gap-4 sm:gap-8 mb-6">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Logo_Universidad_Central_de_Venezuela.svg/1280px-Logo_Universidad_Central_de_Venezuela.svg.png" alt="UCV" class="h-16 sm:h-20 w-auto drop-shadow-lg">
-                <img src="http://www.ucv.ve/typo3temp/pics/ec85477bf0.jpg" alt="Dirección de Deportes" class="h-14 sm:h-16 w-auto bg-white p-1 rounded-xl shadow-md">
-                <img src="http://www.ucv.ve/typo3temp/pics/b74500906e.gif" alt="DAIA" class="h-14 sm:h-16 w-auto bg-white p-1 rounded-xl shadow-md">
+    <footer class="backdrop-blur-lg border-t py-12 mt-auto relative z-10 border-slate-200 dark:border-white/10 bg-[rgba(239,246,255,0.9)] dark:bg-transparent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 text-center md:text-left">
+                <!-- Column 1: Branding -->
+                <div class="flex flex-col items-center md:items-start gap-4">
+                    <div class="flex items-center gap-3">
+                        <img src="ucv.webp" alt="Logo de la Universidad Central de Venezuela" width="128" height="40" class="h-10 w-auto drop-shadow-md" loading="lazy" decoding="async">
+                        <img src="daia.webp" alt="Logo de la División de Atención Integral al Atleta (DAIA)" width="40" height="40" class="h-10 w-auto bg-white p-0.5 rounded-md shadow-sm" loading="lazy" decoding="async">
+                    </div>
+                    <p class="text-gray-800 dark:text-gray-300 text-sm leading-relaxed">Formando atletas integrales para el futuro de Venezuela. Excelencia académica y deportiva en la Universidad Central de Venezuela.</p>
+                </div>
+                
+                <!-- Column 2: Quick Links -->
+                <div>
+                    <h3 class="font-bold text-slate-900 dark:text-white mb-4 text-lg">Enlaces Rápidos</h3>
+                    <ul class="space-y-2 text-sm text-gray-800 dark:text-gray-300">
+                        <li><a href="index.html" class="py-2 inline-block hover:text-blue-600 transition-colors">Inicio</a></li>
+                        <li><a href="disciplinas.html" class="py-2 inline-block hover:text-blue-600 transition-colors">Disciplinas</a></li>
+                        <li><a href="servicios.html" class="py-2 inline-block hover:text-blue-600 transition-colors">Servicios DAIA</a></li>
+                        <li><a href="articulo25.html" class="py-2 inline-block hover:text-blue-600 transition-colors">Artículo 25</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3: Social Media -->
+                <div>
+                    <h3 class="font-bold text-slate-900 dark:text-white mb-4 text-lg">Redes Sociales</h3>
+                    <ul class="space-y-3 text-sm text-gray-800 dark:text-gray-300">
+                        <li><a href="https://www.instagram.com/deportesucv/" target="_blank" rel="noopener noreferrer" class="flex py-2 items-center justify-center md:justify-start gap-2 hover:text-blue-600 transition-colors"><i data-lucide="instagram" class="w-4 h-4"></i> Deportes UCV</a></li>
+                        <li><a href="https://www.instagram.com/daiadeportesucv/" target="_blank" rel="noopener noreferrer" class="flex py-2 items-center justify-center md:justify-start gap-2 hover:text-blue-600 transition-colors"><i data-lucide="instagram" class="w-4 h-4"></i> DAIA UCV</a></li>
+                        <li><a href="https://www.facebook.com/p/DAIA-Deportes-UCV-100076199720429/" target="_blank" rel="noopener noreferrer" class="flex py-2 items-center justify-center md:justify-start gap-2 hover:text-blue-600 transition-colors"><i data-lucide="facebook" class="w-4 h-4"></i> Facebook DAIA</a></li>
+                        <li><a href="https://www.ucv.ve/" target="_blank" rel="noopener noreferrer" class="flex py-2 items-center justify-center md:justify-start gap-2 hover:text-blue-600 transition-colors"><i data-lucide="globe" class="w-4 h-4"></i> Página Oficial UCV</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4: Contact Info -->
+                <div>
+                    <h3 class="font-bold text-slate-900 dark:text-white mb-4 text-lg">Contacto</h3>
+                    <ul class="space-y-3 text-sm text-gray-800 dark:text-gray-300">
+                        <li class="flex items-start justify-center md:justify-start gap-2"><i data-lucide="map-pin" class="w-4 h-4 mt-0.5 flex-shrink-0"></i> <span>Ciudad Universitaria de Caracas, Dirección de Deportes, Edif. Gimnasio Cubierto, Planta Baja.</span></li>
+                        <li class="flex items-center justify-center md:justify-start gap-2"><i data-lucide="phone" class="w-4 h-4 flex-shrink-0"></i> <span>+58 (212) 605-0000</span></li>
+                        <li class="flex items-center justify-center md:justify-start gap-2"><i data-lucide="mail" class="w-4 h-4 flex-shrink-0"></i> <span>daia@deportes.ucv.ve</span></li>
+                    </ul>
+                </div>
             </div>
-            <p class="text-gray-500 dark:text-gray-400 text-sm mt-4">Formando atletas integrales para el futuro de Venezuela</p>
-            <div class="flex justify-center gap-6 mt-6">
-                <i data-lucide="facebook" class="text-gray-500 hover:text-ucv-orange cursor-pointer transition-colors"></i>
-                <i data-lucide="twitter" class="text-gray-500 hover:text-ucv-orange cursor-pointer transition-colors"></i>
-                <i data-lucide="instagram" class="text-gray-500 hover:text-ucv-orange cursor-pointer transition-colors"></i>
+            <div class="border-t border-slate-200 dark:border-white/10 pt-8 flex flex-col md:flex-row justify-center items-center gap-4">
+                <p class="text-xs text-gray-700 dark:text-gray-400">© 2024 DAIA - Universidad Central de Venezuela. Todos los derechos reservados.</p>
             </div>
-            <p class="text-xs text-gray-500 mt-8">© 2024 Todos los derechos reservados.</p>
         </div>
     </footer>
 
     <script>
-        const htmlEl = document.documentElement;
-        if (localStorage.getItem('color-theme') === 'light') { htmlEl.classList.remove('dark'); } 
-        else { htmlEl.classList.add('dark'); }
-        lucide.createIcons();
+        document.addEventListener('DOMContentLoaded', () => {
+            const initIcons = () => {
+                if (!window.lucide) return;
+                setTimeout(() => lucide.createIcons(), 1500);
+            };
+            initIcons();
 
-        const themeToggleBtn = document.getElementById('theme-toggle');
-        themeToggleBtn.addEventListener('click', () => {
-            htmlEl.classList.toggle('dark');
-            localStorage.setItem('color-theme', htmlEl.classList.contains('dark') ? 'dark' : 'light');
+            // Pre-query DOM elements
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const fadeUpElements = document.querySelectorAll('.fade-up');
+
+            // Zero-read Theme Toggle state tracking
+            let isDarkMode = window.__INITIAL_THEME === 'dark';
+            if (themeToggleBtn) {
+                themeToggleBtn.addEventListener('click', () => {
+                    isDarkMode = !isDarkMode;
+                    const action = isDarkMode ? 'add' : 'remove';
+                    const theme = isDarkMode ? 'dark' : 'light';
+                    requestAnimationFrame(() => {
+                        document.documentElement.classList[action]('dark');
+                        localStorage.setItem('color-theme', theme);
+                    });
+                });
+            }
+
+            // Mobile menu toggle
+            const menuToggleBtn = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (menuToggleBtn && mobileMenu) {
+                menuToggleBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('open');
+                    const icon = menuToggleBtn.querySelector('i');
+                    if (icon && window.lucide) {
+                        const isMenu = icon.getAttribute('data-lucide') === 'menu';
+                        icon.setAttribute('data-lucide', isMenu ? 'x' : 'menu');
+                        lucide.createIcons({
+                            attrs: { class: 'w-6 h-6' },
+                            nameAttr: 'data-lucide',
+                            icons: { [isMenu ? 'x' : 'menu']: isMenu ? lucide.icons.X : lucide.icons.Menu }
+                        });
+                    }
+                });
+            }
+
+            if (fadeUpElements.length > 0) {
+                const visibleQueue = [];
+                let isProcessing = false;
+
+                const processQueue = () => {
+                    if (visibleQueue.length > 0) {
+                        const el = visibleQueue.shift();
+                        el.classList.add('visible');
+                        if (visibleQueue.length > 0) {
+                            requestAnimationFrame(processQueue);
+                        } else {
+                            isProcessing = false;
+                        }
+                    } else {
+                        isProcessing = false;
+                    }
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    let added = false;
+                    entries.forEach(e => {
+                        if (e.isIntersecting) {
+                            visibleQueue.push(e.target);
+                            observer.unobserve(e.target);
+                            added = true;
+                        }
+                    });
+                    
+                    if (added && !isProcessing) {
+                        isProcessing = true;
+                        requestAnimationFrame(processQueue);
+                    }
+                }, { threshold: 0.1 });
+                fadeUpElements.forEach(el => observer.observe(el));
+            }
         });
-
-        const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1 });
-        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
