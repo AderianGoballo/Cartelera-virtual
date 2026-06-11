@@ -1,0 +1,835 @@
+﻿<!DOCTYPE html>
+<html lang="es" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' unpkg.com cdnjs.cloudflare.com https://www.gstatic.com https://apis.google.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' fonts.gstatic.com; connect-src 'self' https://*.firebaseio.com https://firestore.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com; frame-src 'self' https://apis.google.com https://test-daia.firebaseapp.com;">
+    <title>DAIA UCV | Test Autopercepción</title>
+    <meta name="description" content="Guía completa sobre el ingreso a la UCV por el Artículo 25: beneficios, requisitos y proceso de postulación para atletas de alto rendimiento.">
+    <link rel="icon" type="image/webp" href="deportes.webp">
+    
+    <script>
+        // Synchronous theme check to prevent FOUC and forced reflow
+        (function() {
+            const theme = localStorage.getItem('color-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (theme === 'dark') document.documentElement.classList.add('dark');
+            else document.documentElement.classList.remove('dark');
+            window.__INITIAL_THEME = theme;
+        })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"></noscript>
+    <link rel='stylesheet' href='style.css'>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+        :root {
+            /* LIGHT MODE - Azul Monocromático */
+            --color-bg: transparent;
+            --color-bg-dark: transparent;
+            --color-bg-warm: #ffffff;
+            --color-texto: #0f172a;
+            --color-texto-claro: #334155;
+            --color-borde: #bfdbfe;
+            --color-primary: #2563eb;
+            --color-primary-dark: #1d4ed8;
+            --color-primary-light: rgba(37,99,235,0.1);
+            --color-accent: #60a5fa;
+
+            --bg-page: var(--color-bg);
+            --bg-card: var(--color-bg-warm);
+            --primary: var(--color-primary); 
+            --blue-accent: var(--color-primary-dark);
+            --text-main: var(--color-texto);
+            --text-highlight: var(--color-texto);
+            --text-muted: var(--color-texto-claro);
+            --border: var(--color-borde);
+            --progress-bg: rgba(0,0,0,0.05);
+            
+            /* Colores para el baremo */
+            --c-alta: #d32f2f;
+            --c-media: #f57c00;
+            --c-normal: #1976d2;
+            --c-baja: #388e3c;
+            --c-nula: #1b5e20;
+        }
+
+        html.dark {
+            --color-bg: #082f49;
+            --color-bg-dark: transparent;
+            --color-bg-warm: #0c4a6e;
+            --color-texto: #f0f9ff;
+            --color-texto-claro: #cbd5e1;
+            --color-borde: #1e3a5f;
+            --color-primary: #38bdf8;
+            --color-primary-dark: #0284c7;
+            --color-primary-light: #072238;
+            --color-accent: #38bdf8;
+            --progress-bg: rgba(255,255,255,0.1);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: transparent;
+            color: var(--text-main);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .test-header {
+            background-color: transparent;
+            padding: 20px 0;
+            border-bottom: 2px solid var(--primary);
+            text-align: center;
+        }
+
+        .test-header h1 {
+            color: var(--text-highlight);
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .test-header p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        .main-test-container {
+            padding-top: 0;
+            padding-bottom: 2rem;
+            
+        }
+
+        .test-card {
+            max-width: 850px !important; backdrop-filter: blur(16px);
+            margin-left: auto !important;
+            margin-right: auto !important;
+            background: var(--bg-card);
+            padding: 40px;
+            border: 2px solid var(--border);
+            position: relative;
+            border-radius: 1.5rem;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .progress-container {
+            width: 100%;
+            height: 8px;
+            background-color: var(--progress-bg);
+            margin-bottom: 30px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background-color: var(--primary);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .instructions {
+            background-color: var(--border);
+            padding: 20px;
+            border-left: 5px solid var(--primary);
+            margin-bottom: 30px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .instructions h2 {
+            color: var(--primary);
+            font-size: 1rem;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .question-step { display: none; animation: fadeIn 0.4s ease; }
+        .question-step.active { display: block; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .question-number {
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+
+        .question-text {
+            font-weight: 600;
+            font-size: 1.25rem;
+            margin-bottom: 30px;
+            color: var(--text-highlight);
+            min-height: 3.5rem;
+        }
+
+        .radio-group {
+            background: var(--bg-card);
+            padding: 30px;
+            border: 1px solid var(--border);
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+
+        .radios-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .radio-item {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 15px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .radio-item:hover {
+            border-color: var(--primary);
+            background: var(--color-primary-light);
+            color: var(--color-bg-dark);
+        }
+
+        .radio-item input {
+            width: 20px;
+            height: 20px;
+            margin-right: 15px;
+            accent-color: var(--primary);
+        }
+
+        .radio-item span {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 18px;
+            font-size: 1rem;
+            font-weight: 800;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.2s;
+            border-radius: 6px;
+        }
+
+        .btn-back {
+            background-color: transparent;
+            color: var(--text-muted);
+            border: 2px solid var(--border);
+        }
+
+        .btn-back:hover:not(:disabled) {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-next, .btn-submit {
+            background-color: var(--primary);
+            color: #fff;
+        }
+
+        .btn:disabled { opacity: 0.3; cursor: not-allowed; }
+        .btn:hover:not(:disabled) { filter: brightness(1.2); transform: translateY(-2px); }
+
+        #results-view { display: none; }
+
+        .results-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--text-highlight);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .result-card {
+            background: var(--bg-card);
+            border: 2px solid var(--border);
+            border-radius: 1.5rem;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .result-score {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--primary);
+            margin: 20px 0;
+        }
+
+        .category-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-weight: bold;
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .cat-alta { background-color: var(--c-alta); }
+        .cat-media { background-color: var(--c-media); }
+        .cat-normal { background-color: var(--c-normal); }
+        .cat-baja { background-color: var(--c-baja); }
+        .cat-nula { background-color: var(--c-nula); }
+
+        .pdf-btn {
+            background-color: var(--color-accent);
+            color: #ffffff;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: transform 0.2s;
+        }
+        .pdf-btn:hover { transform: translateY(-2px); }
+
+
+    </style>
+
+    
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+
+    <script type="module" src="firebase-config.js"></script>
+</head>
+<body class="font-sans antialiased flex flex-col">
+
+    <nav class="fixed w-full z-50 backdrop-blur-md border-b shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+                    <img src="ucv.webp" alt="Universidad Central de Venezuela" width="128" height="40" class="h-10 w-auto drop-shadow-md" loading="eager" decoding="async" fetchpriority="high">
+                    <img src="deportes.webp" alt="Dirección de Deportes UCV" width="40" height="40" class="h-10 w-auto bg-white p-0.5 rounded-md shadow-sm hidden sm:block" loading="eager" decoding="async" fetchpriority="high">
+                </a>
+                
+                <div class="hidden md:flex space-x-8 text-slate-700 dark:text-white text-sm font-semibold">
+                    <a href="index.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Inicio</a>
+                    <a href="disciplinas.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Disciplinas</a>
+                    <a href="servicios.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Servicios DAIA</a>
+                    <a href="articulo25.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Artículo 25</a>
+                    <a href="tests.html" class="text-blue-600 dark:text-blue-400 transition relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-blue-600 dark:after:bg-blue-400">Tests</a>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <a href="index.html" class="hover:opacity-80 transition-opacity">
+                        <img src="daia.webp" alt="DAIA UCV" width="40" height="40" class="h-10 w-auto bg-white p-0.5 rounded-md shadow-sm" loading="eager" decoding="async" fetchpriority="high">
+                    </a>
+                    <div id="auth-container"></div>
+                    <button id="theme-toggle" aria-label="Cambiar tema (claro/oscuro)" class="ml-2 p-2 rounded-xl bg-slate-200 dark:bg-white/10 text-slate-800 dark:text-white hover:bg-slate-300 dark:hover:bg-white/20 transition-colors border border-transparent dark:border-white/10 shadow-sm focus:outline-none">
+                        <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
+                        <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                    </button>
+                    <button id="menu-toggle" aria-label="Abrir menú" class="md:hidden p-2 rounded-xl bg-slate-200 dark:bg-white/10 text-slate-800 dark:text-white border border-transparent dark:border-white/10 shadow-sm focus:outline-none">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden pb-6 pt-2 border-t border-slate-200 dark:border-white/10">
+                <div class="flex flex-col space-y-4 text-slate-700 dark:text-white text-sm font-semibold">
+                    <a href="index.html" class="hover:text-blue-600 dark:hover:text-blue-400 py-2 border-b border-slate-100 dark:border-white/5">Inicio</a>
+                    <a href="disciplinas.html" class="hover:text-blue-600 dark:hover:text-blue-400 py-2 border-b border-slate-100 dark:border-white/5">Disciplinas</a>
+                    <a href="servicios.html" class="hover:text-blue-600 dark:hover:text-blue-400 py-2 border-b border-slate-100 dark:border-white/5">Servicios DAIA</a>
+                    <a href="articulo25.html" class="hover:text-blue-600 dark:hover:text-blue-400 py-2 border-b border-slate-100 dark:border-white/5">Artículo 25</a>
+                    <a href="tests.html" class="text-blue-600 dark:text-blue-400 py-2">Tests</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    
+    <main class="flex-grow pt-24 pb-16 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 major-container">
+<div class="container test-card">
+            <div class="test-header">
+                <h1>Escala de Autopercepción Vocacional</h1>
+                <p>Evaluación de la influencia en las decisiones vocacionales</p>
+            </div>
+            <div id="quiz-view">
+                <div id="user-info-display" style="text-align:center; padding: 10px; margin-bottom: 20px; background: rgba(37, 99, 235, 0.1); color: var(--primary); font-weight: bold; border-radius: 8px; border: 1px solid var(--primary-light);"></div>
+<div class="progress-container">
+                    <div id="progress-bar" class="progress-bar"></div>
+                </div>
+
+                <div id="intro-section" class="instructions">
+                    <h2>Instrucciones</h2>
+                    <p>A continuación encontrará una serie de opiniones. Para responder, marque la opción que mejor describa su caso particular sobre la base de la afirmación citada. No deje ninguna pregunta sin responder.</p>
+                </div>
+
+                
+
+                <form id="test-form">
+                    <div id="questions-container"></div>
+                    
+                    <div class="nav-buttons">
+                        <button type="button" id="btn-prev" class="btn btn-back" onclick="changeQuestion(-1)" disabled>Anterior</button>
+                        <button type="button" id="btn-next" class="btn btn-next" onclick="changeQuestion(1)">Siguiente</button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="results-view">
+                <h2 class="results-title">Informe de Resultados</h2>
+<div id="user-info-results" style="text-align:center; padding: 10px; margin-bottom: 20px; background: rgba(37, 99, 235, 0.1); color: var(--primary); font-weight: bold; border-radius: 8px; border: 1px solid var(--primary-light);"></div>
+                
+                <div class="result-card">
+                    <h3 style="color: var(--text-muted); text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px;">Puntaje Total de Autopercepción</h3>
+                    <div class="result-score" id="final-score">0</div>
+                    
+                    <div id="category-badge" class="category-badge">CATEGORÍA</div>
+                    
+                    <p style="font-size: 1.1rem; color: var(--text-main); margin-top: 10px;">
+                        Encontramos que en sus decisiones vocacionales existe una <strong id="category-text"></strong>.
+                    </p>
+                    <div style="margin-top: 25px; padding: 20px; background: rgba(0,0,0,0.03); border-radius: 8px; text-align: left; font-size: 1rem; color: var(--text-muted); border-left: 4px solid var(--primary);" id="interpretation-text">
+                        <!-- Interpretación se inyecta aquí -->
+                    </div>
+                </div>
+
+                <div class="controls" style="display: flex; gap: 15px; justify-content: center; margin-top: 30px; flex-wrap: wrap;">
+                    
+                    <button class="pdf-btn" onclick="downloadPDF()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                        Descargar resultados
+                    </button>
+                </div>
+            </div>
+        
+        </div>
+    </main>
+    <script src="script.js" defer></script>
+    <script>
+        const questions = [
+            { id: 1, text: "1. Tengo información o sé cómo se desempeña un profesional de la carrera que me gusta.", reverse: false },
+            { id: 2, text: "2. Sé dónde estudiar la carrera que me gusta.", reverse: false },
+            { id: 3, text: "3. Siendo sincero(a), la elección de mi futura profesión está influenciada por la mayor o menor aceptación de mi grupo de amigos.", reverse: true },
+            { id: 4, text: "4. Mis padres o algún pariente han contribuido en la decisión de mi futuro.", reverse: true },
+            { id: 5, text: "5. Me gusta mi futura profesión porque goza de amplia reputación y reconocimiento social.", reverse: true },
+            { id: 6, text: "6. La decisión de mi futura profesión está influenciada por el dinero que podré ganar.", reverse: true },
+            { id: 7, text: "7. Siendo consciente de los recursos de mi familia, me siento obligado(a) a elegir una profesión que en realidad no es de mi total satisfacción.", reverse: true },
+            { id: 8, text: "8. Pienso que una carrera de mando intermedio no tiene la reputación social que deseo, por ello, no quiero contarlo como una posibilidad.", reverse: true },
+            { id: 9, text: "9. En realidad no estoy seguro(a) de lo que voy a estudiar.", reverse: false },
+            { id: 10, text: "10. Durante mi vida escolar he tenido mayor preferencia por las asignaturas que son importantes para la profesión que he elegido.", reverse: false }
+        ];
+
+        const options = [
+            { label: "Totalmente de acuerdo (TA)", code: "TA", valNormal: 1, valReverse: 4 },
+            { label: "De acuerdo (A)", code: "A", valNormal: 2, valReverse: 3 },
+            { label: "En desacuerdo (D)", code: "D", valNormal: 3, valReverse: 2 },
+            { label: "Totalmente en desacuerdo (TD)", code: "TD", valNormal: 4, valReverse: 1 }
+        ];
+
+        let currentStep = 0;
+        const totalSteps = questions.length;
+
+        function renderQuestions() {
+            const container = document.getElementById("questions-container");
+            questions.forEach((q, index) => {
+                let radiosHTML = "";
+                options.forEach(opt => {
+                    const score = q.reverse ? opt.valReverse : opt.valNormal;
+                    radiosHTML += `
+                        <label class="radio-item">
+                            <input type="radio" name="q${q.id}" value="${score}" data-code="${opt.code}" onchange="autoNext()">
+                            <span>${opt.label}</span>
+                        </label>
+                    `;
+                });
+
+                const html = `
+                    <div id="step-${index}" class="question-step ${index === 0 ? 'active' : ''}">
+                        <div class="question-header">
+                            <span class="question-number">Pregunta ${index + 1} de ${totalSteps}</span>
+                        </div>
+                        <div class="question-text">${q.text}</div>
+                        <div class="radio-group">
+                            <div class="radios-container">${radiosHTML}</div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += html;
+            });
+            updateProgress();
+        }
+
+        function changeQuestion(delta) {
+            const nextStep = currentStep + delta;
+            
+            if (delta > 0) {
+                const selected = document.querySelector(`input[name="q${questions[currentStep].id}"]:checked`);
+                if (!selected) {
+                    alert("Por favor, selecciona una opción antes de continuar.");
+                    return;
+                }
+            }
+
+            if (nextStep >= 0 && nextStep < totalSteps) {
+                document.getElementById(`step-${currentStep}`).classList.remove('active');
+                currentStep = nextStep;
+                document.getElementById(`step-${currentStep}`).classList.add('active');
+                
+                document.getElementById('btn-prev').disabled = currentStep === 0;
+                const nextBtn = document.getElementById('btn-next');
+                
+                if (currentStep === totalSteps - 1) {
+                    nextBtn.innerText = "Finalizar";
+                    nextBtn.onclick = () => finishTest();
+                } else {
+                    nextBtn.innerText = "Siguiente";
+                    nextBtn.onclick = () => changeQuestion(1);
+                }
+                
+                updateProgress();
+            }
+        }
+
+        function autoNext() {
+            if (currentStep < totalSteps - 1) {
+                setTimeout(() => changeQuestion(1), 350);
+            }
+        }
+
+        function updateProgress() {
+            const pct = (currentStep / (totalSteps - 1)) * 100;
+            document.getElementById('progress-bar').style.width = `${pct}%`;
+        }
+
+        function finishTest() {
+            const selected = document.querySelector(`input[name="q${questions[currentStep].id}"]:checked`);
+            if (!selected) {
+                alert("Por favor, seleccione una opción para finalizar.");
+                return;
+            }
+            calcularResultados();
+        }
+
+        function getDiagnostic(score) {
+            if (score >= 31) return { cat: "Altamente influenciado", class: "cat-alta", desc: "La elección vocacional no es espontánea. Está fuertemente influenciada por intereses extrínsecos, falta de información, o presiones de tipo familiar y social. Los resultados en este nivel se consideran como observados y requieren de una entrevista personal para explorar mejor los intereses intrínsecos." };
+            if (score >= 26) return { cat: "Medianamente influenciado", class: "cat-media", desc: "Existen presiones externas considerables o dudas significativas (familia, amigos, prestigio) que están afectando la decisión vocacional en gran medida. Se sugiere una exploración más profunda de los verdaderos intereses de la persona." };
+            if (score >= 15) return { cat: "Influencia normal", class: "cat-normal", desc: "Se observa un equilibrio esperado entre los intereses personales intrínsecos y los factores externos que comúnmente acompañan la elección de carrera. La decisión parece tener un nivel manejable de influencia." };
+            if (score >= 11) return { cat: "Baja influencia", class: "cat-baja", desc: "La decisión vocacional parece ser bastante espontánea, guiada principalmente por intereses intrínsecos, motivación propia y con una adecuada información sobre la carrera elegida." };
+            return { cat: "Influencia nula", class: "cat-nula", desc: "Elección totalmente independiente y espontánea. No se observan presiones externas significativas (dinero, familia, grupo de amigos) ni falta de información al momento de elegir la ocupación o profesión." };
+        }
+
+        let currentUserEmail = null;
+
+    function calcularResultados() {
+            let totalScore = 0;
+            
+            questions.forEach(q => {
+                const sel = document.querySelector(`input[name="q${q.id}"]:checked`);
+                if (sel) {
+                    totalScore += parseInt(sel.value);
+                }
+            });
+
+            const diag = getDiagnostic(totalScore);
+
+            document.getElementById('final-score').innerText = totalScore;
+            
+            const badge = document.getElementById('category-badge');
+            badge.innerText = diag.cat;
+            badge.className = `category-badge ${diag.class}`;
+            
+            document.getElementById('category-text').innerText = diag.cat.toUpperCase();
+            document.getElementById('interpretation-text').innerText = diag.desc;
+
+            document.getElementById('quiz-view').style.display = 'none';
+            document.getElementById('results-view').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        if (window.DaiaDB && currentUserEmail && !window.showingPastResults) {
+            let answersToSave = {};
+            questions.forEach(q => {
+                const sel = document.querySelector(`input[name="q${q.id}"]:checked`);
+                if (sel) answersToSave[q.id] = sel.value;
+            });
+            window.DaiaDB.saveTestResult(currentUserEmail, 'AUTOPERCEPCION', { totalScore: totalScore, answers: answersToSave });
+        }
+    }
+
+        function loadFromExcel() {
+            const text = document.getElementById('excel-paste-area').value.trim();
+            if (!text) {
+                alert("Pega los datos del Excel primero.");
+                return;
+            }
+
+            const lines = text.split('\n').map(l => l.trim().toUpperCase()).filter(l => l);
+            if (lines.length !== 10) {
+                alert(`Se detectaron ${lines.length} respuestas válidas. Deben ser exactamente 10 respuestas.`);
+                return;
+            }
+
+            let allValid = true;
+            lines.forEach((ans, index) => {
+                if (ans !== 'TA' && ans !== 'A' && ans !== 'D' && ans !== 'TD') {
+                    alert(`La respuesta "${ans}" en la línea ${index + 1} no es válida. Debe ser TA, A, D o TD.`);
+                    allValid = false;
+                }
+            });
+
+            if (!allValid) return;
+
+            lines.forEach((ans, index) => {
+                const qId = questions[index].id;
+                const radios = document.querySelectorAll(`input[name="q${qId}"]`);
+                radios.forEach(r => {
+                    if (r.getAttribute('data-code') === ans) {
+                        r.checked = true;
+                    }
+                });
+            });
+
+            // Simulate clicking through to the end
+            currentStep = totalSteps - 1;
+            document.querySelectorAll('.question-step').forEach(step => step.classList.remove('active'));
+            document.getElementById(`step-${currentStep}`).classList.add('active');
+            updateProgress();
+            
+            calcularResultados();
+        }
+
+        function downloadPDF() {
+            const btn = document.querySelector('.pdf-btn');
+            if (btn) btn.style.display = 'none';
+            const originalText = btn.innerHTML;
+            const element = document.getElementById('results-view');
+            
+            html2canvas(element, {
+                scale: 2,
+                useCORS: true,
+                backgroundColor: window.getComputedStyle(document.body).backgroundColor || '#ffffff'
+            }).then(canvas => {
+                const link = document.createElement('a');
+                link.download = 'Resultados_Autopercepcion_Vocacional.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+                
+                if (btn) {
+                    btn.style.display = 'inline-flex';
+                    btn.innerHTML = originalText;
+                }
+            }).catch(err => {
+                console.error(err);
+                alert("Hubo un problema al generar la captura.");
+                if (btn) {
+                    btn.style.display = 'inline-flex';
+                    btn.innerHTML = originalText;
+                }
+            });
+        }
+
+        // Wait for Firebase Auth to initialize before rendering
+    let checkInterval = setInterval(() => {
+        if (window.DaiaAuth && window.DaiaDB) {
+            clearInterval(checkInterval);
+            window.DaiaAuth.onAuthStateChanged(async (user) => {
+                if (!user) {
+                    window.location.href = "tests.html";
+                    return;
+                }
+                currentUserEmail = user.email;
+                const uiEl = document.getElementById('user-info-display');
+                if(uiEl) uiEl.innerText = "Usuario: " + user.email;
+                const resEl = document.getElementById('user-info-results');
+                if(resEl) resEl.innerText = "Usuario: " + user.email;
+                
+                renderQuestions();
+
+                const pastResult = await window.DaiaDB.hasUserTakenTest(user.email, 'AUTOPERCEPCION');
+                if (pastResult && pastResult.answers) {
+                    alert("Ya completaste este test. Mostrando tus resultados anteriores.");
+                    window.showingPastResults = true;
+                    for (let qId in pastResult.answers) {
+                        let el = document.querySelector(`input[name="q${qId}"][value="${pastResult.answers[qId]}"]`);
+                        if(el) el.checked = true;
+                    }
+                    document.getElementById('quiz-view').style.display = 'none';
+                    document.getElementById('results-view').style.display = 'block';
+                    calcularResultados();
+                }
+            });
+        }
+    }, 100);
+</script>
+
+
+    <footer class="backdrop-blur-lg border-t py-12 mt-auto relative z-10 border-slate-200 dark:border-white/10 bg-[rgba(239,246,255,0.9)] dark:bg-transparent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 text-center md:text-left">
+                <!-- Column 1: Branding -->
+                <div class="flex flex-col items-center md:items-start gap-4">
+                    <div class="flex items-center gap-3">
+                        <img src="ucv.webp" alt="UCV" width="128" height="40" class="h-10 w-auto drop-shadow-md" loading="lazy" decoding="async">
+                        <img src="daia.webp" alt="DAIA" width="40" height="40" class="h-10 w-auto bg-white p-0.5 rounded-md shadow-sm" loading="lazy" decoding="async">
+                    </div>
+                    <p class="text-gray-800 dark:text-gray-300 text-sm leading-relaxed">Formando atletas integrales para el futuro de Venezuela. Excelencia académica y deportiva en la Universidad Central de Venezuela.</p>
+                </div>
+                
+                <!-- Column 2: Quick Links -->
+                <div>
+                    <h3 class="font-bold text-slate-900 dark:text-white mb-4 text-lg">Enlaces Rápidos</h3>
+                    <ul class="space-y-2 text-sm text-gray-800 dark:text-gray-300">
+                        <li><a href="index.html" class="py-2 inline-block hover:text-blue-600 transition-colors">Inicio</a></li>
+                        <li><a href="disciplinas.html" class="py-2 inline-block hover:text-blue-600 transition-colors">Disciplinas</a></li>
+                        <li><a href="servicios.html" class="py-2 inline-block hover:text-blue-600 transition-colors">Servicios DAIA</a></li>
+                        <li><a href="articulo25.html" class="py-2 inline-block hover:text-blue-600 transition-colors">Artículo 25</a></li>
+                        <li><a href="tests.html" class="py-2 inline-block hover:text-blue-600 transition-colors">Tests</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3: Social Media -->
+                <div>
+                    <h3 class="font-bold text-slate-900 dark:text-white mb-4 text-lg">Redes Sociales</h3>
+                    <ul class="space-y-3 text-sm text-gray-800 dark:text-gray-300">
+                        <li><a href="https://www.instagram.com/deportesucv/" target="_blank" rel="noopener noreferrer" class="flex py-2 items-center justify-center md:justify-start gap-2 hover:text-blue-600 transition-colors"><i data-lucide="instagram" class="w-4 h-4"></i> Deportes UCV</a></li>
+                        <li><a href="https://www.instagram.com/daiadeportesucv/" target="_blank" rel="noopener noreferrer" class="flex py-2 items-center justify-center md:justify-start gap-2 hover:text-blue-600 transition-colors"><i data-lucide="instagram" class="w-4 h-4"></i> DAIA UCV</a></li>
+                        <li><a href="https://www.facebook.com/p/DAIA-Deportes-UCV-100076199720429/" target="_blank" rel="noopener noreferrer" class="flex py-2 items-center justify-center md:justify-start gap-2 hover:text-blue-600 transition-colors"><i data-lucide="facebook" class="w-4 h-4"></i> Facebook DAIA</a></li>
+                        <li><a href="https://www.ucv.ve/" target="_blank" rel="noopener noreferrer" class="flex py-2 items-center justify-center md:justify-start gap-2 hover:text-blue-600 transition-colors"><i data-lucide="globe" class="w-4 h-4"></i> Página Oficial UCV</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4: Contact Info -->
+                <div>
+                    <h3 class="font-bold text-slate-900 dark:text-white mb-4 text-lg">Contacto</h3>
+                    <ul class="space-y-3 text-sm text-gray-800 dark:text-gray-300">
+                        <li class="flex items-start justify-center md:justify-start gap-2"><i data-lucide="map-pin" class="w-4 h-4 mt-0.5 flex-shrink-0"></i> <span>Ciudad Universitaria de Caracas, Dirección de Deportes, Edif. Gimnasio Cubierto, Planta Baja.</span></li>
+                        <li class="flex items-center justify-center md:justify-start gap-2"><i data-lucide="phone" class="w-4 h-4 flex-shrink-0"></i> <span>+58 (212) 605-0000</span></li>
+                        <li class="flex items-center justify-center md:justify-start gap-2"><i data-lucide="mail" class="w-4 h-4 flex-shrink-0"></i> <span>daia@deportes.ucv.ve</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-200 dark:border-white/10 pt-8 flex flex-col md:flex-row justify-center items-center gap-4">
+                <p class="text-xs text-gray-700 dark:text-gray-400">© 2024 DAIA - Universidad Central de Venezuela. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const initIcons = () => {
+                if (!window.lucide) return;
+                setTimeout(() => lucide.createIcons(), 1500);
+            };
+            initIcons();
+
+            // Pre-query DOM elements
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const fadeUpElements = document.querySelectorAll('.fade-up');
+
+            // Zero-read Theme Toggle state tracking
+            let isDarkMode = window.__INITIAL_THEME === 'dark';
+            if (themeToggleBtn) {
+                themeToggleBtn.addEventListener('click', () => {
+                    isDarkMode = !isDarkMode;
+                    const action = isDarkMode ? 'add' : 'remove';
+                    const theme = isDarkMode ? 'dark' : 'light';
+                    requestAnimationFrame(() => {
+                        document.documentElement.classList[action]('dark');
+                        localStorage.setItem('color-theme', theme);
+                    });
+                });
+            }
+
+            // Mobile menu toggle
+            const menuToggleBtn = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (menuToggleBtn && mobileMenu) {
+                menuToggleBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('open');
+                    const icon = menuToggleBtn.querySelector('i');
+                    if (icon && window.lucide) {
+                        const isMenu = icon.getAttribute('data-lucide') === 'menu';
+                        icon.setAttribute('data-lucide', isMenu ? 'x' : 'menu');
+                        lucide.createIcons({
+                            attrs: { class: 'w-6 h-6' },
+                            nameAttr: 'data-lucide',
+                            icons: { [isMenu ? 'x' : 'menu']: isMenu ? lucide.icons.X : lucide.icons.Menu }
+                        });
+                    }
+                });
+            }
+
+            if (fadeUpElements.length > 0) {
+                const visibleQueue = [];
+                let isProcessing = false;
+
+                const processQueue = () => {
+                    if (visibleQueue.length > 0) {
+                        const el = visibleQueue.shift();
+                        el.classList.add('visible');
+                        if (visibleQueue.length > 0) {
+                            requestAnimationFrame(processQueue);
+                        } else {
+                            isProcessing = false;
+                        }
+                    } else {
+                        isProcessing = false;
+                    }
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    let added = false;
+                    entries.forEach(e => {
+                        if (e.isIntersecting) {
+                            visibleQueue.push(e.target);
+                            observer.unobserve(e.target);
+                            added = true;
+                        }
+                    });
+                    
+                    if (added && !isProcessing) {
+                        isProcessing = true;
+                        requestAnimationFrame(processQueue);
+                    }
+                }, { threshold: 0.1 });
+                fadeUpElements.forEach(el => observer.observe(el));
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+

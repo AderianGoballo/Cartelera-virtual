@@ -1,0 +1,1317 @@
+﻿<!DOCTYPE html>
+<html lang="es" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' unpkg.com cdnjs.cloudflare.com https://www.gstatic.com https://apis.google.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' fonts.gstatic.com; connect-src 'self' https://*.firebaseio.com https://firestore.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com; frame-src 'self' https://apis.google.com https://test-daia.firebaseapp.com;">
+    <title>DAIA UCV | Test IPP</title>
+    <meta name="description" content="Guía completa sobre el ingreso a la UCV por el Artículo 25: beneficios, requisitos y proceso de postulación para atletas de alto rendimiento.">
+    <link rel="icon" type="image/webp" href="deportes.webp">
+    
+    <script>
+        // Synchronous theme check to prevent FOUC and forced reflow
+        (function() {
+            const theme = localStorage.getItem('color-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (theme === 'dark') document.documentElement.classList.add('dark');
+            else document.documentElement.classList.remove('dark');
+            window.__INITIAL_THEME = theme;
+        })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"></noscript>
+    <link rel='stylesheet' href='style.css'>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+        :root {
+            /* LIGHT MODE - Azul Monocromático */
+            --color-bg: transparent; /* Fondo general azul muy suave */
+            --color-bg-dark: transparent; /* Restaurado para que el footer sea oscuro */
+            --color-bg-warm: #ffffff; /* Tarjeta principal blanca */
+            --color-texto: #0f172a; /* Texto azul muy oscuro */
+            --color-texto-claro: #334155; /* Texto secundario */
+            --color-borde: #bfdbfe; /* Bordes azul claro */
+            --color-primary: #2563eb; /* Azul profesional para botones */
+            --color-primary-dark: #1d4ed8; /* Azul oscuro para hover */
+            --color-primary-light: rgba(37,99,235,0.1); /* Azul resaltado claro */
+            --color-accent: #60a5fa; /* Azul vibrante */
+            --color-danger: #ef4444;
+
+            --bg-page: var(--color-bg);
+            --bg-card: var(--color-bg-warm);
+            --primary: var(--color-primary); 
+            --primary-hover: var(--color-primary-dark);
+            --accent: var(--color-accent);
+            --text-main: var(--color-texto);
+            --text-muted: var(--color-texto-claro);
+            --border: var(--color-borde);
+            --card-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        html.dark {
+            /* DARK MODE - Azul Monocromático */
+            --color-bg: #082f49;
+            --color-bg-dark: transparent; /* Footer invariable */
+            --color-bg-warm: #0c4a6e;
+            --color-texto: #f0f9ff;
+            --color-texto-claro: #cbd5e1;
+            --color-borde: #1e3a5f;
+            --color-primary: #38bdf8;
+            --color-primary-dark: #0284c7;
+            --color-primary-light: #072238;
+            --color-accent: #38bdf8;
+            --card-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background-color: transparent;
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .test-card {
+            max-width: 850px !important; backdrop-filter: blur(16px);
+            margin-left: auto !important;
+            margin-right: auto !important;
+            background: var(--bg-card);
+            padding: 40px;
+            border: 2px solid var(--border);
+            position: relative;
+            border-radius: 1.5rem;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+
+        .test-header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 20px;
+        }
+
+        .test-header h1 { color: var(--primary); font-size: 2rem; margin-bottom: 10px; }
+        .test-header p { color: var(--text-muted); }
+
+        /* Instrucciones */
+        .instructions {
+            text-align: center;
+            background-color: rgba(59, 130, 246, 0.1);
+            border-left: 4px solid var(--primary);
+            padding: 15px 20px;
+            margin-bottom: 30px;
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+
+        /* Paginación y Progreso */
+        .progress-container {
+            margin-bottom: 30px;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: var(--border);
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        .progress-fill {
+            height: 100%;
+            background: var(--accent);
+            width: 0%;
+            transition: width 0.4s ease;
+        }
+        .progress-text {
+            text-align: right;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        /* UI de Pregunta Única */
+        .question-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border);
+            border-radius: 1.5rem;
+            padding: 40px 50px;
+            text-align: center;
+            min-height: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .question-number {
+            color: var(--primary);
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .question-text {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 40px;
+            color: var(--color-texto);
+            line-height: 1.4;
+            text-align: center;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            max-width: 650px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .option-btn {
+            background: var(--bg-page);
+            border: 2px solid var(--border);
+            color: var(--text-main);
+            padding: 15px 20px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .option-btn:hover {
+            border-color: var(--primary);
+            background: var(--color-primary-light, rgba(59, 130, 246, 0.05));
+            transform: translateY(-2px);
+        }
+
+        .option-btn.selected {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: var(--text-main);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+        }
+
+        .opt-letter {
+            font-size: 1.2rem;
+            font-weight: 900;
+            margin-bottom: 5px;
+        }
+
+        .opt-desc {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        /* Controles de navegación */
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--text-main); border: 1px solid var(--border);
+        }
+        .btn-outline:hover:not(:disabled) { 
+            background: rgba(255,255,255,0.05); 
+            border-color: var(--text-muted);
+        }
+        .btn-primary { background: var(--primary); color: #ffffff; }
+        .btn-primary:hover:not(:disabled) { background: var(--primary-hover); }
+        .btn:disabled { opacity: 0.3; cursor: not-allowed; }
+
+        /* RESULTADOS */
+        #results-view { display: none; text-align: center; }
+        
+        .profile-chart {
+            margin: 40px 0;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            background: rgba(0,0,0,0.2);
+        }
+        .chart-row {
+            display: grid;
+            grid-template-columns: 220px 1fr 60px;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 16px;
+            border-bottom: 1px dashed var(--border);
+            padding-bottom: 10px;
+        }
+        .chart-label { font-size: 0.85rem; font-weight: bold; }
+        .bar-container {
+            width: 100%;
+            background: var(--border);
+            height: 24px;
+            border-radius: 1.5rem;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .bar {
+            height: 12px;
+            border-radius: 6px;
+            position: absolute;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 5px;
+            font-size: 0.65rem;
+            color: #ffffff;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+        }
+        .bar-ac { top: 0; background: #10b981; /* Verde esmeralda */ }
+        .bar-pr { bottom: 0; background: var(--primary); }
+        
+        .chart-scale {
+            display: grid;
+            grid-template-columns: 220px 1fr 60px;
+            gap: 15px;
+            margin-bottom: 15px;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+        .scale-markers {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            padding: 0 10px;
+        }
+        .scale-markers span { position: absolute; transform: translateX(-50%); }
+
+        /* Sección de Interpretaciones */
+        .interpretations-section {
+            margin-top: 40px;
+        }
+        
+        .interpretation-group {
+            margin-bottom: 35px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 25px;
+        }
+
+        .interpretation-group h3 {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .interp-card {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 6px;
+            background: var(--bg-page);
+            border-left: 4px solid var(--primary);
+        }
+
+        .interp-card h4 {
+            color: var(--color-texto);
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .interp-pct {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: normal;
+        }
+
+        .discrepancy-badge {
+            display: inline-block;
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--warning);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-top: 10px;
+            border: 1px solid var(--warning);
+        }
+
+        .missed-question {
+            border-color: var(--danger);
+            background: rgba(239, 68, 68, 0.05);
+            animation: shake 0.5s;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+        }
+
+        @media (max-width: 768px) {
+            .options-grid { grid-template-columns: 1fr; }
+            .chart-row { grid-template-columns: 140px 1fr 40px; }
+            .chart-label { font-size: 0.75rem; }
+            .chart-scale { grid-template-columns: 140px 1fr 40px; }
+        }
+    </style>
+
+    
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+
+    <script type="module" src="firebase-config.js"></script>
+</head>
+<body class="font-sans antialiased flex flex-col">
+
+    <nav class="fixed w-full z-50 backdrop-blur-md border-b shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+                    <img src="ucv.webp" alt="Universidad Central de Venezuela" width="128" height="40" class="h-10 w-auto drop-shadow-md" loading="eager" decoding="async" fetchpriority="high">
+                    <img src="deportes.webp" alt="Dirección de Deportes UCV" width="40" height="40" class="h-10 w-auto bg-white p-0.5 rounded-md shadow-sm hidden sm:block" loading="eager" decoding="async" fetchpriority="high">
+                </a>
+                
+                <div class="hidden md:flex space-x-8 text-slate-700 dark:text-white text-sm font-semibold">
+                    <a href="index.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Inicio</a>
+                    <a href="disciplinas.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Disciplinas</a>
+                    <a href="servicios.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Servicios DAIA</a>
+                    <a href="articulo25.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Artículo 25</a>
+                    <a href="tests.html" class="text-blue-600 dark:text-blue-400 transition relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-blue-600 dark:after:bg-blue-400">Tests</a>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <a href="index.html" class="hover:opacity-80 transition-opacity">
+                        <img src="daia.webp" alt="DAIA UCV" width="40" height="40" class="h-10 w-auto bg-white p-0.5 rounded-md shadow-sm" loading="eager" decoding="async" fetchpriority="high">
+                    </a>
+                    <div id="auth-container"></div>
+                    <button id="theme-toggle" aria-label="Cambiar tema (claro/oscuro)" class="ml-2 p-2 rounded-xl bg-slate-200 dark:bg-white/10 text-slate-800 dark:text-white hover:bg-slate-300 dark:hover:bg-white/20 transition-colors border border-transparent dark:border-white/10 shadow-sm focus:outline-none">
+                        <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
+                        <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                    </button>
+                    <button id="menu-toggle" aria-label="Abrir menú" class="md:hidden p-2 rounded-xl bg-slate-200 dark:bg-white/10 text-slate-800 dark:text-white border border-transparent dark:border-white/10 shadow-sm focus:outline-none">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden pb-6 pt-2 border-t border-slate-200 dark:border-white/10">
+                <div class="flex flex-col space-y-4 text-slate-700 dark:text-white text-sm font-semibold">
+                    <a href="index.html" class="hover:text-blue-600 dark:hover:text-blue-400 py-2 border-b border-slate-100 dark:border-white/5">Inicio</a>
+                    <a href="disciplinas.html" class="hover:text-blue-600 dark:hover:text-blue-400 py-2 border-b border-slate-100 dark:border-white/5">Disciplinas</a>
+                    <a href="servicios.html" class="hover:text-blue-600 dark:hover:text-blue-400 py-2 border-b border-slate-100 dark:border-white/5">Servicios DAIA</a>
+                    <a href="articulo25.html" class="hover:text-blue-600 dark:hover:text-blue-400 py-2 border-b border-slate-100 dark:border-white/5">Artículo 25</a>
+                    <a href="tests.html" class="text-blue-600 dark:text-blue-400 py-2">Tests</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    
+    <main class="flex-grow pt-24 pb-16 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 major-container">
+<div class="container test-card">
+    <div class="test-header">
+        <h1>Test IPP</h1>
+        <p>Inventario de Intereses y Preferencias Profesionales</p>
+    </div>
+
+    <div id="quiz-view">
+        <div class="instructions">
+            <strong>Instrucciones:</strong> Indica tus gustos y preferencias prescindiendo de recursos económicos o capacidad de estudio. <strong>La prueba avanzará automáticamente al seleccionar una opción.</strong>
+        </div>
+
+        
+
+        <div id="user-info-display" style="text-align:center; padding: 10px; margin-bottom: 20px; background: rgba(37, 99, 235, 0.1); color: var(--primary); font-weight: bold; border-radius: 8px; border: 1px solid var(--primary-light);"></div>
+<div class="progress-container">
+            <div class="progress-bar"><div id="progress-fill" class="progress-fill"></div></div>
+            <div id="progress-text" class="progress-text">Pregunta 1 de 204</div>
+        </div>
+
+        <div id="question-container">
+            <!-- La pregunta se inyecta aquí -->
+        </div>
+
+        <div class="controls" style="display: flex; justify-content: center; gap: 20px; align-items: center;">
+            <button class="btn btn-outline" id="btn-prev" onclick="prevQuestion()" disabled>&#8592; Anterior</button>
+            
+            <div style="display: flex; gap: 10px; margin-left: auto;">
+
+                <button class="btn btn-primary" id="btn-next" onclick="nextQuestion()" style="display: none;">Siguiente &#8594;</button>
+                <button class="btn btn-primary" id="btn-finish" onclick="finishTest()" style="display: none;">Finalizar Test</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="results-view">
+        <h2>Informe Clínico de Resultados</h2>
+        <p style="color: var(--text-muted); margin-bottom: 20px;">
+            Los resultados se expresan en <strong>Percentiles (PC 1 al 99)</strong> utilizando la tabla de conversión directa oficial. <br>
+            <span style="color: #10b981;">■ Verde (AC) = Interés en Actividades</span> | 
+            <span style="color: var(--primary);">■ Azul (PR) = Interés en Profesiones</span>
+        </p>
+
+        <div class="profile-chart">
+            <div class="chart-scale" style="text-align: left;">
+                <div>Campo Profesional</div>
+                <div class="scale-markers">
+                    <span style="left: 0%;">0</span>
+                    <span style="left: 20%;">20</span>
+                    <span style="left: 40%;">40</span>
+                    <span style="left: 60%;">60</span>
+                    <span style="left: 80%;">80</span>
+                    <span style="left: 100%;">100</span>
+                </div>
+                <div>PC</div>
+            </div>
+            <div id="chart-rows"></div>
+        </div>
+
+        <div class="interpretations-section" id="interpretations-container">
+            <!-- Las interpretaciones agrupadas se inyectan aquí -->
+        </div>
+
+        <div class="controls" style="justify-content: center; margin-top: 40px;">
+            
+
+            <button class="pdf-btn" onclick="downloadPDF()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                Descargar resultados
+            </button>
+            
+        </div>
+    </main>
+    <script>
+                function downloadPDF() {
+                    const btn = document.querySelector('.pdf-btn');
+                    if (btn) btn.style.display = 'none';
+                    
+                    // Asegurarnos de que el botón dice que está cargando
+                    const originalText = btn.innerHTML;
+                    
+                    // Buscar el contenedor de resultados (diferente ID en IPP vs PIL)
+                    const element = document.getElementById('results-view') || document.getElementById('results-screen');
+                    
+                    if (!element) {
+                        alert("No se encontró la vista de resultados.");
+                        if (btn) btn.style.display = 'inline-flex';
+                        return;
+                    }
+
+                    // Usar html2canvas para crear una captura de pantalla
+                    html2canvas(element, {
+                        scale: 2,
+                        useCORS: true,
+                        backgroundColor: window.getComputedStyle(document.body).backgroundColor || '#ffffff'
+                    }).then(canvas => {
+                        // Descargar como imagen PNG
+                        const link = document.createElement('a');
+                        link.download = 'Resultados_Test.webp';
+                        link.href = canvas.toDataURL('image/png');
+                        link.click();
+                        
+                        if (btn) {
+                            btn.style.display = 'inline-flex';
+                            btn.innerHTML = originalText;
+                        }
+                    }).catch(err => {
+                        console.error(err);
+                        alert("Hubo un problema al generar la captura.");
+                        if (btn) {
+                            btn.style.display = 'inline-flex';
+                            btn.innerHTML = originalText;
+                        }
+                    });
+                }
+            </script>
+    <script>
+    // Nombres y Descripciones de los Campos
+    const camposNombres = [
+        "1. Científico-Experimental", "2. Científico-Técnico", "3. Científico-Sanitario", 
+        "4. Teórico-Humanista", "5. Literario", "6. Psicopedagógico", "7. Político-Social", 
+        "8. Económico-Empresarial", "9. Persuasivo-Comercial", "10. Administrativo", 
+        "11. Deportivo", "12. Agropecuario", "13. Artístico-Musical", "14. Artístico-Plástico", 
+        "15. Militar-Seguridad", "16. Aventura-Riesgo", "17. Mecánico-Manual"
+    ];
+
+    const infoCampos = {
+        1: { act: "la investigación en laboratorios, la experimentación física o química y el uso del método científico", pro: "Biólogo, Químico, Físico, Astrónomo o Matemático" },
+        2: { act: "el diseño, el cálculo, la construcción de infraestructuras y el manejo de tecnología", pro: "Ingeniero, Arquitecto o Aparejador" },
+        3: { act: "el cuidado de la salud, la investigación médica y la curación de enfermedades físicas", pro: "Médico, Farmacéutico, Fisioterapeuta o Veterinario" },
+        4: { act: "la investigación sobre el origen humano, la historia, la filosofía o la religión", pro: "Antropólogo, Historiador, Filósofo, Arqueólogo o Sacerdote" },
+        5: { act: "la escritura, la lectura, la redacción de noticias y la comunicación escrita", pro: "Escritor, Periodista, Traductor o Guionista" },
+        6: { act: "la enseñanza, la evaluación psicológica, la educación especial y la orientación", pro: "Profesor, Psicólogo, Orientador o Educador" },
+        7: { act: "las leyes, el debate, el análisis social y la defensa de los derechos", pro: "Abogado, Político, Sociólogo o Trabajador Social" },
+        8: { act: "la gestión financiera, la contabilidad avanzada, la banca y la dirección de empresas", pro: "Economista, Banquero, Gerente o Auditor" },
+        9: { act: "las ventas, la publicidad, convencer a otros y las relaciones públicas", pro: "Comercial, Publicista o Relaciones Públicas" },
+        10: { act: "el orden, la clasificación de documentos, el trabajo de oficina y el secretariado", pro: "Administrativo, Secretario, Cajero o Telefonista" },
+        11: { act: "el ejercicio físico constante, la competición y el entrenamiento de equipos", pro: "Atleta profesional, Entrenador o Árbitro" },
+        12: { act: "el contacto directo con la naturaleza, el cultivo, la crianza de animales y la pesca", pro: "Agricultor, Ganadero, Ingeniero Agrónomo o Piscicultor" },
+        13: { act: "la interpretación teatral, el canto, la danza y la composición musical", pro: "Actor, Músico, Cantante o Bailarín" },
+        14: { act: "el dibujo, la pintura, el diseño visual, la decoración y la fotografía", pro: "Pintor, Escultor, Decorador, Diseñador o Fotógrafo" },
+        15: { act: "la protección ciudadana, el mantenimiento del orden, la prevención de riesgos y la disciplina", pro: "Policía, Militar, Bombero o Guardia de Seguridad" },
+        16: { act: "las situaciones extremas, la exploración riesgosa, la velocidad y la aventura", pro: "Piloto, Astronauta, Detective o Torero" },
+        17: { act: "el trabajo manual, el manejo de herramientas, la reparación de maquinaria y la artesanía", pro: "Carpintero, Electricista, Fontanero o Mecánico" }
+    };
+
+    // Estructura de Ítems
+    const allItems = [
+        [1, "Investigar y experimentar en el campo de la mecánica, la óptica, la física nuclear, etc.", 1, 'AC'],
+        [2, "Estudiar la composición y estructura de la atmósfera y los astros...", 1, 'AC'],
+        [3, "Trabajar como analista clínico.", 1, 'PR'],
+        [4, "Proyectar y dirigir la construcción de edificios o zonas de la ciudad.", 2, 'AC'],
+        [5, "Ser arquitecto.", 2, 'PR'],
+        [6, "Diagnosticar y tratar enfermedades del cuerpo humano.", 3, 'AC'],
+        [7, "Ser médico.", 3, 'PR'],
+        [8, "Ser farmacéutico.", 3, 'PR'],
+        [9, "Investar los orígenes de la raza humana consultando restos antiguos.", 4, 'AC'],
+        [10, "Ejercer la profesión de antropólogo.", 4, 'PR'],
+        [11, "Escribir novelas, cuentos relatos, u otras obras literarias.", 5, 'AC'],
+        [12, "Ser escritor profesional.", 5, 'PR'],
+        [13, "Dar clases en un colegio, en un instituto o en la universidad.", 6, 'AC'],
+        [14, "Dar clase a niños ciegos, sordos o deficientes.", 6, 'AC'],
+        [15, "Trabajar como profesor.", 6, 'PR'],
+        [16, "Formar parte del gobierno de un país. Intervenir en debates y leyes.", 7, 'AC'],
+        [17, "Ser abogado.", 7, 'PR'],
+        [18, "Asesorar sobre problemas contables y financieros.", 8, 'AC'],
+        [19, "Ejercer la profesión de banquero.", 8, 'PR'],
+        [20, "Ser empresario.", 8, 'PR'],
+        [21, "Proyectar y organizar actividades turísticas.", 9, 'AC'],
+        [22, "Trabajar como agente de seguros.", 9, 'PR'],
+        [23, "Realizar anotaciones contables, preparar relaciones de pagos y cobros.", 10, 'AC'],
+        [24, "Ser cajero de una empresa o de un banco.", 10, 'PR'],
+        [25, "Observar y analizar la actuación de los deportistas para corregir fallos.", 11, 'AC'],
+        [26, "Cuidar caballos y prepararlos para las carreras.", 11, 'AC'],
+        [27, "Ser árbitro de fútbol.", 11, 'PR'],
+        [28, "Criar en una piscifactoría crustáceos, peces y moluscos.", 12, 'AC'],
+        [29, "Organizar y explotar una finca agrícola o forestal.", 12, 'AC'],
+        [30, "Realizar el trabajo de ganadero profesional.", 12, 'PR'],
+        [31, "Actuar en representaciones teatrales, rodajes de cine o televisión.", 13, 'AC'],
+        [32, "Tocar uno o varios instrumentos musicales.", 13, 'AC'],
+        [33, "Ser bailarín profesional.", 13, 'PR'],
+        [34, "Crear y realizar dibujos. Realizar ilustraciones para libros.", 14, 'AC'],
+        [35, "Diseñar prendas de vestir, complementos o joyas.", 14, 'AC'],
+        [36, "Realizar el trabajo de decorador.", 14, 'PR'],
+        [37, "Proteger a las personas en un local, evitando hechos delictivos.", 15, 'AC'],
+        [38, "Prevenir o apagar incendios, proteger o salvar personas.", 15, 'AC'],
+        [39, "Ser agente de seguridad.", 15, 'PR'],
+        [40, "Torear a pie o a caballo.", 16, 'AC'],
+        [41, "Realizar en un circo ejercicios con animales adiestrados o trapecio.", 16, 'AC'],
+        [42, "Ser astronauta.", 16, 'PR'],
+        [43, "Construir edificios y obras colocando ladrillos, cañerías, etc.", 17, 'AC'],
+        [44, "Manejar y controlar el equipo transmisor en emisoras de radio/TV.", 17, 'AC'],
+        [45, "Ejercer la profesión de carpintero.", 17, 'PR'],
+        [46, "Hacer pronósticos sobre la dirección de las masas de aire.", 1, 'AC'],
+        [47, "Trabajar como astrónomo profesional.", 1, 'PR'],
+        [48, "Ejercer la profesión de biólogo.", 1, 'PR'],
+        [49, "Proyectar maquinaria para cultivos agrarios o ganadería.", 2, 'AC'],
+        [50, "Ser capitán de barco.", 2, 'PR'],
+        [51, "Curar por medio de ejercicios físicos o masajes.", 3, 'AC'],
+        [52, "Ser veterinario.", 3, 'PR'],
+        [53, "Realizar investigaciones sobre la distribución de las razas humanas.", 4, 'AC'],
+        [54, "Realizar investigaciones y estudios sobre teología.", 4, 'AC'],
+        [55, "Ejercer la profesión de arqueólogo.", 4, 'PR'],
+        [56, "Coordinar la redacción de una publicación (revista, periódico, etc.).", 5, 'AC'],
+        [57, "Ser novelista.", 5, 'PR'],
+        [58, "Preparar pruebas, exámenes y calificar a los alumnos.", 6, 'AC'],
+        [59, "Trabajar como reeducador de toxicómanos.", 6, 'PR'],
+        [60, "Realizar el trabajo de orientador escolar.", 6, 'PR'],
+        [61, "Intervenir en contratos y testamentos.", 7, 'AC'],
+        [62, "Trabajar como asistente social.", 7, 'PR'],
+        [63, "Dirigir las actividades de un banco o participar en ellas.", 8, 'AC'],
+        [64, "Ser economista.", 8, 'PR'],
+        [65, "Visitar médicos para mostrarles productos farmacéuticos.", 9, 'AC'],
+        [66, "Recibir a los clientes de un hotel o restaurante.", 9, 'AC'],
+        [67, "Trabajar como director de ventas.", 9, 'PR'],
+        [68, "Organizar las tareas de los empleados del departamento administrativo.", 10, 'AC'],
+        [69, "Trabajar como operador de ordenador.", 10, 'PR'],
+        [70, "Realizar ejercicios físicos bajo las órdenes de un entrenador.", 11, 'AC'],
+        [71, "Entrenar a deportistas o equipos para perfeccionar aptitudes.", 11, 'AC'],
+        [72, "Trabajar como entrenador deportivo.", 11, 'PR'],
+        [73, "Dirigir los trabajos de una explotación forestal.", 12, 'AC'],
+        [74, "Criar ganado para aprovechar su carne, lana o leche.", 12, 'AC'],
+        [75, "Trabajar como director de una piscifactoría.", 12, 'PR'],
+        [76, "Crear y escribir composiciones musicales y canciones.", 13, 'AC'],
+        [77, "Dar recitales de canto o de música.", 13, 'AC'],
+        [78, "Ser actor profesional.", 13, 'PR'],
+        [79, "Restaurar cuadros, muebles y obras de arte.", 14, 'AC'],
+        [80, "Crear esculturas o pinturas figurativas/abstractas.", 14, 'AC'],
+        [81, "Ser dibujante profesional.", 14, 'PR'],
+        [82, "Detener a los que cometen delitos, perseguirlos.", 15, 'AC'],
+        [83, "Pertenecer al ejército y prestar servicio militar.", 15, 'AC'],
+        [84, "Ser policía.", 15, 'PR'],
+        [85, "Descender a cavernas profundas para estudiar la tierra.", 16, 'AC'],
+        [86, "Investigar con carácter privado casos criminales o robos.", 16, 'AC'],
+        [87, "Ser submarinista profesional.", 16, 'PR'],
+        [88, "Confeccionar ropa según un modelo.", 17, 'AC'],
+        [89, "Ajustar maquinaria e instalar equipos eléctricos/electrónicos.", 17, 'AC'],
+        [90, "Ejercer la profesión de electricista.", 17, 'PR'],
+        [91, "Estudiar la vida vegetal. Hacer experiments con cultivos.", 1, 'AC'],
+        [92, "Trabajar como geólogo profesional.", 1, 'PR'],
+        [93, "Coordinar actividades a bordo de un barco, dirigir maniobras.", 2, 'AC'],
+        [94, "Aplicar la informática y elaborar programas para ordenador.", 2, 'AC'],
+        [95, "Ser ingeniero.", 2, 'PR'],
+        [96, "Aplicar conocimientos de medicina para afecciones dentales.", 3, 'AC'],
+        [97, "Ejercer la profesión de Ayudante Técnico Sanitario (ATS).", 3, 'PR'],
+        [98, "Difundir una doctrina religiosa, prestar servicios desinteresados.", 4, 'AC'],
+        [99, "Ser sacerdote.", 4, 'PR'],
+        [100, "Trabajar como conservador de museos profesional.", 4, 'PR'],
+        [101, "Entrevistar a personas para publicar sus respuestas.", 5, 'AC'],
+        [102, "Ser guionista de cine o de televisión.", 5, 'PR'],
+        [103, "Determinar aptitudes y personalidad de las personas.", 6, 'AC'],
+        [104, "Trabajar como profesor de educación especial.", 6, 'PR'],
+        [105, "Representar a tu país en el extranjero.", 7, 'AC'],
+        [106, "Intervenir ante tribunales en nombre de la Ley.", 7, 'AC'],
+        [107, "Ser diplomático.", 7, 'PR'],
+        [108, "Dirigir un establecimiento comercial propio.", 8, 'AC'],
+        [109, "Ser gerente de una empresa.", 8, 'PR'],
+        [110, "Proyectar, crear o diseñar anuncios publicitarios.", 9, 'AC'],
+        [111, "Trabajar como profesional de relaciones públicas.", 9, 'PR'],
+        [112, "Ser vendedor profesional.", 9, 'PR'],
+        [113, "Recibir dinero de clientes, usar caja registradora.", 10, 'AC'],
+        [114, "Ser telefonista.", 10, 'PR'],
+        [115, "Dirigir competiciones deportivas y aplicar las reglas.", 11, 'AC'],
+        [116, "Ser atleta profesional.", 11, 'PR'],
+        [117, "Ejercer la profesión de preparador físico.", 11, 'PR'],
+        [118, "Preparar redes, dirigir tareas de pesca y capturar pescado.", 12, 'AC'],
+        [119, "Ser ingeniero de montes.", 12, 'PR'],
+        [120, "Trabajar como agricultor profesional.", 12, 'PR'],
+        [121, "Dirigir una orquesta, banda o conjunto musical.", 13, 'AC'],
+        [122, "Ser cantante profesional.", 13, 'PR'],
+        [123, "Ser compositor.", 13, 'PR'],
+        [124, "Manejar cámaras de cine o TV siguiendo escenas.", 14, 'AC'],
+        [125, "Ser escultor.", 14, 'PR'],
+        [126, "Trabajar como fotógrafo profesional.", 14, 'PR'],
+        [127, "Prestar servicios de protección y vigilancia en fincas.", 15, 'AC'],
+        [128, "Ser bombero.", 15, 'PR'],
+        [129, "Trabajar como vigilante jurado.", 15, 'PR'],
+        [130, "Conducir coches a gran velocidad participando en carreras.", 16, 'AC'],
+        [131, "Ser detective profesional.", 16, 'PR'],
+        [132, "Ser piloto de carreras.", 16, 'PR'],
+        [133, "Manejar máquinas para fabricar hilos o telas.", 17, 'AC'],
+        [134, "Ejercer la profesión de modista o sastre.", 17, 'PR'],
+        [135, "Trabajar como albañil profesional.", 17, 'PR'],
+        [136, "Investigar por medio de la ciencia estadística.", 1, 'AC'],
+        [137, "Ejercer la profesión de matemático.", 1, 'PR'],
+        [138, "Conducir aviones, disponer operaciones de despegue.", 2, 'AC'],
+        [139, "Ser controlador aéreo.", 2, 'PR'],
+        [140, "Ser piloto de avión.", 2, 'PR'],
+        [141, "Diagnosticar, prevenir y tratar enfermedades de animales.", 3, 'AC'],
+        [142, "Ser dentista.", 3, 'PR'],
+        [143, "Realizar estudios sobre la actuación del hombre en el pasado.", 4, 'AC'],
+        [144, "Ser historiador.", 4, 'PR'],
+        [145, "Escribir una crítica analizando obras artísticas o literarias.", 5, 'AC'],
+        [146, "Redactar noticias y comentar informaciones para prensa/radio.", 5, 'AC'],
+        [147, "Trabajar como locutor o presentador.", 5, 'PR'],
+        [148, "Estudiar la conducta y problemas psicológicos de personas.", 6, 'AC'],
+        [149, "Realizar el trabajo de psicólogo escolar.", 6, 'PR'],
+        [150, "Investigar problemas y relaciones sociales de las sociedades.", 7, 'AC'],
+        [151, "Ejercer la profesión de sociólogo.", 7, 'PR'],
+        [152, "Ser notario.", 7, 'PR'],
+        [153, "Establecer el programa de actuación de una empresa.", 8, 'AC'],
+        [154, "Trabajar como auditor profesional.", 8, 'PR'],
+        [155, "Contratar pólizas de seguros y entrevistar clientes.", 9, 'AC'],
+        [156, "Ejercer la profesión de publicista.", 9, 'PR'],
+        [157, "Ordenar, clasificar, archivar documentos y atender teléfonos.", 10, 'AC'],
+        [158, "Organizar recepción, almacenamiento y expedición de mercancías.", 10, 'AC'],
+        [159, "Trabajar como mecanógrafo.", 10, 'PR'],
+        [160, "Participar en competiciones deportivas de diverso tipo.", 11, 'AC'],
+        [161, "Trabajar como cuidador de caballos de carreras.", 11, 'PR'],
+        [162, "Ser seleccionador de fútbol.", 11, 'PR'],
+        [163, "Cultivar hortalizas, flores o árboles para vender.", 12, 'AC'],
+        [164, "Trabajar como director de una granja ganadera.", 12, 'PR'],
+        [165, "Ser ingeniero agrónomo.", 12, 'PR'],
+        [166, "Idear pasos de baile y enseñar a ejecutarlos.", 13, 'AC'],
+        [167, "Ser coreógrafo profesional.", 13, 'PR'],
+        [168, "Ser músico.", 13, 'PR'],
+        [169, "Realizar bocetos para amueblar, decorar casas o escaparates.", 14, 'AC'],
+        [170, "Ser pintor artístico.", 14, 'PR'],
+        [171, "Trabajar como diseñador de moda.", 14, 'PR'],
+        [172, "Prevenir, mantener la seguridad y orden público.", 15, 'AC'],
+        [173, "Trabajar como oficial de prisiones.", 15, 'PR'],
+        [174, "Ser vigilante de playas.", 15, 'PR'],
+        [175, "Participar en viajes espaciales y tripular cohetes.", 16, 'AC'],
+        [176, "Ser torero.", 16, 'PR'],
+        [177, "Ser trapecista profesional.", 16, 'PR'],
+        [178, "Preparar y tratar la madera para obtener tablas o pasta.", 17, 'AC'],
+        [179, "Ejercer la profesión de fontanero calefactor.", 17, 'PR'],
+        [180, "Trabajar como tejedor profesional.", 17, 'PR'],
+        [181, "Realizar experimentos químicos y analizar sustancias.", 1, 'AC'],
+        [182, "Ejercer la profesión de físico.", 1, 'PR'],
+        [183, "Estudiar, proyectar puentes, presas, fábricas, etc.", 2, 'AC'],
+        [184, "Ser aparejador.", 2, 'PR'],
+        [185, "Realizar intervenciones quirúrgicas para curar enfermedades.", 3, 'AC'],
+        [186, "Investigar en el laboratorio sobre las causas de enfermedades.", 3, 'AC'],
+        [187, "Ejercer la profesión de fisioterapeuta.", 3, 'PR'],
+        [188, "Acompañar a visitantes de un museo o monumentos.", 4, 'AC'],
+        [189, "Ser filósofo.", 4, 'PR'],
+        [190, "Traducir libros o artículos de un idioma a otro.", 5, 'AC'],
+        [191, "Ser periodista.", 5, 'PR'],
+        [192, "Trabajar como traductor profesional.", 5, 'PR'],
+        [193, "Aplicar pruebas para determinar inteligencia y personalidad.", 6, 'AC'],
+        [194, "Ser profesor de universidad.", 6, 'PR'],
+        [195, "Administrar justicia conforme a las leyes y dictar sentencias.", 7, 'AC'],
+        [196, "Ser político profesional.", 7, 'PR'],
+        [197, "Representar a una empresa en negociaciones de personal.", 8, 'AC'],
+        [198, "Aplicar los principios de la teoría económica a empresas.", 8, 'AC'],
+        [199, "Trabajar como director financiero de una empresa.", 8, 'PR'],
+        [200, "Vender fincas, casas o apartamentos representando propietarios.", 9, 'AC'],
+        [201, "Trabajar como recepcionista en un centro.", 9, 'PR'],
+        [202, "Utilizar ordenadores para llevar las cuentas de una empresa.", 10, 'AC'],
+        [203, "Ejercer la profesión de administrativo.", 10, 'PR'],
+        [204, "Trabajar como secretario.", 10, 'PR']
+    ];
+
+    // =========================================================================
+    // MATRIZ DE BAREMOS (TABLA DE CONVERSIÓN DE PUNTUACIÓN DIRECTA A PERCENTIL)
+    // =========================================================================
+    const baremoExcel = {
+         1: { AC: [1, 20, 35, 45, 55, 70, 75, 85, 90, 95, 97, 99, 99], PR: [1, 25, 40, 55, 65, 75, 85, 90, 95, 97, 98, 99, 99] },
+         2: { AC: [1, 20, 30, 40, 55, 65, 70, 80, 90, 95, 97, 99, 99], PR: [1, 20, 30, 40, 50, 60, 70, 80, 85, 90, 97, 99, 99] },
+         3: { AC: [1, 25, 35, 50, 55, 65, 70, 80, 85, 90, 95, 96, 99], PR: [1, 25, 35, 50, 55, 65, 75, 85, 90, 95, 96, 99, 99] },
+         4: { AC: [1, 20, 35, 45, 55, 70, 80, 85, 95, 96, 97, 99, 99], PR: [1, 30, 45, 55, 65, 75, 85, 90, 95, 97, 99, 99, 99] },
+         5: { AC: [1, 20, 30, 40, 50, 60, 65, 75, 80, 85, 90, 95, 99], PR: [1, 20, 30, 40, 50, 60, 70, 75, 80, 90, 90, 97, 99] },
+         6: { AC: [1, 20, 30, 35, 45, 55, 65, 75, 80, 85, 90, 96, 99], PR: [1, 25, 35, 45, 50, 60, 70, 75, 85, 90, 90, 96, 99] },
+         7: { AC: [1, 25, 40, 50, 60, 70, 75, 85, 90, 95, 98, 99, 99], PR: [1, 25, 40, 55, 70, 80, 85, 90, 95, 97, 99, 99, 99] },
+         8: { AC: [1, 30, 40, 50, 55, 65, 70, 75, 80, 85, 90, 95, 99], PR: [1, 30, 40, 50, 55, 65, 70, 75, 85, 90, 95, 99, 99] },
+         9: { AC: [1, 10, 25, 35, 50, 60, 75, 85, 90, 95, 98, 99, 99], PR: [1, 20, 30, 45, 55, 65, 75, 85, 90, 95, 97, 99, 99] },
+        10: { AC: [1, 25, 35, 50, 60, 70, 75, 85, 90, 90, 95, 98, 99], PR: [1, 20, 35, 45, 55, 65, 75, 80, 90, 95, 96, 99, 99] },
+        11: { AC: [1, 25, 30, 40, 45, 55, 60, 65, 70, 75, 85, 90, 99], PR: [1, 35, 40, 50, 55, 65, 70, 75, 85, 90, 96, 99, 99] },
+        12: { AC: [1, 45, 60, 70, 75, 80, 90, 95, 96, 98, 99, 99, 99], PR: [1, 50, 70, 80, 85, 90, 95, 96, 98, 99, 99, 99, 99] },
+        13: { AC: [1, 25, 35, 40, 50, 55, 65, 70, 75, 80, 90, 95, 99], PR: [1, 30, 40, 50, 55, 65, 70, 80, 85, 90, 95, 98, 99] },
+        14: { AC: [1, 15, 30, 40, 50, 60, 65, 75, 85, 90, 95, 97, 99], PR: [1, 20, 30, 40, 50, 60, 70, 75, 85, 90, 90, 95, 99] },
+        15: { AC: [1, 25, 40, 50, 55, 65, 70, 75, 85, 85, 90, 96, 99], PR: [1, 30, 40, 50, 60, 70, 75, 80, 90, 90, 96, 99, 99] },
+        16: { AC: [1, 20, 30, 45, 55, 65, 75, 85, 95, 97, 99, 99, 99], PR: [1, 20, 30, 45, 55, 70, 80, 85, 90, 97, 99, 99, 99] },
+        17: { AC: [1, 25, 40, 55, 70, 80, 90, 95, 97, 99, 99, 99, 99], PR: [1, 50, 65, 75, 85, 90, 95, 97, 98, 99, 99, 99, 99] }
+    };
+
+    let currentIndex = 0;
+    const totalQuestions = allItems.length;
+    let userAnswers = {};
+
+    function renderQuestion() {
+        const container = document.getElementById('question-container');
+        const item = allItems[currentIndex];
+        const id = item[0];
+        const text = item[1];
+        
+        const savedValue = userAnswers[id] !== undefined ? userAnswers[id] : null;
+        
+        container.innerHTML = `
+            <div class="question-card" id="q-card">
+                <div class="question-number">Pregunta ${id}</div>
+                <div class="question-text">${text}</div>
+                <div class="options-grid">
+                    <div class="option-btn ${savedValue === 2 ? 'selected' : ''}" onclick="selectOption(${id}, 2)">
+                        <span class="opt-letter">A</span>
+                        <span class="opt-desc">ME GUSTA</span>
+                    </div>
+                    <div class="option-btn ${savedValue === 1 ? 'selected' : ''}" onclick="selectOption(${id}, 1)">
+                        <span class="opt-letter">B</span>
+                        <span class="opt-desc">INDIFERENTE / DUDAS</span>
+                    </div>
+                    <div class="option-btn ${savedValue === 0 ? 'selected' : ''}" onclick="selectOption(${id}, 0)">
+                        <span class="opt-letter">C</span>
+                        <span class="opt-desc">NO ME GUSTA</span>
+                    </div>
+                    <div class="option-btn ${savedValue === -1 ? 'selected' : ''}" onclick="selectOption(${id}, -1)">
+                        <span class="opt-letter">D</span>
+                        <span class="opt-desc">NO CONOZCO</span>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        document.getElementById('progress-text').innerText = `Pregunta ${currentIndex + 1} de ${totalQuestions}`;
+        document.getElementById('progress-fill').style.width = `${((currentIndex + 1) / totalQuestions) * 100}%`;
+        
+        document.getElementById('btn-prev').disabled = currentIndex === 0;
+        
+        const btnNext = document.getElementById('btn-next');
+        const btnFinish = document.getElementById('btn-finish');
+        
+        if (currentIndex === totalQuestions - 1) {
+            btnNext.style.display = 'none';
+            btnFinish.style.display = 'block';
+        } else {
+            btnFinish.style.display = 'none';
+            btnNext.style.display = 'block';
+        }
+    }
+
+        function selectOption(id, val) {
+        userAnswers[id] = val;
+        
+        const btns = document.querySelectorAll('.option-btn');
+        btns.forEach(btn => btn.classList.remove('selected'));
+        
+        let btnIndex = val === 2 ? 0 : val === 1 ? 1 : val === 0 ? 2 : 3;
+        btns[btnIndex].classList.add('selected');
+
+        document.getElementById('q-card').classList.remove('missed-question');
+
+        setTimeout(() => {
+            if (currentIndex < totalQuestions - 1) {
+                currentIndex++;
+                renderQuestion();
+            }
+        }, 350);
+    }
+
+    function prevQuestion() {
+        if (currentIndex > 0) {
+            currentIndex--;
+            renderQuestion();
+        }
+    }
+
+    function nextQuestion() {
+        const currentId = allItems[currentIndex][0];
+        if (userAnswers[currentId] === undefined) {
+            const card = document.getElementById('q-card');
+            card.classList.add('missed-question');
+            setTimeout(() => card.classList.remove('missed-question'), 500);
+            return;
+        }
+        
+        if (currentIndex < totalQuestions - 1) {
+            currentIndex++;
+            renderQuestion();
+        }
+    }
+
+    function loadFromExcel() {
+        const text = document.getElementById('excel-paste-area').value;
+        if (!text.trim()) {
+            alert('Por favor, pega las respuestas del Excel primero.');
+            return;
+        }
+        
+        let lines = text.split(/\r?\n/);
+        let validLines = [];
+        
+        for (let i = 0; i < lines.length; i++) {
+            let line = lines[i].replace(/\r$/, ''); // Quitar \r final si lo hay, conservar tabuladores
+            
+            // Si la línea está completamente vacía (sin tabuladores), no es parte de la tabla copiada
+            if (line === '') continue;
+            
+            let cols = line.split('\t');
+            let isHeader = false;
+            
+            if (cols.length > 1) {
+                let c0 = cols[0].trim().toUpperCase();
+                let c1 = cols[1].trim().toUpperCase();
+                let c2 = cols.length > 2 ? cols[2].trim().toUpperCase() : '';
+                
+                // Detectar si es una cabecera de Excel (A B C D o Reactivo)
+                if ((c0 === 'A' && c1 === 'B') || c0.includes('REACTIVO') || c1.includes('REACTIVO') || (c1==='A' && c2==='B') || line.replace(/\s/g, '').toUpperCase() === 'ABCD') {
+                    isHeader = true;
+                }
+            } else {
+                let val = line.trim().toUpperCase();
+                if (val.includes('REACTIVO') || val.replace(/\s/g, '') === 'ABCD' || val === 'A') {
+                    isHeader = true;
+                }
+            }
+            
+            if (isHeader) continue; // Saltar cabeceras
+            
+            // Si llegamos aquí, es una línea de datos (ya sea \t\t\t vacía, o con una marca)
+            validLines.push(line);
+        }
+
+        // Tomamos estrictamente las últimas 204 líneas para evitar desfases si pegaron filas extra arriba
+        if (validLines.length > 204) {
+            validLines = validLines.slice(validLines.length - 204);
+        }
+        
+        for (let i = 0; i < 204; i++) {
+            let line = validLines[i] || "";
+            let cols = line.split('\t');
+            
+            let num = 0; // Valor por defecto (0 puntos)
+            
+            // Si copiaron desde la columna A (número) y B (texto), la longitud será >= 6
+            // y cols[1] tendrá el texto del reactivo (largo).
+            // Si copiaron desde la columna B (texto), la longitud será >= 5 y cols[0] tendrá el texto.
+            let ansOffset = 0;
+            if (cols.length >= 6 && cols[1].length > 5) {
+                ansOffset = 2; // Las respuestas empiezan en la columna C (índice 2)
+            } else if (cols.length >= 5 && cols[0].length > 5) {
+                ansOffset = 1; // Las respuestas empiezan en la columna C (índice 1)
+            }
+            
+            if (cols.length > 1) {
+                let cA = cols[ansOffset + 0] ? cols[ansOffset + 0].trim() : '';
+                let cB = cols[ansOffset + 1] ? cols[ansOffset + 1].trim() : '';
+                let cC = cols[ansOffset + 2] ? cols[ansOffset + 2].trim() : '';
+                let cD = cols[ansOffset + 3] ? cols[ansOffset + 3].trim() : '';
+                
+                if (cA !== '' && cA !== '0') num = 2; // Me gusta (a veces copian otros valores, pero si hay algo, cuenta)
+                else if (cA === '0') num = 2; // Me gusta
+                else if (cB !== '') num = 1; // Indiferente
+                else if (cC !== '') num = 0; // No me gusta
+                else if (cD !== '') num = 0; // No conozco
+            } else {
+                let val = line.trim();
+                if (val === '2') num = 2;
+                else if (val === '1') num = 1;
+            }
+            
+            userAnswers[i + 1] = num;
+        }
+        
+        calcularResultados();
+    }
+
+    function finishTest() {
+        const currentId = allItems[currentIndex][0];
+        if (userAnswers[currentId] === undefined) {
+            const card = document.getElementById('q-card');
+            card.classList.add('missed-question');
+            setTimeout(() => card.classList.remove('missed-question'), 500);
+            return;
+        }
+        
+        calcularResultados();
+    }
+
+    let currentUserEmail = null;
+
+    function calcularResultados() {
+        let rawScores = {};
+        for(let i=0; i<=17; i++) {
+            rawScores[i] = { AC: 0, PR: 0 };
+        }
+
+        allItems.forEach(item => {
+            const id = item[0];
+            const campo = item[2];
+            const tipo = item[3];
+            
+            const val = (userAnswers[id] === undefined || userAnswers[id] === -1) ? 0 : userAnswers[id];
+            rawScores[campo][tipo] += val;
+        });
+
+        let results = [];
+        for(let i=1; i<=17; i++) {
+            // Se usa el valor de la puntuación (0-12) como índice para buscar en el Array del baremo
+            let scoreAC = rawScores[i].AC;
+            let scorePR = rawScores[i].PR;
+
+            let pctAC = baremoExcel[i].AC[scoreAC];
+            let pctPR = baremoExcel[i].PR[scorePR];
+            let avgPct = Math.round((pctAC + pctPR) / 2);
+
+            results.push({
+                campoId: i,
+                nombre: camposNombres[i-1],
+                pctAC: pctAC,
+                pctPR: pctPR,
+                avgPct: avgPct,
+                discrepancy: Math.abs(pctAC - pctPR) > 30
+            });
+        }
+
+        renderResults(results);
+    }
+
+    function renderResults(results) {
+        document.getElementById('quiz-view').style.display = 'none';
+        document.getElementById('results-view').style.display = 'block';
+
+        let chartHtml = '';
+        results.forEach(r => {
+            chartHtml += `
+                <div class="chart-row">
+                    <div class="chart-label">${r.nombre}</div>
+                    <div class="bar-container">
+                        <div class="bar bar-ac" style="width: ${r.pctAC}%;">${r.pctAC}</div>
+                        <div class="bar bar-pr" style="width: ${r.pctPR}%;">${r.pctPR}</div>
+                    </div>
+                    <div style="font-size: 0.8rem; text-align: right;">
+                        <span style="color:var(--accent)">${r.pctAC}</span> | <span style="color:var(--primary)">${r.pctPR}</span>
+                    </div>
+                </div>
+            `;
+        });
+        document.getElementById('chart-rows').innerHTML = chartHtml;
+
+        let altos = [], medios = [], bajos = [];
+        
+        let sortedResults = [...results].sort((a,b) => b.avgPct - a.avgPct);
+        
+        sortedResults.forEach(r => {
+            if(r.avgPct >= 70) altos.push(r);
+            else if(r.avgPct >= 30) medios.push(r);
+            else bajos.push(r);
+        });
+
+        const container = document.getElementById('interpretations-container');
+        container.innerHTML = "";
+
+        const createInterpCard = (r, level) => {
+            const info = infoCampos[r.campoId];
+            let desc = "";
+
+            if (level === 'alto') {
+                desc = `Manifiestas un <strong>interés muy marcado</strong> en este campo. Te resultan altamente atractivas actividades como ${info.act}. Esto sugiere una fuerte inclinación vocacional hacia profesiones como <strong>${info.pro}</strong>, donde podrías encontrar gran satisfacción profesional.`;
+            } else if (level === 'medio') {
+                desc = `Muestras un <strong>interés intermedio o mixto</strong>. Es posible que disfrutes puntualmente de algunas tareas vinculadas a ${info.act}, pero tienes reservas, dudas o desconocimiento sobre dedicarte de lleno a profesiones como <strong>${info.pro}</strong>.`;
+            } else {
+                desc = `Manifiestas un <strong>claro desinterés o rechazo</strong>. No te resultan estimulantes las actividades como ${info.act}. Con gran probabilidad, profesiones como <strong>${info.pro}</strong> te resultarían insatisfactorias o ajenas a tu perfil vocacional.`;
+            }
+
+            let discHtml = "";
+            if (r.discrepancy) {
+                let mayor = r.pctAC > r.pctPR ? "las actividades prácticas" : "el prestigio o idea de las profesiones";
+                let menor = r.pctAC < r.pctPR ? "las profesiones asociadas" : "las tareas cotidianas reales";
+                discHtml = `<div class="discrepancy-badge"><strong>¡Atención! Discrepancia significativa:</strong> Te atraen más ${mayor} (PC ${Math.max(r.pctAC, r.pctPR)}) que ${menor} (PC ${Math.min(r.pctAC, r.pctPR)}). Esto indica necesidad de mayor información vocacional sobre la realidad de este campo.</div>`;
+            }
+
+            return `
+                <div class="interp-card">
+                    <h4>${r.nombre} <span class="interp-pct">Promedio: PC ${r.avgPct}</span></h4>
+                    <p style="font-size:0.95rem; line-height: 1.5; color: var(--text-muted);">${desc}</p>
+                    ${discHtml}
+                </div>
+            `;
+        };
+
+        if (altos.length > 0) {
+            let html = `<div class="interpretation-group">
+                <h3 style="color: var(--accent);">Campos de Interés Prioritario (Percentil 70+)</h3>
+                <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:15px;">Estas son las áreas principales hacia las que deberías orientar tu futuro vocacional según tus respuestas.</p>`;
+            altos.forEach(r => html += createInterpCard(r, 'alto'));
+            html += `</div>`;
+            container.innerHTML += html;
+        }
+
+        if (medios.length > 0) {
+            let html = `<div class="interpretation-group">
+                <h3 style="color: var(--warning);">Campos de Interés Moderado/Dudoso (Percentil 30-69)</h3>
+                <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:15px;">Áreas que te generan curiosidad parcial o indiferencia. Podrían ser aficiones o requerir más exploración.</p>`;
+            medios.forEach(r => html += createInterpCard(r, 'medio'));
+            html += `</div>`;
+            container.innerHTML += html;
+        }
+
+        if (bajos.length > 0) {
+            let html = `<div class="interpretation-group">
+                <h3 style="color: var(--danger);">Campos de Rechazo o Desinterés (Percentil menor a 30)</h3>
+                <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:15px;">Áreas profesionales y actividades que claramente no encajan con tus gustos actuales.</p>`;
+            bajos.forEach(r => html += createInterpCard(r, 'bajo'));
+            html += `</div>`;
+            container.innerHTML += html;
+        }
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Wait for Firebase Auth to initialize before rendering
+    let checkInterval = setInterval(() => {
+        if (window.DaiaAuth && window.DaiaDB) {
+            clearInterval(checkInterval);
+            window.DaiaAuth.onAuthStateChanged(async (user) => {
+                if (!user) {
+                    window.location.href = "tests.html";
+                    return;
+                }
+                currentUserEmail = user.email;
+                const uiEl = document.getElementById('user-info-display');
+                if(uiEl) uiEl.innerText = "Usuario: " + user.email;
+                const resEl = document.getElementById('user-info-results');
+                if(resEl) resEl.innerText = "Usuario: " + user.email;
+
+                const pastResult = await window.DaiaDB.hasUserTakenTest(user.email, 'IPP');
+                if (pastResult && pastResult.answers) {
+                    alert("Ya completaste este test. Mostrando tus resultados anteriores.");
+                    window.showingPastResults = true;
+                    userAnswers = pastResult.answers;
+                    
+                    document.getElementById('quiz-view').style.display = 'none';
+                    document.getElementById('results-view').style.display = 'block';
+                    
+                    calcularResultados();
+                } else {
+                    renderQuestion();
+                }
+            });
+        }
+    }, 100);
+</script>
+    <script src="script.js" defer></script>
+
+
+    <footer class="backdrop-blur-lg border-t py-12 mt-auto relative z-10 border-slate-200 dark:border-white/10 bg-[rgba(239,246,255,0.9)] dark:bg-transparent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 text-center md:text-left">
+                <!-- Column 1: Branding -->
+                <div class="flex flex-col items-center md:items-start gap-4">
+                    <div class="flex items-center gap-3">
+                        <img src="ucv.webp" alt="UCV" width="128" height="40" class="h-10 w-auto drop-shadow-md" loading="lazy" decoding="async">
+                        <img src="daia.webp" alt="DAIA" width="40" height="40" class="h-10 w-auto bg-white p-0.5 rounded-md shadow-sm" loading="lazy" decoding="async">
+                    </div>
+                    <p class="text-gray-800 dark:text-gray-300 text-sm leading-relaxed">Formando atletas integrales para el futuro de Venezuela. Excelencia académica y deportiva en la Universidad Central de Venezuela.</p>
+                </div>
+                
+                <!-- Column 2: Quick Links -->
+                <div>
+                    <h3 class="font-bold text-slate-900 dark:text-white mb-4 text-lg">Enlaces Rápidos</h3>
+                    <ul class="space-y-2 text-sm text-gray-800 dark:text-gray-300">
+                        <li><a href="index.html" class="py-2 inline-block hover:text-blue-600 transition-colors">Inicio</a></li>
+                        <li><a href="disciplinas.html" class="py-2 inline-block hover:text-blue-600 transition-colors">Disciplinas</a></li>
+                        <li><a href="servicios.html" class="py-2 inline-block hover:text-blue-600 transition-colors">Servicios DAIA</a></li>
+                        <li><a href="articulo25.html" class="py-2 inline-block hover:text-blue-600 transition-colors">Artículo 25</a></li>
+                        <li><a href="tests.html" class="py-2 inline-block hover:text-blue-600 transition-colors">Tests</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3: Social Media -->
+                <div>
+                    <h3 class="font-bold text-slate-900 dark:text-white mb-4 text-lg">Redes Sociales</h3>
+                    <ul class="space-y-3 text-sm text-gray-800 dark:text-gray-300">
+                        <li><a href="https://www.instagram.com/deportesucv/" target="_blank" rel="noopener noreferrer" class="flex py-2 items-center justify-center md:justify-start gap-2 hover:text-blue-600 transition-colors"><i data-lucide="instagram" class="w-4 h-4"></i> Deportes UCV</a></li>
+                        <li><a href="https://www.instagram.com/daiadeportesucv/" target="_blank" rel="noopener noreferrer" class="flex py-2 items-center justify-center md:justify-start gap-2 hover:text-blue-600 transition-colors"><i data-lucide="instagram" class="w-4 h-4"></i> DAIA UCV</a></li>
+                        <li><a href="https://www.facebook.com/p/DAIA-Deportes-UCV-100076199720429/" target="_blank" rel="noopener noreferrer" class="flex py-2 items-center justify-center md:justify-start gap-2 hover:text-blue-600 transition-colors"><i data-lucide="facebook" class="w-4 h-4"></i> Facebook DAIA</a></li>
+                        <li><a href="https://www.ucv.ve/" target="_blank" rel="noopener noreferrer" class="flex py-2 items-center justify-center md:justify-start gap-2 hover:text-blue-600 transition-colors"><i data-lucide="globe" class="w-4 h-4"></i> Página Oficial UCV</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4: Contact Info -->
+                <div>
+                    <h3 class="font-bold text-slate-900 dark:text-white mb-4 text-lg">Contacto</h3>
+                    <ul class="space-y-3 text-sm text-gray-800 dark:text-gray-300">
+                        <li class="flex items-start justify-center md:justify-start gap-2"><i data-lucide="map-pin" class="w-4 h-4 mt-0.5 flex-shrink-0"></i> <span>Ciudad Universitaria de Caracas, Dirección de Deportes, Edif. Gimnasio Cubierto, Planta Baja.</span></li>
+                        <li class="flex items-center justify-center md:justify-start gap-2"><i data-lucide="phone" class="w-4 h-4 flex-shrink-0"></i> <span>+58 (212) 605-0000</span></li>
+                        <li class="flex items-center justify-center md:justify-start gap-2"><i data-lucide="mail" class="w-4 h-4 flex-shrink-0"></i> <span>daia@deportes.ucv.ve</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-200 dark:border-white/10 pt-8 flex flex-col md:flex-row justify-center items-center gap-4">
+                <p class="text-xs text-gray-700 dark:text-gray-400">© 2024 DAIA - Universidad Central de Venezuela. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const initIcons = () => {
+                if (!window.lucide) return;
+                setTimeout(() => lucide.createIcons(), 1500);
+            };
+            initIcons();
+
+            // Pre-query DOM elements
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const fadeUpElements = document.querySelectorAll('.fade-up');
+
+            // Zero-read Theme Toggle state tracking
+            let isDarkMode = window.__INITIAL_THEME === 'dark';
+            if (themeToggleBtn) {
+                themeToggleBtn.addEventListener('click', () => {
+                    isDarkMode = !isDarkMode;
+                    const action = isDarkMode ? 'add' : 'remove';
+                    const theme = isDarkMode ? 'dark' : 'light';
+                    requestAnimationFrame(() => {
+                        document.documentElement.classList[action]('dark');
+                        localStorage.setItem('color-theme', theme);
+                    });
+                });
+            }
+
+            // Mobile menu toggle
+            const menuToggleBtn = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (menuToggleBtn && mobileMenu) {
+                menuToggleBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('open');
+                    const icon = menuToggleBtn.querySelector('i');
+                    if (icon && window.lucide) {
+                        const isMenu = icon.getAttribute('data-lucide') === 'menu';
+                        icon.setAttribute('data-lucide', isMenu ? 'x' : 'menu');
+                        lucide.createIcons({
+                            attrs: { class: 'w-6 h-6' },
+                            nameAttr: 'data-lucide',
+                            icons: { [isMenu ? 'x' : 'menu']: isMenu ? lucide.icons.X : lucide.icons.Menu }
+                        });
+                    }
+                });
+            }
+
+            if (fadeUpElements.length > 0) {
+                const visibleQueue = [];
+                let isProcessing = false;
+
+                const processQueue = () => {
+                    if (visibleQueue.length > 0) {
+                        const el = visibleQueue.shift();
+                        el.classList.add('visible');
+                        if (visibleQueue.length > 0) {
+                            requestAnimationFrame(processQueue);
+                        } else {
+                            isProcessing = false;
+                        }
+                    } else {
+                        isProcessing = false;
+                    }
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    let added = false;
+                    entries.forEach(e => {
+                        if (e.isIntersecting) {
+                            visibleQueue.push(e.target);
+                            observer.unobserve(e.target);
+                            added = true;
+                        }
+                    });
+                    
+                    if (added && !isProcessing) {
+                        isProcessing = true;
+                        requestAnimationFrame(processQueue);
+                    }
+                }, { threshold: 0.1 });
+                fadeUpElements.forEach(el => observer.observe(el));
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+

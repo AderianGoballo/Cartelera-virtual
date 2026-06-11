@@ -1,0 +1,1053 @@
+﻿<!DOCTYPE html>
+<html lang="es" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' unpkg.com cdnjs.cloudflare.com https://www.gstatic.com https://apis.google.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' fonts.gstatic.com; connect-src 'self' https://*.firebaseio.com https://firestore.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com; frame-src 'self' https://apis.google.com https://test-daia.firebaseapp.com;">
+    <title>DAIA UCV | Test CASM-85</title>
+    <meta name="description" content="Guía completa sobre el ingreso a la UCV por el Artículo 25: beneficios, requisitos y proceso de postulación para atletas de alto rendimiento.">
+    <link rel="icon" type="image/webp" href="deportes.webp">
+    
+    <script>
+        // Synchronous theme check to prevent FOUC and forced reflow
+        (function() {
+            const theme = localStorage.getItem('color-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (theme === 'dark') document.documentElement.classList.add('dark');
+            else document.documentElement.classList.remove('dark');
+            window.__INITIAL_THEME = theme;
+        })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"></noscript>
+    <link rel='stylesheet' href='style.css'>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+        :root {
+            /* LIGHT MODE - Azul Monocromático */
+            --color-bg: transparent;
+            --color-bg-dark: transparent;
+            --color-bg-warm: #ffffff;
+            --color-texto: #0f172a;
+            --color-texto-claro: #334155;
+            --color-borde: #bfdbfe;
+            --color-primary: #2563eb;
+            --color-primary-dark: #1d4ed8;
+            --color-primary-light: rgba(37,99,235,0.1);
+            --color-accent: #60a5fa;
+            --color-danger: #ef4444;
+            --color-success: #10b981;
+
+            --bg-page: var(--color-bg);
+            --bg-card: var(--color-bg-warm);
+            --primary: var(--color-primary); 
+            --primary-hover: var(--color-primary-dark);
+            --accent: var(--color-accent);
+            --text-main: var(--color-texto);
+            --text-muted: var(--color-texto-claro);
+            --border: var(--color-borde);
+            --card-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        html.dark {
+            /* DARK MODE - Azul Monocromático */
+            --color-bg: #082f49;
+            --color-bg-dark: transparent;
+            --color-bg-warm: #0c4a6e;
+            --color-texto: #f0f9ff;
+            --color-texto-claro: #cbd5e1;
+            --color-borde: #1e3a5f;
+            --color-primary: #38bdf8;
+            --color-primary-dark: #0284c7;
+            --color-primary-light: #072238;
+            --color-accent: #38bdf8;
+            --card-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background-color: transparent;
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 0 !important;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .main-test-container {
+            padding-top: 0;
+            padding-bottom: 2rem;
+            
+        }
+
+        .test-card {
+            max-width: 850px !important; backdrop-filter: blur(16px);
+            margin-left: auto !important;
+            margin-right: auto !important;
+            background: var(--bg-card);
+            padding: 40px;
+            border: 2px solid var(--border);
+            position: relative;
+            border-radius: 1.5rem;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .test-header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 20px;
+        }
+
+        .test-header h1 { color: var(--primary); font-size: 2rem; margin-bottom: 10px; }
+        .test-header p { color: var(--text-muted); }
+
+        /* Instrucciones */
+        .instructions {
+            text-align: center;
+            background-color: rgba(59, 130, 246, 0.1);
+            border-left: 4px solid var(--primary);
+            padding: 15px 20px;
+            margin-bottom: 30px;
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+
+        /* Paginación y Progreso */
+        .progress-container { margin-bottom: 30px; }
+        .progress-bar {
+            width: 100%; height: 10px; background: var(--border);
+            border-radius: 5px; overflow: hidden; margin-bottom: 10px;
+        }
+        .progress-fill {
+            height: 100%; background: var(--accent);
+            width: 0%; transition: width 0.4s ease;
+        }
+        .progress-text {
+            text-align: right; color: var(--text-muted);
+            font-size: 0.9rem; font-weight: bold;
+        }
+
+        /* UI de Pregunta Única */
+        .question-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border);
+            border-radius: 1.5rem;
+            padding: 40px 50px;
+            text-align: center;
+            min-height: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .question-number {
+            color: var(--primary); font-size: 1.1rem; font-weight: bold;
+            margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        .question-text {
+            font-size: 1.4rem; font-weight: 600; margin-bottom: 40px;
+            color: var(--color-texto); line-height: 1.4; text-align: center;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 500px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .option-btn {
+            background: var(--bg-page); border: 2px solid var(--border);
+            color: var(--text-main); padding: 20px; border-radius: 8px;
+            font-size: 1.2rem; font-weight: 700; cursor: pointer;
+            transition: all 0.2s ease; text-align: center;
+        }
+
+        .option-btn:hover {
+            border-color: var(--primary);
+            background: var(--color-primary-light, rgba(59, 130, 246, 0.05));
+            transform: translateY(-2px);
+        }
+
+        .option-btn.selected {
+            background: var(--primary); border-color: var(--primary);
+            color: #ffffff; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+        }
+
+        /* Controles de navegación */
+        .controls {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-top: 30px; gap: 15px; flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 24px; border: none; border-radius: 6px;
+            font-size: 1rem; font-weight: bold; cursor: pointer; transition: all 0.2s;
+        }
+        .btn-outline {
+            background: transparent; color: var(--text-main); border: 1px solid var(--border);
+        }
+        .btn-outline:hover:not(:disabled) { 
+            background: rgba(255,255,255,0.05); border-color: var(--text-muted);
+        }
+        .btn-primary { background: var(--primary); color: #ffffff; }
+        .btn-primary:hover:not(:disabled) { background: var(--primary-hover); }
+        .btn:disabled { opacity: 0.3; cursor: not-allowed; }
+
+        /* RESULTADOS */
+        #results-view { display: none; text-align: center; }
+        
+        .profile-chart {
+            margin: 40px 0; border: 1px solid var(--border); border-radius: 8px;
+            padding: 20px; background: rgba(0,0,0,0.05);
+        }
+        .chart-row {
+            display: grid; grid-template-columns: 260px 1fr 60px; align-items: center;
+            gap: 15px; margin-bottom: 20px; border-bottom: 1px dashed var(--border); padding-bottom: 10px;
+        }
+        .chart-label { font-size: 0.9rem; font-weight: bold; text-align: left;}
+        .bar-container {
+            width: 100%; background: var(--border); height: 28px;
+            border-radius: 14px; position: relative; overflow: hidden;
+        }
+        .bar {
+            height: 100%; border-radius: 14px; position: absolute; left: 0;
+            display: flex; align-items: center; justify-content: flex-end;
+            padding-right: 10px; font-size: 0.8rem; color: #ffffff; font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.6); transition: width 1s ease;
+        }
+        
+        .chart-scale {
+            display: grid; grid-template-columns: 260px 1fr 60px; gap: 15px;
+            margin-bottom: 15px; color: var(--text-muted); font-size: 0.8rem; text-align: left;
+        }
+
+        /* Sección de Interpretaciones */
+        .interpretations-section { margin-top: 40px; text-align: left; }
+        
+        .interp-card {
+            margin-bottom: 20px; padding: 20px; border-radius: 8px;
+            background: rgba(255,255,255,0.03); border: 1px solid var(--border);
+            border-left: 6px solid var(--primary);
+        }
+        .interp-card h4 {
+            color: var(--color-texto); margin-bottom: 8px;
+            display: flex; justify-content: space-between; font-size: 1.1rem;
+        }
+        .interp-pct { font-size: 0.9rem; color: var(--text-muted); font-weight: normal; }
+
+        .category-badge {
+            display: inline-block; padding: 4px 10px; border-radius: 4px;
+            font-size: 0.85rem; font-weight: bold; margin-top: 5px; color: #fff;
+        }
+
+        .missed-question {
+            border-color: var(--danger); background: rgba(239, 68, 68, 0.05);
+            animation: shake 0.5s;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+        }
+
+        .pdf-btn {
+            background-color: var(--color-accent); color: #ffffff; font-weight: bold;
+            padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;
+            font-size: 1rem; display: inline-flex; align-items: center; gap: 8px; transition: transform 0.2s;
+        }
+        .pdf-btn:hover { transform: translateY(-2px); }
+
+        @media (max-width: 768px) {
+            .options-grid { grid-template-columns: 1fr; }
+            .chart-row { grid-template-columns: 100px 1fr 40px; }
+            .chart-label { font-size: 0.75rem; }
+            .chart-scale { grid-template-columns: 100px 1fr 40px; }
+            .interp-card h4 { flex-direction: column; }
+        }
+
+        /* Utilidad de Colores Clínicos */
+        .c-muy-positivo { background-color: var(--color-success); }
+        .c-positivo { background-color: #34d399; }
+        .c-ten-positivo { background-color: var(--primary); }
+        .c-ten-negativo { background-color: #f59e0b; color: #000!important; }
+        .c-negativo { background-color: #f87171; }
+        .c-muy-negativo { background-color: var(--color-danger); }
+    </style>
+
+    
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+
+    <script type="module" src="firebase-config.js"></script>
+</head>
+<body class="font-sans antialiased flex flex-col">
+
+    <nav class="fixed w-full z-50 backdrop-blur-md border-b shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+                    <img src="ucv.webp" alt="Universidad Central de Venezuela" width="128" height="40" class="h-10 w-auto drop-shadow-md" loading="eager" decoding="async" fetchpriority="high">
+                    <img src="deportes.webp" alt="Dirección de Deportes UCV" width="40" height="40" class="h-10 w-auto bg-white p-0.5 rounded-md shadow-sm hidden sm:block" loading="eager" decoding="async" fetchpriority="high">
+                </a>
+                
+                <div class="hidden md:flex space-x-8 text-slate-700 dark:text-white text-sm font-semibold">
+                    <a href="index.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Inicio</a>
+                    <a href="disciplinas.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Disciplinas</a>
+                    <a href="servicios.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Servicios DAIA</a>
+                    <a href="articulo25.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Artículo 25</a>
+                    <a href="tests.html" class="text-blue-600 dark:text-blue-400 transition relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-blue-600 dark:after:bg-blue-400">Tests</a>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <a href="index.html" class="hover:opacity-80 transition-opacity">
+                        <img src="daia.webp" alt="DAIA UCV" width="40" height="40" class="h-10 w-auto bg-white p-0.5 rounded-md shadow-sm" loading="eager" decoding="async" fetchpriority="high">
+                    </a>
+                    <div id="auth-container"></div>
+                    <button id="theme-toggle" aria-label="Cambiar tema (claro/oscuro)" class="ml-2 p-2 rounded-xl bg-slate-200 dark:bg-white/10 text-slate-800 dark:text-white hover:bg-slate-300 dark:hover:bg-white/20 transition-colors border border-transparent dark:border-white/10 shadow-sm focus:outline-none">
+                        <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
+                        <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                    </button>
+                    <button id="menu-toggle" aria-label="Abrir menú" class="md:hidden p-2 rounded-xl bg-slate-200 dark:bg-white/10 text-slate-800 dark:text-white border border-transparent dark:border-white/10 shadow-sm focus:outline-none">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden pb-6 pt-2 border-t border-slate-200 dark:border-white/10">
+                <div class="flex flex-col space-y-4 text-slate-700 dark:text-white text-sm font-semibold">
+                    <a href="index.html" class="hover:text-blue-600 dark:hover:text-blue-400 py-2 border-b border-slate-100 dark:border-white/5">Inicio</a>
+                    <a href="disciplinas.html" class="hover:text-blue-600 dark:hover:text-blue-400 py-2 border-b border-slate-100 dark:border-white/5">Disciplinas</a>
+                    <a href="servicios.html" class="hover:text-blue-600 dark:hover:text-blue-400 py-2 border-b border-slate-100 dark:border-white/5">Servicios DAIA</a>
+                    <a href="articulo25.html" class="hover:text-blue-600 dark:hover:text-blue-400 py-2 border-b border-slate-100 dark:border-white/5">Artículo 25</a>
+                    <a href="tests.html" class="text-blue-600 dark:text-blue-400 py-2">Tests</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    
+    <main class="flex-grow pt-24 pb-16 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 major-container">
+<div class="container test-card">
+            <div class="test-header">
+                <h1>Test CASM-85</h1>
+                <p>Inventario de Hábitos de Estudio de Luis Vicuña Peri</p>
+            </div>
+
+            <div id="quiz-view">
+                <div class="instructions">
+                    <strong>Instrucciones:</strong> Lea cada afirmación y marque <strong>SIEMPRE</strong> o <strong>NUNCA</strong> según coincida o no con lo que usted hace. Responda con veracidad, no existen respuestas buenas ni malas.
+                </div>
+
+                
+
+                <div id="user-info-display" style="text-align:center; padding: 10px; margin-bottom: 20px; background: rgba(37, 99, 235, 0.1); color: var(--primary); font-weight: bold; border-radius: 8px; border: 1px solid var(--primary-light);"></div>
+<div class="progress-container">
+                    <div class="progress-bar"><div id="progress-fill" class="progress-fill"></div></div>
+                    <div id="progress-text" class="progress-text">Pregunta 1 de 53</div>
+                </div>
+
+                <div id="question-container">
+                    <!-- La pregunta se inyecta aquí -->
+                </div>
+
+                <div class="controls" style="display: flex; justify-content: center; gap: 20px; align-items: center;">
+                    <button class="btn btn-outline" id="btn-prev" onclick="prevQuestion()" disabled>&#8592; Anterior</button>
+                    
+                    <div style="display: flex; gap: 10px; margin-left: auto;">
+                        
+                        <button class="btn btn-primary" id="btn-next" onclick="nextQuestion()" style="display: none;">Siguiente &#8594;</button>
+                        <button class="btn btn-primary" id="btn-finish" onclick="finishTest()" style="display: none;">Finalizar Test</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="results-view">
+                <h2>Perfil de Hábitos de Estudio</h2>
+                <p style="color: var(--text-muted); margin-bottom: 20px;">
+                    Los resultados obtenidos definen la categoría diagnóstica general y el perfil específico por áreas de estudio, indicando las fortalezas y los aspectos que requieren atención.
+                </p>
+
+                <div style="text-align: right; margin-bottom: 10px;">
+                    <button id="toggle-chart-btn" class="btn btn-outline" style="font-size: 0.8rem; padding: 5px 10px;" onclick="toggleChartType()">Ver Gráfico de Líneas</button>
+                </div>
+                <div class="profile-chart">
+                    <div id="bar-chart-container">
+                        <div class="chart-scale" style="text-align: left;">
+                            <div>Áreas de Evaluación</div>
+                            <div style="text-align: center;">Nivel de Eficiencia (Puntuación Bruta / Máxima)</div>
+                            <div>Ptos</div>
+                        </div>
+                        <div id="chart-rows"></div>
+                    </div>
+                    <div id="line-chart-container" style="display: none; padding: 20px 0;">
+                        <svg id="line-chart-svg" viewBox="0 0 500 220" style="width: 100%; height: auto; max-width: 600px; margin: 0 auto; display: block; overflow: visible;"></svg>
+                    </div>
+                </div>
+
+                <div class="interpretations-section" id="interpretations-container">
+                    <!-- Las interpretaciones agrupadas se inyectan aquí -->
+                </div>
+
+                <div class="controls" style="justify-content: center; margin-top: 40px;">
+                    
+                    <button class="pdf-btn" onclick="downloadPDF()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                        Descargar resultados
+                    </button>
+                </div>
+            </div>
+        
+        </div>
+    </main>
+    <script src="script.js" defer></script>
+    <script>
+    // Estructura de Ítems CASM-85 (53 items)
+    // Formato: [ID, "Pregunta", Area (1 a 5), "Respuesta Correcta" ('S' para Siempre, 'N' para Nunca)]
+    const allItems = [
+        [1, "Leo todo lo que tengo que estudiar subrayando los puntos más importantes.", 1, 'S'],
+        [2, "Subrayo las palabras cuyo significado no sé.", 1, 'S'],
+        [3, "Regreso a los puntos subrayados con el propósito de aclararlo.", 1, 'S'],
+        [4, "Busco de inmediato en el diccionario el significado de las palabras que no sé.", 1, 'S'],
+        [5, "Me hago preguntas y me respondo en mi propio lenguaje lo que he comprendido.", 1, 'S'],
+        [6, "Luego escribo en mi propio lenguaje lo que he comprendido.", 1, 'S'],
+        [7, "Doy una leída parte por parte y repito varias veces hasta recitarlo de memoria.", 1, 'N'],
+        [8, "Trato de memorizar todo lo que estudio.", 1, 'N'],
+        [9, "Repaso lo que he estudiado después de 4 a 8 horas.", 1, 'S'],
+        [10, "Me limito a dar una leída general a todo lo que tengo que estudiar.", 1, 'N'],
+        [11, "Trato de relacionar el tema que estoy estudiando con otros temas ya estudiados.", 1, 'S'],
+        [12, "Estudio solo para los exámenes.", 1, 'N'],
+        [13, "Leo la pregunta, busco en el libro y escribo la respuesta casi como dice el libro.", 2, 'N'],
+        [14, "Leo la pregunta, busco en el libro, lo leo todo, lo comprendo y respondo con mis propias palabras.", 2, 'S'],
+        [15, "Empiezo a resolver un problema, no lo entiendo y lo dejo.", 2, 'N'],
+        [16, "Le pido a mis familiares que me ayuden a hacer mis tareas.", 2, 'N'],
+        [17, "Pido a mis compañeros que me ayuden a hacer mis tareas.", 2, 'N'],
+        [18, "Mis padres o familiares me hacen las tareas.", 2, 'N'],
+        [19, "Pido a mis amigos que me presten sus tareas para copiarlas.", 2, 'N'],
+        [20, "Copio las tareas de mis amigos mientras el profesor explica la clase.", 2, 'N'],
+        [21, "Copio las tareas de mis compañeros durante el recreo.", 2, 'N'],
+        [22, "Hago mis tareas en mi casa y las termino en el colegio.", 2, 'S'],
+        [23, "Estudio por lo menos dos horas todos los días.", 3, 'S'],
+        [24, "Espero que se fije la fecha de un examen para ponerme a estudiar.", 3, 'N'],
+        [25, "Cuando hay examen estudio recién el día anterior.", 3, 'N'],
+        [26, "Me pongo a estudiar el mismo día del examen.", 3, 'N'],
+        [27, "Repaso mis cuadernos o apuntes poco antes del examen.", 3, 'N'],
+        [28, "Preparar un plagio por si me olvido el tema.", 3, 'N'],
+        [29, "Confío en que mi compañero me sople alguna respuesta.", 3, 'N'],
+        [30, "Confío en mi buena suerte.", 3, 'N'],
+        [31, "Cuando tengo examen trato de no asistir al colegio.", 3, 'S'],
+        [32, "Me presento a dar mis exámenes sin haber estudiado.", 3, 'N'],
+        [33, "Durante el examen se me confunden los temas, se me olvida lo que he estudiado.", 3, 'N'],
+        [34, "Trato de tomar apuntes de todo lo que dice el profesor.", 4, 'N'],
+        [35, "Sólo tomo apuntes de las cosas más importantes.", 4, 'S'],
+        [36, "Inmediatamente después de una clase ordeno mis apuntes.", 4, 'S'],
+        [37, "Cuando el profesor utiliza alguna palabra que no sé, levanto la mano y pido su significado.", 4, 'S'],
+        [38, "Estoy más atento a las bromas de mis compañeros que a la clase.", 4, 'N'],
+        [39, "Me canso rápidamente y me pongo a hacer otras cosas.", 4, 'N'],
+        [40, "Cuando me aburro me pongo a jugar o a conversar con mi amigo.", 4, 'N'],
+        [41, "Cuando no puedo tomar nota de lo que dice el profesor me aburro y lo dejo todo.", 4, 'N'],
+        [42, "Cuando no entiendo un tema mi mente se pone a pensar soñando despierto.", 4, 'N'],
+        [43, "Mis imaginaciones o fantasías me distraen durante las clases.", 4, 'N'],
+        [44, "Durante las clases me distraigo pensando lo que voy a hacer a la salida.", 4, 'N'],
+        [45, "Durante las clases me gustaría dormir o tal vez irme de clase.", 4, 'N'],
+        [46, "Requiero de música sea del radio o equipo de audio (mp3, mp4).", 5, 'N'],
+        [47, "Requiero la compañía de la TV.", 5, 'N'],
+        [48, "Requiero de tranquilidad y silencio.", 5, 'S'],
+        [49, "Requiero de algún alimento que como mientras estudio.", 5, 'N'],
+        [50, "Mi familia; que conversan, ven TV o escuchan música.", 5, 'N'],
+        [51, "Interrupciones por parte de mis padres pidiéndome algún favor.", 5, 'N'],
+        [52, "Interrupciones de visitas, amigos, que me quitan tiempo.", 5, 'N'],
+        [53, "Interrupciones con fiestas, paseos, citas, etc.", 5, 'N']
+    ];
+
+    const nombresAreas = [
+        "I. ¿Cómo estudia usted?",
+        "II. ¿Cómo hace sus tareas?",
+        "III. ¿Cómo prepara sus exámenes?",
+        "IV. ¿Cómo escucha las clases?",
+        "V. ¿Qué acompaña sus momentos de estudio?"
+    ];
+
+    const maxPuntos = { 1: 12, 2: 10, 3: 11, 4: 12, 5: 8 };
+
+    let currentIndex = 0;
+    const totalQuestions = allItems.length;
+    let userAnswers = {};
+
+    function renderQuestion() {
+        const container = document.getElementById('question-container');
+        const item = allItems[currentIndex];
+        const id = item[0];
+        const text = item[1];
+        
+        const savedValue = userAnswers[id];
+        
+        container.innerHTML = `
+            <div class="question-card" id="q-card">
+                <div class="question-number">Pregunta ${id}</div>
+                <div class="question-text">${text}</div>
+                <div class="options-grid">
+                    <div class="option-btn ${savedValue === 'S' ? 'selected' : ''}" onclick="selectOption(${id}, 'S')">
+                        SIEMPRE
+                    </div>
+                    <div class="option-btn ${savedValue === 'N' ? 'selected' : ''}" onclick="selectOption(${id}, 'N')">
+                        NUNCA
+                    </div>
+                </div>
+            </div>
+        `;
+
+        document.getElementById('progress-text').innerText = `Pregunta ${currentIndex + 1} de ${totalQuestions}`;
+        document.getElementById('progress-fill').style.width = `${((currentIndex + 1) / totalQuestions) * 100}%`;
+        
+        document.getElementById('btn-prev').disabled = currentIndex === 0;
+        
+        const btnNext = document.getElementById('btn-next');
+        const btnFinish = document.getElementById('btn-finish');
+        
+        if (currentIndex === totalQuestions - 1) {
+            btnNext.style.display = 'none';
+            btnFinish.style.display = 'block';
+        } else {
+            btnFinish.style.display = 'none';
+            btnNext.style.display = 'block';
+        }
+    }
+
+    function selectOption(id, val) {
+        userAnswers[id] = val;
+        
+        const btns = document.querySelectorAll('.option-btn');
+        btns.forEach(btn => btn.classList.remove('selected'));
+        
+        let btnIndex = val === 'S' ? 0 : 1;
+        btns[btnIndex].classList.add('selected');
+
+        document.getElementById('q-card').classList.remove('missed-question');
+
+        setTimeout(() => {
+            if (currentIndex < totalQuestions - 1) {
+                currentIndex++;
+                renderQuestion();
+            }
+        }, 350);
+    }
+
+    function prevQuestion() {
+        if (currentIndex > 0) {
+            currentIndex--;
+            renderQuestion();
+        }
+    }
+
+    function nextQuestion() {
+        const currentId = allItems[currentIndex][0];
+        if (!userAnswers[currentId]) {
+            const card = document.getElementById('q-card');
+            card.classList.add('missed-question');
+            setTimeout(() => card.classList.remove('missed-question'), 500);
+            return;
+        }
+        
+        if (currentIndex < totalQuestions - 1) {
+            currentIndex++;
+            renderQuestion();
+        }
+    }
+
+    function finishTest() {
+        const currentId = allItems[currentIndex][0];
+        if (!userAnswers[currentId]) {
+            const card = document.getElementById('q-card');
+            card.classList.add('missed-question');
+            setTimeout(() => card.classList.remove('missed-question'), 500);
+            return;
+        }
+        
+        calcularResultados();
+    }
+
+    function autoFillMock() {
+        // Llena aleatoriamente tendiendo a perfiles realistas
+        allItems.forEach(item => {
+            const id = item[0];
+            const correct = item[3];
+            // 60% de probabilidad de tener un buen hábito
+            userAnswers[id] = Math.random() > 0.4 ? correct : (correct === 'S' ? 'N' : 'S');
+        });
+        calcularResultados();
+    }
+
+    function loadFromExcel() {
+        const text = document.getElementById('excel-paste-area').value.trim();
+        if (!text) { alert('Pega las respuestas primero.'); return; }
+        let lines = text.split(/\r?\n/).filter(l => l.trim() !== '');
+        
+        let answersCount = 0;
+        let itemIndex = 0;
+
+        for (let i = 0; i < lines.length && itemIndex < 53; i++) {
+            let line = lines[i];
+            // Si la línea contiene el texto de la pregunta, intentamos extraer los números.
+            // Para simplificar, buscamos si hay un '1' (o 'x') separado por tabulaciones.
+            let parts = line.split('\t');
+            
+            // Si copiaron sólo las dos columnas, parts debería tener tamaño 2 o poco más
+            // Si hay muchas columnas, asumimos que las respuestas SIEMPRE y NUNCA están hacia el final, 
+            // pero lo más seguro es revisar los valores.
+            
+            // Buscar valores truthy ('1', 'x', etc.) en las partes
+            let vals = parts.map(p => p.trim());
+            let hasS = false;
+            let hasN = false;
+            
+            if (vals.length >= 2) {
+                // Tomar los últimos dos como NUNCA y SIEMPRE si copiaron varias columnas, 
+                // o los primeros dos si solo copiaron las dos columnas.
+                // Lo más común es que las columnas sean: ..., "SIEMPRE", "NUNCA", ...
+                // Si solo copian 2: vals[0] es Siempre, vals[1] es Nunca
+                let v1 = vals[vals.length - 2];
+                let v2 = vals[vals.length - 1];
+                
+                // Si copian todo desde A hasta K, length es 11. 
+                // J es 9 (Siempre), K es 10 (Nunca)
+                if (vals.length >= 10 && vals.length <= 13) {
+                    v1 = vals[9];
+                    v2 = vals[10];
+                } else if (vals.length >= 2) {
+                    // Buscar los dos únicos valores no vacíos (o los últimos)
+                    let nonEmpties = [];
+                    for(let k=0; k<vals.length; k++) {
+                        if(vals[k] === '1' || vals[k].toLowerCase() === 'x') {
+                            nonEmpties.push(k);
+                        }
+                    }
+                    if (nonEmpties.length > 0) {
+                        // Asumimos que si está a la izquierda es Siempre, si está a la derecha es Nunca.
+                        // Esto es frágil, pero funciona si solo copiaron 2 columnas.
+                        // En realidad, si copiaron 2 columnas y vals[0] es '1', es Siempre.
+                        if (vals[0] === '1' || vals[0].toLowerCase() === 'x') hasS = true;
+                        else if (vals[1] === '1' || vals[1].toLowerCase() === 'x') hasN = true;
+                    }
+                }
+                
+                if (v1 === '1' || v1 === 'x' || v1 === 'X') hasS = true;
+                if (v2 === '1' || v2 === 'x' || v2 === 'X') hasN = true;
+            } else if (vals.length === 1) {
+                // Raro, solo una columna. No podemos distinguir bien si no sabemos la posición.
+            }
+
+            if (hasS || hasN) {
+                let id = allItems[itemIndex][0];
+                userAnswers[id] = hasS ? 'S' : 'N';
+                answersCount++;
+                itemIndex++;
+            }
+        }
+        
+        if (answersCount >= 53) {
+            calcularResultados();
+        } else {
+            alert('Se cargaron ' + answersCount + ' respuestas de las 53 necesarias. Asegúrate de copiar las columnas correctamente, idealmente sólo las 2 columnas de SIEMPRE y NUNCA o todas las columnas desde la A hasta la K.');
+        }
+    }
+
+    // Funciones Diagnósticas
+    function getCategoryColor(cat) {
+        if(cat === "Muy Positivo") return "c-muy-positivo";
+        if(cat === "Positivo") return "c-positivo";
+        if(cat === "Tendencia Positivo") return "c-ten-positivo";
+        if(cat === "Tendencia Negativo") return "c-ten-negativo";
+        if(cat === "Negativo") return "c-negativo";
+        return "c-muy-negativo"; // Muy Negativo
+    }
+
+    function getDiagnosticCategory(area, score) {
+        if (area === 1) {
+            if(score === 0) return "Muy Negativo"; if(score <= 2) return "Negativo"; if(score <= 4) return "Tendencia Negativo"; if(score <= 7) return "Tendencia Positivo"; if(score <= 9) return "Positivo"; return "Muy Positivo";
+        } else if (area === 2) {
+            if(score === 0) return "Muy Negativo"; if(score <= 2) return "Negativo"; if(score <= 5) return "Tendencia Negativo"; if(score <= 7) return "Tendencia Positivo"; if(score <= 9) return "Positivo"; return "Muy Positivo";
+        } else if (area === 3) {
+            if(score <= 1) return "Muy Negativo"; if(score <= 3) return "Negativo"; if(score <= 6) return "Tendencia Negativo"; if(score <= 8) return "Tendencia Positivo"; if(score <= 10) return "Positivo"; return "Muy Positivo";
+        } else if (area === 4) {
+            if(score <= 1) return "Muy Negativo"; if(score <= 3) return "Negativo"; if(score <= 5) return "Tendencia Negativo"; if(score <= 7) return "Tendencia Positivo"; if(score <= 9) return "Positivo"; return "Muy Positivo";
+        } else if (area === 5) {
+            if(score === 0) return "Muy Negativo"; if(score <= 3) return "Negativo"; if(score === 4) return "Tendencia Negativo"; if(score === 5) return "Tendencia Positivo"; if(score === 6) return "Positivo"; return "Muy Positivo";
+        } else if (area === "GLOBAL") {
+            if(score <= 8) return "Muy Negativo"; if(score <= 17) return "Negativo"; if(score <= 27) return "Tendencia Negativo"; if(score <= 35) return "Tendencia Positivo"; if(score <= 43) return "Positivo"; return "Muy Positivo";
+        }
+    }
+
+    function getDiagnosticText(cat) {
+        switch(cat) {
+            case "Muy Positivo": return "Excelentes hábitos de estudio. Emplea técnicas sumamente efectivas que garantizan un óptimo aprendizaje y rendimiento académico.";
+            case "Positivo": return "Cuenta con buenos hábitos en general. Su método de estudio es adecuado, aunque podría optimizar algunos detalles específicos.";
+            case "Tendencia Positivo": return "Muestra un manejo aceptable de las técnicas de estudio, sin embargo, existen varias distracciones o prácticas que merman su eficiencia y requieren corrección.";
+            case "Tendencia Negativo": return "Se observa la presencia de malos hábitos de estudio que ya comienzan a interferir notablemente con el aprendizaje y retención de información.";
+            case "Negativo": return "Hábitos deficientes. Carece de estrategias apropiadas, lo que le genera fatiga innecesaria y escasos resultados académicos.";
+            case "Muy Negativo": return "Se encuentra en riesgo. Sus hábitos de estudio son perjudiciales y contraproducentes. Urge una reestructuración total en la forma de abordar sus responsabilidades escolares.";
+            default: return "";
+        }
+    }
+
+    let currentUserEmail = null;
+
+    function calcularResultados() {
+        let scores = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
+        let totalScore = 0;
+
+        allItems.forEach(item => {
+            const id = item[0];
+            const area = item[2];
+            const correctAns = item[3];
+            
+            if (userAnswers[id] === correctAns) {
+                scores[area]++;
+                totalScore++;
+            }
+        });
+
+        // Generar Gráfico Global
+        const globalCat = getDiagnosticCategory("GLOBAL", totalScore);
+        const globalColorClass = getCategoryColor(globalCat);
+
+        let resultsHtml = `
+            <div class="interp-card" style="border-left-width: 8px; margin-bottom: 35px;">
+                <h3 style="color: var(--primary); margin-bottom: 5px;">DIAGNÓSTICO GENERAL</h3>
+                <h1 style="margin: 10px 0;">${totalScore} / 53 pts</h1>
+                <div class="category-badge ${globalColorClass}" style="font-size: 1.1rem; margin-bottom: 15px;">${globalCat.toUpperCase()}</div>
+                <p style="font-size: 1.05rem; line-height: 1.6;">${getDiagnosticText(globalCat)}</p>
+            </div>
+            <h3 style="text-align: left; margin-bottom: 15px; color: var(--text-main);">Desglose por Áreas:</h3>
+        `;
+
+        // Generar Gráficos por Área
+        let chartHtml = '';
+        for(let i=1; i<=5; i++) {
+            const s = scores[i];
+            const max = maxPuntos[i];
+            const pct = Math.round((s / max) * 100);
+            const cat = getDiagnosticCategory(i, s);
+            const colorClass = getCategoryColor(cat);
+            const nombre = nombresAreas[i-1];
+
+            chartHtml += `
+                <div class="chart-row">
+                    <div class="chart-label">${nombre}</div>
+                    <div class="bar-container">
+                        <div class="bar ${colorClass}" style="width: ${pct}%;">${pct}%</div>
+                    </div>
+                    <div style="font-size: 0.9rem; text-align: right; font-weight: bold;">
+                        ${s} <span style="font-size: 0.75rem; color:var(--text-muted);">/ ${max}</span>
+                    </div>
+                </div>
+            `;
+
+            resultsHtml += `
+                <div class="interp-card">
+                    <h4>${nombre} <span class="category-badge ${colorClass}" style="margin-top:0;">${cat}</span></h4>
+                    <p style="font-size:0.95rem; color: var(--text-muted); margin-top: 10px;">Obtuvo <strong>${s} de ${max} puntos</strong> posibles en esta área técnica.</p>
+                </div>
+            `;
+        }
+
+        document.getElementById('chart-rows').innerHTML = chartHtml;
+        document.getElementById('interpretations-container').innerHTML = resultsHtml;
+
+        // Draw Line Chart
+        drawLineChart(Object.keys(maxPuntos).map(k => Math.round((scores[k] / maxPuntos[k]) * 100)));
+
+        document.getElementById('quiz-view').style.display = 'none';
+        document.getElementById('results-view').style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        if (window.DaiaDB && currentUserEmail && !window.showingPastResults) {
+            window.DaiaDB.saveTestResult(currentUserEmail, 'CASM85', { answers: userAnswers });
+        }
+    }
+
+    function downloadPDF() {
+        const btn = document.querySelector('.pdf-btn');
+        if (btn) btn.style.display = 'none';
+        
+        const originalText = btn.innerHTML;
+        const element = document.getElementById('results-view');
+        
+        if (!element) return;
+
+        html2canvas(element, {
+            scale: 2,
+            useCORS: true,
+            backgroundColor: window.getComputedStyle(document.body).backgroundColor || '#ffffff'
+        }).then(canvas => {
+            const link = document.createElement('a');
+            link.download = 'Resultados_CASM85.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+            
+            if (btn) {
+                btn.style.display = 'inline-flex';
+                btn.innerHTML = originalText;
+            }
+        }).catch(err => {
+            console.error(err);
+            alert("Hubo un problema al generar la captura.");
+            if (btn) {
+                btn.style.display = 'inline-flex';
+                btn.innerHTML = originalText;
+            }
+        });
+    }
+
+    function toggleChartType() {
+        const barContainer = document.getElementById('bar-chart-container');
+        const lineContainer = document.getElementById('line-chart-container');
+        const btn = document.getElementById('toggle-chart-btn');
+        
+        if (barContainer.style.display !== 'none') {
+            barContainer.style.display = 'none';
+            lineContainer.style.display = 'block';
+            btn.innerText = 'Ver Gráfico de Barras';
+        } else {
+            barContainer.style.display = 'block';
+            lineContainer.style.display = 'none';
+            btn.innerText = 'Ver Gráfico de Líneas';
+        }
+    }
+
+    function drawLineChart(percentages) {
+        const svg = document.getElementById('line-chart-svg');
+        const width = 500;
+        const height = 220;
+        const paddingLeft = 40;
+        const paddingRight = 20;
+        const paddingTop = 30;
+        const paddingBottom = 40;
+        const chartW = width - paddingLeft - paddingRight;
+        const chartH = height - paddingTop - paddingBottom;
+        
+        const maxVal = 100;
+        const stepX = chartW / (percentages.length - 1);
+        
+        let points = '';
+        let circles = '';
+        let labelsX = '';
+        
+        let guidelines = '';
+        [0, 20, 40, 60, 80, 100].forEach(yVal => {
+            const y = height - paddingBottom - (yVal / maxVal) * chartH;
+            guidelines += `<line x1="${paddingLeft}" y1="${y}" x2="${width - paddingRight}" y2="${y}" stroke="var(--border)" stroke-dasharray="4,4" />`;
+            guidelines += `<text x="${paddingLeft - 8}" y="${y + 4}" fill="var(--text-muted)" font-size="12" text-anchor="end">${yVal}</text>`;
+        });
+
+        const romanAreas = ['I', 'II', 'III', 'IV', 'V'];
+
+        percentages.forEach((pct, i) => {
+            const x = paddingLeft + i * stepX;
+            const y = height - paddingBottom - (pct / maxVal) * chartH;
+            points += `${x},${y} `;
+            circles += `<circle cx="${x}" cy="${y}" r="5" fill="var(--primary)" stroke="var(--bg-card)" stroke-width="2" />`;
+            circles += `<text x="${x}" y="${y - 12}" fill="var(--text-main)" font-size="14" text-anchor="middle" font-weight="bold">${pct}</text>`;
+            labelsX += `<text x="${x}" y="${height - paddingBottom + 20}" fill="var(--text-muted)" font-size="12" text-anchor="middle">Área ${romanAreas[i]}</text>`;
+        });
+
+        svg.innerHTML = `
+            ${guidelines}
+            <polyline points="${points.trim()}" fill="none" stroke="var(--primary)" stroke-width="3" />
+            ${circles}
+            ${labelsX}
+            <text x="${width/2}" y="${height - 5}" fill="var(--text-main)" font-size="12" text-anchor="middle" font-weight="bold">Perfil de Hábitos de Estudio</text>
+        `;
+    }
+
+    // Wait for Firebase Auth to initialize before rendering
+    let checkInterval = setInterval(() => {
+        if (window.DaiaAuth && window.DaiaDB) {
+            clearInterval(checkInterval);
+            window.DaiaAuth.onAuthStateChanged(async (user) => {
+                if (!user) {
+                    window.location.href = "tests.html";
+                    return;
+                }
+                currentUserEmail = user.email;
+                const uiEl = document.getElementById('user-info-display');
+                if(uiEl) uiEl.innerText = "Usuario: " + user.email;
+                const resEl = document.getElementById('user-info-results');
+                if(resEl) resEl.innerText = "Usuario: " + user.email;
+
+                const pastResult = await window.DaiaDB.hasUserTakenTest(user.email, 'CASM85');
+                if (pastResult && pastResult.answers) {
+                    alert("Ya completaste este test. Mostrando tus resultados anteriores.");
+                    window.showingPastResults = true;
+                    userAnswers = pastResult.answers;
+                    
+                    document.getElementById('quiz-view').style.display = 'none';
+                    document.getElementById('results-view').style.display = 'block';
+                    
+                    calcularResultados();
+                } else {
+                    renderQuestion();
+                }
+            });
+        }
+    }, 100);
+</script>
+
+
+    <footer class="backdrop-blur-lg border-t py-12 mt-auto relative z-10 border-slate-200 dark:border-white/10 bg-[rgba(239,246,255,0.9)] dark:bg-transparent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 text-center md:text-left">
+                <!-- Column 1: Branding -->
+                <div class="flex flex-col items-center md:items-start gap-4">
+                    <div class="flex items-center gap-3">
+                        <img src="ucv.webp" alt="UCV" width="128" height="40" class="h-10 w-auto drop-shadow-md" loading="lazy" decoding="async">
+                        <img src="daia.webp" alt="DAIA" width="40" height="40" class="h-10 w-auto bg-white p-0.5 rounded-md shadow-sm" loading="lazy" decoding="async">
+                    </div>
+                    <p class="text-gray-800 dark:text-gray-300 text-sm leading-relaxed">Formando atletas integrales para el futuro de Venezuela. Excelencia académica y deportiva en la Universidad Central de Venezuela.</p>
+                </div>
+                
+                <!-- Column 2: Quick Links -->
+                <div>
+                    <h3 class="font-bold text-slate-900 dark:text-white mb-4 text-lg">Enlaces Rápidos</h3>
+                    <ul class="space-y-2 text-sm text-gray-800 dark:text-gray-300">
+                        <li><a href="index.html" class="py-2 inline-block hover:text-blue-600 transition-colors">Inicio</a></li>
+                        <li><a href="disciplinas.html" class="py-2 inline-block hover:text-blue-600 transition-colors">Disciplinas</a></li>
+                        <li><a href="servicios.html" class="py-2 inline-block hover:text-blue-600 transition-colors">Servicios DAIA</a></li>
+                        <li><a href="articulo25.html" class="py-2 inline-block hover:text-blue-600 transition-colors">Artículo 25</a></li>
+                        <li><a href="tests.html" class="py-2 inline-block hover:text-blue-600 transition-colors">Tests</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3: Social Media -->
+                <div>
+                    <h3 class="font-bold text-slate-900 dark:text-white mb-4 text-lg">Redes Sociales</h3>
+                    <ul class="space-y-3 text-sm text-gray-800 dark:text-gray-300">
+                        <li><a href="https://www.instagram.com/deportesucv/" target="_blank" rel="noopener noreferrer" class="flex py-2 items-center justify-center md:justify-start gap-2 hover:text-blue-600 transition-colors"><i data-lucide="instagram" class="w-4 h-4"></i> Deportes UCV</a></li>
+                        <li><a href="https://www.instagram.com/daiadeportesucv/" target="_blank" rel="noopener noreferrer" class="flex py-2 items-center justify-center md:justify-start gap-2 hover:text-blue-600 transition-colors"><i data-lucide="instagram" class="w-4 h-4"></i> DAIA UCV</a></li>
+                        <li><a href="https://www.facebook.com/p/DAIA-Deportes-UCV-100076199720429/" target="_blank" rel="noopener noreferrer" class="flex py-2 items-center justify-center md:justify-start gap-2 hover:text-blue-600 transition-colors"><i data-lucide="facebook" class="w-4 h-4"></i> Facebook DAIA</a></li>
+                        <li><a href="https://www.ucv.ve/" target="_blank" rel="noopener noreferrer" class="flex py-2 items-center justify-center md:justify-start gap-2 hover:text-blue-600 transition-colors"><i data-lucide="globe" class="w-4 h-4"></i> Página Oficial UCV</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4: Contact Info -->
+                <div>
+                    <h3 class="font-bold text-slate-900 dark:text-white mb-4 text-lg">Contacto</h3>
+                    <ul class="space-y-3 text-sm text-gray-800 dark:text-gray-300">
+                        <li class="flex items-start justify-center md:justify-start gap-2"><i data-lucide="map-pin" class="w-4 h-4 mt-0.5 flex-shrink-0"></i> <span>Ciudad Universitaria de Caracas, Dirección de Deportes, Edif. Gimnasio Cubierto, Planta Baja.</span></li>
+                        <li class="flex items-center justify-center md:justify-start gap-2"><i data-lucide="phone" class="w-4 h-4 flex-shrink-0"></i> <span>+58 (212) 605-0000</span></li>
+                        <li class="flex items-center justify-center md:justify-start gap-2"><i data-lucide="mail" class="w-4 h-4 flex-shrink-0"></i> <span>daia@deportes.ucv.ve</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-200 dark:border-white/10 pt-8 flex flex-col md:flex-row justify-center items-center gap-4">
+                <p class="text-xs text-gray-700 dark:text-gray-400">© 2024 DAIA - Universidad Central de Venezuela. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const initIcons = () => {
+                if (!window.lucide) return;
+                setTimeout(() => lucide.createIcons(), 1500);
+            };
+            initIcons();
+
+            // Pre-query DOM elements
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const fadeUpElements = document.querySelectorAll('.fade-up');
+
+            // Zero-read Theme Toggle state tracking
+            let isDarkMode = window.__INITIAL_THEME === 'dark';
+            if (themeToggleBtn) {
+                themeToggleBtn.addEventListener('click', () => {
+                    isDarkMode = !isDarkMode;
+                    const action = isDarkMode ? 'add' : 'remove';
+                    const theme = isDarkMode ? 'dark' : 'light';
+                    requestAnimationFrame(() => {
+                        document.documentElement.classList[action]('dark');
+                        localStorage.setItem('color-theme', theme);
+                    });
+                });
+            }
+
+            // Mobile menu toggle
+            const menuToggleBtn = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (menuToggleBtn && mobileMenu) {
+                menuToggleBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('open');
+                    const icon = menuToggleBtn.querySelector('i');
+                    if (icon && window.lucide) {
+                        const isMenu = icon.getAttribute('data-lucide') === 'menu';
+                        icon.setAttribute('data-lucide', isMenu ? 'x' : 'menu');
+                        lucide.createIcons({
+                            attrs: { class: 'w-6 h-6' },
+                            nameAttr: 'data-lucide',
+                            icons: { [isMenu ? 'x' : 'menu']: isMenu ? lucide.icons.X : lucide.icons.Menu }
+                        });
+                    }
+                });
+            }
+
+            if (fadeUpElements.length > 0) {
+                const visibleQueue = [];
+                let isProcessing = false;
+
+                const processQueue = () => {
+                    if (visibleQueue.length > 0) {
+                        const el = visibleQueue.shift();
+                        el.classList.add('visible');
+                        if (visibleQueue.length > 0) {
+                            requestAnimationFrame(processQueue);
+                        } else {
+                            isProcessing = false;
+                        }
+                    } else {
+                        isProcessing = false;
+                    }
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    let added = false;
+                    entries.forEach(e => {
+                        if (e.isIntersecting) {
+                            visibleQueue.push(e.target);
+                            observer.unobserve(e.target);
+                            added = true;
+                        }
+                    });
+                    
+                    if (added && !isProcessing) {
+                        isProcessing = true;
+                        requestAnimationFrame(processQueue);
+                    }
+                }, { threshold: 0.1 });
+                fadeUpElements.forEach(el => observer.observe(el));
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
