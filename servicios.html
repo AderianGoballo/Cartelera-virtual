@@ -1,321 +1,270 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth dark">
 <head>
     <meta charset="UTF-8">
-    <script>if(location.protocol==='http:'&&location.hostname!=='localhost'&&location.hostname!=='127.0.0.1')location.replace('https:'+location.href.substring(5));</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Nuestros servicios de salud y bienestar integral - Dra. Elena Morales">
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.instagram.com https://www.tiktok.com https://calendar.google.com; object-src 'none';">
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta name="referrer" content="strict-origin-when-cross-origin">
-    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
-    <meta name="theme-color" content="#8B4513">
-    <link rel="icon" type="image/svg+xml" href="logo.svg">
-    <link rel="stylesheet" href="styles.css?v=1780427202206">
-    <style>
-        .catalogo-item__features {
-            list-style: none;
-            padding: 0;
-            margin: 1rem 0;
-        }
-        .catalogo-item__features li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-        .catalogo-item__features li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: #003399;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-    </style>
-    <!-- HEADER -->
-    <header class="header" id="header" role="banner">
-        <div class="header__container container">
-            <a href="index.html" class="header__logo" aria-label="Ir al inicio">
-                <img width="40" height="40" src="isotipo.svg" alt="Isotipo" class="header__logo-img">
-            </a>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' unpkg.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' fonts.gstatic.com; connect-src 'self';">
+    <title>DAIA UCV | Servicios</title>
+    <meta name="description" content="Descubre los servicios integrales de la DAIA UCV: atención psicológica, seguimiento académico y orientación vocacional para atletas de la Universidad Central de Venezuela.">
+    <link rel="icon" type="image/webp" href="deportes.webp">
+    
+    <script>
+        // Synchronous theme check to prevent FOUC and forced reflow
+        (function() {
+            const theme = localStorage.getItem('color-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (theme === 'dark') document.documentElement.classList.add('dark');
+            else document.documentElement.classList.remove('dark');
+            window.__INITIAL_THEME = theme;
+        })();
+    </script>
 
-            <nav class="header__nav" id="mainNav" role="navigation" aria-label="Navegación principal">
-                <ul class="header__nav-list">
-                    <li><a href="index.html#quien-soy" class="header__nav-link">Quién Soy</a></li>
-                    <li><a href="servicios.html" class="header__nav-link">Servicios</a></li>
-                    <li><a href="index.html#agendar-cita" class="header__nav-link">Agendar Cita</a></li>
-                    <li><a href="blogs.html" class="header__nav-link">Blog</a></li>
-                    <li><a href="tests.html" class="header__nav-link">Tests</a></li>
-                </ul>
-            </nav>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"></noscript>
+    <link rel='stylesheet' href='style.css'>
+    
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+</head>
+<body class="font-sans antialiased flex flex-col">
 
-            <!-- Dark Mode Toggle -->
-            <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Cambiar a modo oscuro">
-                <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="5"/>
-                    <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
-                </svg>
-                <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
-                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-                </svg>
-            </button>
+    <nav class="fixed w-full z-50 backdrop-blur-md border-b shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+                    <img src="ucv.webp" alt="Logo de la Universidad Central de Venezuela" width="128" height="40" class="h-10 w-auto drop-shadow-md" loading="eager" decoding="async" fetchpriority="high">
+                    <img src="deportes.webp" alt="Logo de la Dirección de Deportes UCV" width="40" height="40" class="h-10 w-auto bg-white p-0.5 rounded-md shadow-sm hidden sm:block" loading="eager" decoding="async" fetchpriority="high">
+                </a>
+                
+                <div class="hidden md:flex space-x-8 text-slate-700 dark:text-white text-sm font-semibold">
+                    <a href="index.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Inicio</a>
+                    <a href="disciplinas.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Disciplinas</a>
+                    <a href="servicios.html" class="text-blue-600 dark:text-blue-400 transition relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-blue-600 dark:after:bg-blue-400">Servicios DAIA</a>
+                    <a href="tests.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Tests</a>
+                    <a href="articulo25.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Artículo 25</a>
+                </div>
 
-            <button class="header__hamburger" id="hamburgerBtn" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mainNav">
-                <span class="header__hamburger-line"></span>
-                <span class="header__hamburger-line"></span>
-                <span class="header__hamburger-line"></span>
-            </button>
+                <div class="flex items-center gap-3">
+                    <a href="index.html" class="hover:opacity-80 transition-opacity">
+                        <img src="daia.webp" alt="Logo de la División de Atención Integral al Atleta (DAIA)" width="40" height="40" class="h-10 w-auto bg-white p-0.5 rounded-md shadow-sm" loading="eager" decoding="async" fetchpriority="high">
+                    </a>
+                    <button id="theme-toggle" aria-label="Cambiar tema (claro/oscuro)" class="ml-2 p-2 rounded-xl bg-slate-200 dark:bg-white/10 text-slate-800 dark:text-white hover:bg-slate-300 dark:hover:bg-white/20 transition-colors border border-transparent dark:border-white/10 shadow-sm focus:outline-none">
+                        <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
+                        <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                    </button>
+                    <button id="menu-toggle" aria-label="Abrir menú" class="md:hidden p-2 rounded-xl bg-slate-200 dark:bg-white/10 text-slate-800 dark:text-white border border-transparent dark:border-white/10 shadow-sm focus:outline-none">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden pb-6 pt-2 border-t border-slate-200 dark:border-white/10">
+                <div class="flex flex-col space-y-4 text-slate-700 dark:text-white text-sm font-semibold">
+                    <a href="index.html" class="hover:text-blue-600 dark:hover:text-blue-400 py-2 border-b border-slate-100 dark:border-white/5">Inicio</a>
+                    <a href="disciplinas.html" class="hover:text-blue-600 dark:hover:text-blue-400 py-2 border-b border-slate-100 dark:border-white/5">Disciplinas</a>
+                    <a href="servicios.html" class="text-blue-600 dark:text-blue-400 py-2 border-b border-slate-100 dark:border-white/5">Servicios DAIA</a>
+                    <a href="tests.html" class="hover:text-blue-600 dark:hover:text-blue-400 py-2 border-b border-slate-100 dark:border-white/5">Tests</a>
+                    <a href="articulo25.html" class="hover:text-blue-600 dark:hover:text-blue-400 py-2">Artículo 25</a>
+                </div>
+            </div>
         </div>
-    </header>
+    </nav>
 
-    <main>
-        <!-- PAGE HEADER -->
-        <section class="section page-header">
-            <div class="container">
-                <div class="section__header">
-                    <span class="section__pretitle">Áreas de especialización</span>
-                    <h1 class="section__title">Nuestros Servicios</h1>
-                    <p class="section__subtitle">
-                        Ofrezco un acompañamiento integral adaptado a tus necesidades específicas.
-                    </p>
-                </div>
+    <main class="flex-grow pt-32 pb-16 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 major-container">
+            
+            <div class="text-center mb-16 fade-up">
+                <span class="text-blue-600 dark:text-blue-400 font-black text-sm tracking-[0.3em] uppercase bg-blue-100 dark:bg-white/10 px-4 py-1 rounded-full">Atención Integral</span>
+                <h1 class="font-display text-5xl md:text-6xl font-black text-slate-900 dark:text-white mt-4">SERVICIOS <span class="text-blue-600 drop-shadow-md">DAIA</span></h1>
+                <p class="text-slate-600 dark:text-gray-300 mt-4 max-w-3xl mx-auto text-lg">Nos preocupamos por tu rendimiento tanto dentro como fuera de las canchas. Conoce nuestras áreas de apoyo para el estudiante-atleta ucevista.</p>
             </div>
-        </section>
 
-        <!-- BLOG FILTERS (Reusable for Services) -->
-        <section class="section blog-filters">
-            <div class="container">
-                <div class="blog-filters__list">
-                    <button class="blog-filter blog-filter--active" data-filter="all">Todos</button>
-                    <button class="blog-filter" data-filter="individual">Individual</button>
-                    <button class="blog-filter" data-filter="evaluacion">Evaluación</button>
-                    <button class="blog-filter" data-filter="grupal">Grupal</button>
-                    <button class="blog-filter" data-filter="orientacion">Orientación</button>
+            <section class="mb-16 fade-up">
+                <div class="bg-white dark:bg-gradient-to-br dark:from-blue-900/90 dark:to-slate-900/90 backdrop-blur-lg rounded-[3rem] p-10 lg:p-12 border border-slate-200 dark:border-blue-600/30 relative overflow-hidden shadow-xl dark:shadow-none">
+                    <div class="absolute inset-0 bg-[url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22 fill=%22%232563eb%22 opacity=%220.1%22><path d=%22M0 50 Q 20 30, 40 50 T 80 50 T 120 50%22 stroke=%22%232563eb%22 fill=%22none%22 stroke-width=%222%22/></svg>')] bg-repeat-x bg-bottom animate-wave hidden dark:block"></div>
+                    <div class="relative z-10 flex flex-col md:flex-row gap-8 items-center">
+                        <div class="md:w-3/5">
+                            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 dark:bg-blue-600/20 text-blue-600 font-bold mb-6">
+                                <i data-lucide="brain-circuit" class="h-5 w-5"></i> SALUD MENTAL
+                            </div>
+                            <h2 class="font-display text-4xl font-black text-slate-900 dark:text-white mb-4">ATENCIÓN <span class="text-blue-600 dark:text-blue-400">PSICOLÓGICA</span></h2>
+                            <p class="text-slate-600 dark:text-gray-300 text-lg mb-8">El bienestar mental es vital. Ofrecemos <strong class="text-slate-900 dark:text-white">asesoramiento y orientación en psicología deportiva</strong> para manejar el estrés competitivo, mejorar la concentración, superar lesiones y encontrar un equilibrio sano.</p>
+                            <a href="https://forms.office.com/r/R3Ni0UfHdP" target="_blank" class="bg-blue-600 text-white dark:text-blue-900 px-8 py-3 rounded-full font-black text-lg inline-flex items-center gap-3 shadow-xl hover:scale-105 transition-transform">
+                                SOLICITAR ATENCIÓN <i data-lucide="external-link" class="h-5 w-5"></i>
+                            </a>
+                        </div>
+                        <div class="md:w-2/5">
+                            <img src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?auto=format&fit=crop&q=80&w=800" alt="Sesión de asesoramiento psicológico deportivo para atletas" width="800" height="533" class="rounded-3xl shadow-2xl border-4 border-blue-600/30 w-full h-auto" loading="lazy" decoding="async">
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- SERVICIOS CATALOGO -->
-        <section class="section servicios-catalogo">
-            <div class="container">
-                <div class="catalogo-grid" id="serviciosGrid">
-                    <!-- Servicio 1 -->
-                    <article class="catalogo-item" data-category="individual">
-                        <div class="catalogo-item__image">
-                            <img src="quien soy carrusel.webp" alt="Consulta Individual" loading="lazy" width="520" height="284">
-                            <span class="catalogo-item__badge">Psicología</span>
+            <section class="mb-16 fade-up">
+                <div class="bg-white dark:bg-gradient-to-br dark:from-[#1e293b]/90 dark:to-black/90 backdrop-blur-lg rounded-[3rem] p-10 lg:p-12 border border-slate-200 dark:border-blue-400/30 relative overflow-hidden flex flex-col-reverse md:flex-row gap-8 items-center shadow-xl dark:shadow-none">
+                    <div class="md:w-2/5">
+                        <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=800" alt="Estudiante atleta planificando sus estudios y horarios académicos" width="800" height="533" class="rounded-3xl shadow-2xl border-4 border-blue-400/30 w-full h-auto" loading="lazy" decoding="async">
+                    </div>
+                    <div class="md:w-3/5 md:pl-8">
+                        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 dark:bg-blue-400/20 text-blue-700 dark:text-blue-400 font-bold mb-6">
+                            <i data-lucide="book-open" class="h-5 w-5"></i> EXCELENCIA ESTUDIANTIL
                         </div>
-                        <div class="catalogo-item__content">
-                            <h2 class="catalogo-item__title">Consulta Individual</h2>
-                            <p class="catalogo-item__description">
-                                Sesiones personalizadas donde abordamos tus inquietudes con total confidencialidad y un plan a medida.
-                            </p>
-                            <ul class="catalogo-item__features">
-                                <li>Evaluación inicial completa</li>
-                                <li>Plan terapéutico personalizado</li>
-                                <li>Sesiones de 50 minutos</li>
-                                <li>Seguimiento continuo</li>
-                            </ul>
-                            <div class="catalogo-item__footer">
-                                <a href="index.html#agendar-cita" class="btn btn--primary" style="width: 100%;">Agendar Cita</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Servicio 2 -->
-                    <article class="catalogo-item" data-category="evaluacion">
-                        <div class="catalogo-item__image">
-                            <img src="servicios carrusel.webp" alt="Evaluación Integral" loading="lazy" width="520" height="284">
-                            <span class="catalogo-item__badge">Diagnóstico</span>
-                        </div>
-                        <div class="catalogo-item__content">
-                            <h2 class="catalogo-item__title">Evaluación Integral</h2>
-                            <p class="catalogo-item__description">
-                                Evaluación profunda de las áreas cognitiva, emocional y hábitos de vida utilizando herramientas validadas.
-                            </p>
-                            <ul class="catalogo-item__features">
-                                <li>Evaluación psicológica</li>
-                                <li>Análisis de hábitos</li>
-                                <li>Pruebas estandarizadas</li>
-                                <li>Informe detallado</li>
-                            </ul>
-                            <div class="catalogo-item__footer">
-                                <a href="index.html#agendar-cita" class="btn btn--primary" style="width: 100%;">Agendar Cita</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Servicio 3 -->
-                    <article class="catalogo-item" data-category="individual">
-                        <div class="catalogo-item__image">
-                            <img src="Galeria1.webp" alt="Entrenamiento de habilidades" loading="lazy" width="520" height="284">
-                            <span class="catalogo-item__badge">Habilidades</span>
-                        </div>
-                        <div class="catalogo-item__content">
-                            <h2 class="catalogo-item__title">Entrenamiento de habilidades</h2>
-                            <p class="catalogo-item__description">
-                                Desarrollo de competencias clave como comunicación asertiva y gestión emocional para tu día a día.
-                            </p>
-                            <ul class="catalogo-item__features">
-                                <li>Comunicación asertiva</li>
-                                <li>Gestión emocional</li>
-                                <li>Resolución de conflictos</li>
-                                <li>Autocontrol y resiliencia</li>
-                            </ul>
-                            <div class="catalogo-item__footer">
-                                <a href="index.html#agendar-cita" class="btn btn--primary" style="width: 100%;">Agendar Cita</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Servicio 4 -->
-                    <article class="catalogo-item" data-category="grupal">
-                        <div class="catalogo-item__image">
-                            <img src="Galeria4.webp" alt="Talleres Grupales" loading="lazy" width="520" height="284">
-                            <span class="catalogo-item__badge">Talleres</span>
-                        </div>
-                        <div class="catalogo-item__content">
-                            <h2 class="catalogo-item__title">Talleres Grupales</h2>
-                            <p class="catalogo-item__description">
-                                Espacios de aprendizaje colectivo y apoyo mutuo sobre temas de salud mental y mindfulness.
-                            </p>
-                            <ul class="catalogo-item__features">
-                                <li>Grupos reducidos</li>
-                                <li>Mindfulness práctico</li>
-                                <li>Intercambio de experiencias</li>
-                                <li>Material de apoyo</li>
-                            </ul>
-                            <div class="catalogo-item__footer">
-                                <a href="index.html#agendar-cita" class="btn btn--primary" style="width: 100%;">Agendar Cita</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Servicio 5 -->
-                    <article class="catalogo-item" data-category="individual">
-                        <div class="catalogo-item__image">
-                            <img src="contacto carrusel.webp" alt="Consulta Online" loading="lazy" width="520" height="284">
-                            <span class="catalogo-item__badge">Online</span>
-                        </div>
-                        <div class="catalogo-item__content">
-                            <h2 class="catalogo-item__title">Consulta Online</h2>
-                            <p class="catalogo-item__description">
-                                Atención profesional de alta calidad a través de videollamadas seguras, con total flexibilidad.
-                            </p>
-                            <ul class="catalogo-item__features">
-                                <li>Videollamada segura</li>
-                                <li>Flexibilidad horaria</li>
-                                <li>Sin desplazamientos</li>
-                                <li>Misma calidad profesional</li>
-                            </ul>
-                            <div class="catalogo-item__footer">
-                                <a href="index.html#agendar-cita" class="btn btn--primary" style="width: 100%;">Agendar Cita</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Servicio 6 -->
-                    <article class="catalogo-item" data-category="orientacion">
-                        <div class="catalogo-item__image">
-                            <img src="Galeria6.webp" alt="Asesoramiento vocacional" loading="lazy" width="520" height="284">
-                            <span class="catalogo-item__badge">Vocacional</span>
-                        </div>
-                        <div class="catalogo-item__content">
-                            <h2 class="catalogo-item__title">Asesoramiento vocacional</h2>
-                            <p class="catalogo-item__description">
-                                Orientación personalizada para descubrir tu vocación y tomar decisiones profesionales acertadas.
-                            </p>
-                            <ul class="catalogo-item__features">
-                                <li>Orientación profesional</li>
-                                <li>Descubrimiento de talentos</li>
-                                <li>Toma de decisiones</li>
-                                <li>Plan de carrera</li>
-                            </ul>
-                            <div class="catalogo-item__footer">
-                                <a href="index.html#agendar-cita" class="btn btn--primary" style="width: 100%;">Agendar Cita</a>
-                            </div>
-                        </div>
-                    </article>
+                        <h2 class="font-display text-4xl font-black text-slate-900 dark:text-white mb-4">SEGUIMIENTO <span class="text-blue-600 dark:text-blue-400">ACADÉMICO</span></h2>
+                        <p class="text-slate-600 dark:text-gray-300 text-lg mb-8">Sabemos que representar a la UCV exige tiempo. Brindamos apoyo con tutorías, planificación de horarios de estudio, seguimiento de notas y enlaces con los coordinadores de cada facultad para evitar el solapamiento de evaluaciones con las competencias.</p>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- CTA SECTION -->
-        <section class="section cta-section">
-            <div class="container">
-                <div class="cta-section__content">
-                    <h2 class="cta-section__title">¿Listo para comenzar tu transformación?</h2>
-                    <p class="cta-section__description">Agenda tu primera cita hoy y da el primer paso hacia una vida más plena y equilibrada.</p>
-                    <a href="index.html#agendar-cita" class="btn btn--primary btn--large">Agendar Cita Ahora</a>
+            <section class="fade-up">
+                <div class="bg-white dark:bg-gradient-to-br dark:from-blue-900/90 dark:to-slate-900/90 backdrop-blur-lg rounded-[3rem] p-10 lg:p-12 border border-slate-200 dark:border-white/20 relative overflow-hidden flex flex-col md:flex-row gap-8 items-center shadow-xl dark:shadow-none">
+                    <div class="md:w-3/5">
+                        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 dark:bg-blue-400/20 text-blue-600 dark:text-blue-400 font-bold mb-6">
+                            <i data-lucide="compass" class="h-5 w-5"></i> PROYECTO DE VIDA
+                        </div>
+                        <h2 class="font-display text-4xl font-black text-slate-900 dark:text-white mb-4">ORIENTACIÓN <span class="text-blue-600 dark:text-blue-400">VOCACIONAL</span></h2>
+                        <p class="text-slate-600 dark:text-gray-300 text-lg mb-8">Te ayudamos a alinear tu carrera deportiva con tus objetivos profesionales a largo plazo. Talleres de liderazgo, manejo del tiempo, transición profesional post-deporte y desarrollo de habilidades blandas vitales para tu futuro.</p>
+                    </div>
+                    <div class="md:w-2/5">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800" alt="Grupo de jóvenes atletas en un taller de orientación vocacional y liderazgo" width="800" height="533" class="rounded-3xl shadow-2xl border-4 border-blue-400/30 w-full h-auto" loading="lazy" decoding="async">
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
     </main>
 
-    <!-- FOOTER -->
-    <footer class="footer" role="contentinfo">
-        <div class="container footer__grid">
-            <div class="footer__col footer__col--brand">
-                <a href="index.html" class="footer__logo" aria-label="Ir al inicio">
-                    <img src="logotipo-blanco.svg" alt="Logotipo" class="footer__logo-img" width="150" height="40">
-                </a>
-                <p class="footer__descripcion">
-                    Consultorio profesional de salud y bienestar integral.
-                </p>
-            </div>
-
-            <div class="footer__col footer__col--links">
-                <h3 class="footer__titulo">Enlaces</h3>
-                <ul class="footer__links">
-                    <li><a href="index.html#quien-soy">Quién Soy</a></li>
-                    <li><a href="servicios.html">Servicios</a></li>
-                    <li><a href="index.html#agendar-cita">Agendar Cita</a></li>
-                    <li><a href="blogs.html">Blog</a></li>
-                    <li><a href="tests.html">Test Psicológicos</a></li>
-                </ul>
-            </div>
-
-            <div class="footer__col footer__col--contacto">
-                <h3 class="footer__titulo">Contacto</h3>
-                <ul class="footer__contacto-lista">
-                    <li>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8l7.9 5.3a2 2 0 002.2 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                        <a href="mailto:aderiangodoypsi@gmail.com">aderiangodoypsi@gmail.com</a>
-                    </li>
-                    <li>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.8 19.8 0 012.08 4.18 2 2 0 014 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
-                        <a href="tel:+584242631211">+584242631211</a>
-                    </li>
-                    <li>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                        <span>Caracas/Los Teques, Venezuela</span>
-                    </li>
-                </ul>
-
-                <div class="footer__social">
-                    <a href="https://www.instagram.com/aderianpsicoloco?igshid=MWVkcXJleTByaGU2dA==" class="footer__social-link" aria-label="Instagram" title="Instagram">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg>
-                    </a>
-                    <a href="https://www.linkedin.com/in/jesús-alberto-godoy-de-oliveira-0183ab121?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="footer__social-link" aria-label="LinkedIn" title="LinkedIn">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="3"/><circle cx="8" cy="10" r="2"/><line x1="8" y1="14" x2="8" y2="20"/><line x1="14" y1="10" x2="14" y2="20"/><path d="M14 14a3 3 0 016 0v6"/></svg>
-                    </a>
-                    <a href="https://www.tiktok.com/@aderianpsicoloco?_r=1&_d=em5g7lhj6111ba&sec_uid=MS4wLjABAAAASphozMq_4ITvcN43vkQCHkzsRtVZfHzX9cc8jnnNX6tkNIqgF0awBhm-V0YdmA4M&share_author_id=7048136141115802629&sharer_language=es&source=h5_m&u_code=dme4k81j3d568d&timestamp=1778994204&user_id=7048136141115802629&sec_user_id=MS4wLjABAAAASphozMq_4ITvcN43vkQCHkzsRtVZfHzX9cc8jnnNX6tkNIqgF0awBhm-V0YdmA4M&item_author_type=1&utm_source=copy&utm_campaign=client_share&utm_medium=android&share_iid=7637381246565959445&share_link_id=ef049eec-c9a5-4bf7-8b0a-d9eb884b6de0&share_app_id=1233&ugbiz_name=ACCOUNT&ug_btm=b8727%2Cb7360&social_share_type=5&enable_checksum=1" class="footer__social-link" aria-label="TikTok" title="TikTok">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
-                    </a>
-                    <a href="#" class="footer__social-link" aria-label="WhatsApp" title="WhatsApp">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.5 8.5 0 01-14.6 6.4L3 21l3.2-3.2A8.5 8.5 0 1121 11.5z"/><path d="M9 10.5c.3-.8 1-1.3 1.8-1.3s1.5.5 1.8 1.3M13.2 14.3c.3.8 1 1.3 1.8 1.3s1.5-.5 1.8-1.3"/></svg>
-                    </a>
+    <footer class="backdrop-blur-lg border-t py-12 mt-auto relative z-10 border-slate-200 dark:border-white/10 bg-[rgba(239,246,255,0.9)] dark:bg-transparent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 text-center md:text-left">
+                <!-- Column 1: Branding -->
+                <div class="flex flex-col items-center md:items-start gap-4">
+                    <div class="flex items-center gap-3">
+                        <img src="ucv.webp" alt="Logo de la Universidad Central de Venezuela" width="128" height="40" class="h-10 w-auto drop-shadow-md" loading="lazy" decoding="async">
+                        <img src="daia.webp" alt="Logo de la División de Atención Integral al Atleta (DAIA)" width="40" height="40" class="h-10 w-auto bg-white p-0.5 rounded-md shadow-sm" loading="lazy" decoding="async">
+                    </div>
+                    <p class="text-gray-800 dark:text-gray-300 text-sm leading-relaxed">Formando atletas integrales para el futuro de Venezuela. Excelencia académica y deportiva en la Universidad Central de Venezuela.</p>
+                </div>
+                
+                <!-- Column 2: Quick Links -->
+                <div>
+                    <h3 class="font-bold text-slate-900 dark:text-white mb-4 text-lg">Enlaces Rápidos</h3>
+                    <ul class="space-y-2 text-sm text-gray-800 dark:text-gray-300">
+                        <li><a href="index.html" class="py-2 inline-block hover:text-blue-600 transition-colors">Inicio</a></li>
+                        <li><a href="disciplinas.html" class="py-2 inline-block hover:text-blue-600 transition-colors">Disciplinas</a></li>
+                        <li><a href="servicios.html" class="py-2 inline-block hover:text-blue-600 transition-colors">Servicios DAIA</a></li>
+                        <li><a href="tests.html" class="py-2 inline-block hover:text-blue-600 transition-colors">Tests</a></li>
+                        <li><a href="articulo25.html" class="py-2 inline-block hover:text-blue-600 transition-colors">Artículo 25</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3: Social Media -->
+                <div>
+                    <h3 class="font-bold text-slate-900 dark:text-white mb-4 text-lg">Redes Sociales</h3>
+                    <ul class="space-y-3 text-sm text-gray-800 dark:text-gray-300">
+                        <li><a href="https://www.instagram.com/deportesucv/" target="_blank" rel="noopener noreferrer" class="flex py-2 items-center justify-center md:justify-start gap-2 hover:text-blue-600 transition-colors"><i data-lucide="instagram" class="w-4 h-4"></i> Deportes UCV</a></li>
+                        <li><a href="https://www.instagram.com/daiadeportesucv/" target="_blank" rel="noopener noreferrer" class="flex py-2 items-center justify-center md:justify-start gap-2 hover:text-blue-600 transition-colors"><i data-lucide="instagram" class="w-4 h-4"></i> DAIA UCV</a></li>
+                        <li><a href="https://www.facebook.com/p/DAIA-Deportes-UCV-100076199720429/" target="_blank" rel="noopener noreferrer" class="flex py-2 items-center justify-center md:justify-start gap-2 hover:text-blue-600 transition-colors"><i data-lucide="facebook" class="w-4 h-4"></i> Facebook DAIA</a></li>
+                        <li><a href="https://www.ucv.ve/" target="_blank" rel="noopener noreferrer" class="flex py-2 items-center justify-center md:justify-start gap-2 hover:text-blue-600 transition-colors"><i data-lucide="globe" class="w-4 h-4"></i> Página Oficial UCV</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4: Contact Info -->
+                <div>
+                    <h3 class="font-bold text-slate-900 dark:text-white mb-4 text-lg">Contacto</h3>
+                    <ul class="space-y-3 text-sm text-gray-800 dark:text-gray-300">
+                        <li class="flex items-start justify-center md:justify-start gap-2"><i data-lucide="map-pin" class="w-4 h-4 mt-0.5 flex-shrink-0"></i> <span>Ciudad Universitaria de Caracas, Dirección de Deportes, Edif. Gimnasio Cubierto, Planta Baja.</span></li>
+                        <li class="flex items-center justify-center md:justify-start gap-2"><i data-lucide="phone" class="w-4 h-4 flex-shrink-0"></i> <span>+58 (212) 605-0000</span></li>
+                        <li class="flex items-center justify-center md:justify-start gap-2"><i data-lucide="mail" class="w-4 h-4 flex-shrink-0"></i> <span>daia@deportes.ucv.ve</span></li>
+                    </ul>
                 </div>
             </div>
-        </div>
-
-        <div class="footer__copyright">
-            <div class="container">
-                <p>&copy; 2026 Lic. Jesús Godoy. Todos los derechos reservados.</p>
+            <div class="border-t border-slate-200 dark:border-white/10 pt-8 flex flex-col md:flex-row justify-center items-center gap-4">
+                <p class="text-xs text-gray-700 dark:text-gray-400">© 2024 DAIA - Universidad Central de Venezuela. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <script src="script.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const initIcons = () => {
+                if (!window.lucide) return;
+                setTimeout(() => lucide.createIcons(), 1500);
+            };
+            initIcons();
+
+            // Pre-query DOM elements
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const fadeUpElements = document.querySelectorAll('.fade-up');
+
+            // Zero-read Theme Toggle state tracking
+            let isDarkMode = window.__INITIAL_THEME === 'dark';
+            if (themeToggleBtn) {
+                themeToggleBtn.addEventListener('click', () => {
+                    isDarkMode = !isDarkMode;
+                    const action = isDarkMode ? 'add' : 'remove';
+                    const theme = isDarkMode ? 'dark' : 'light';
+                    requestAnimationFrame(() => {
+                        document.documentElement.classList[action]('dark');
+                        localStorage.setItem('color-theme', theme);
+                    });
+                });
+            }
+
+            // Mobile menu toggle
+            const menuToggleBtn = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (menuToggleBtn && mobileMenu) {
+                menuToggleBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('open');
+                    const icon = menuToggleBtn.querySelector('i');
+                    if (icon && window.lucide) {
+                        const isMenu = icon.getAttribute('data-lucide') === 'menu';
+                        icon.setAttribute('data-lucide', isMenu ? 'x' : 'menu');
+                        lucide.createIcons({
+                            attrs: { class: 'w-6 h-6' },
+                            nameAttr: 'data-lucide',
+                            icons: { [isMenu ? 'x' : 'menu']: isMenu ? lucide.icons.X : lucide.icons.Menu }
+                        });
+                    }
+                });
+            }
+
+            if (fadeUpElements.length > 0) {
+                const visibleQueue = [];
+                let isProcessing = false;
+
+                const processQueue = () => {
+                    if (visibleQueue.length > 0) {
+                        const el = visibleQueue.shift();
+                        el.classList.add('visible');
+                        if (visibleQueue.length > 0) {
+                            requestAnimationFrame(processQueue);
+                        } else {
+                            isProcessing = false;
+                        }
+                    } else {
+                        isProcessing = false;
+                    }
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    let added = false;
+                    entries.forEach(e => {
+                        if (e.isIntersecting) {
+                            visibleQueue.push(e.target);
+                            observer.unobserve(e.target);
+                            added = true;
+                        }
+                    });
+                    
+                    if (added && !isProcessing) {
+                        isProcessing = true;
+                        requestAnimationFrame(processQueue);
+                    }
+                }, { threshold: 0.1 });
+                fadeUpElements.forEach(el => observer.observe(el));
+            }
+        });
+    </script>
 </body>
 </html>
