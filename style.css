@@ -63,3 +63,27 @@ footer { background-color: rgba(239,246,255,0.9) !important; border-top-color: r
 .grid-optimize { contain: content; }
 .section-optimize { content-visibility: auto; contain-intrinsic-size: 1px 500px; }
 .major-container { contain: layout; }
+\n
+/* CSS agregado para la burbuja flotante y banner de emergencia */
+.z-\[60\] { z-index: 60; }
+.origin-bottom-right { transform-origin: bottom right; }
+.p-5 { padding: 1.25rem; }
+.py-2\.5 { padding-top: 0.625rem; padding-bottom: 0.625rem; }
+.h-3\.5 { height: 0.875rem; }
+.w-3\.5 { width: 0.875rem; }
+.hover\:scale-110:hover { transform: scale(1.1); }
+.border-2 { border-width: 2px; }
+.border-green-500 { border-color: #22c55e; }
+.bg-green-500 { background-color: #22c55e; }
+.hover\:bg-green-600:hover { background-color: #16a34a; }
+.text-red-500 { color: #ef4444; }
+.bg-red-500 { background-color: #ef4444; }
+.bg-red-400 { background-color: #f87171; }
+.hover\:text-red-200:hover { color: #fecaca; }
+.bg-red-600 { background-color: #dc2626; }
+.border-white { border-color: #fff; }
+.dark\:border-slate-900:is(.dark *) { border-color: #0f172a; }
+.hover\:text-pink-600:hover { color: #db2777; }
+.dark\:hover\:text-pink-400:is(.dark *):hover { color: #f472b6; }
+.hover\:text-red-500:hover { color: #ef4444; }
+.dark\:hover\:text-red-500:is(.dark *):hover { color: #ef4444; }
