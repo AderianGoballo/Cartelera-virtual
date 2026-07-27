@@ -37,6 +37,7 @@
             border-bottom: 1px solid rgba(0,0,0,0.08);
             padding: 0.75rem 1rem;
             display: flex;
+            justify-content: center;
             gap: 0.5rem;
             overflow-x: auto;
             scrollbar-width: none;
@@ -47,24 +48,29 @@
         }
         .step-nav::-webkit-scrollbar { display: none; }
         .step-pill {
-            display: flex;
-            align-items: center;
+            display: flex; align-items: center; justify-content: center;
+            padding: 0.5rem 1rem; border-radius: 9999px; font-weight: 700; font-size: 0.85rem;
+            color: #64748b; cursor: pointer; transition: all 0.3s;
+            white-space: nowrap; border: 2px solid transparent;
             gap: 0.4rem;
-            white-space: nowrap;
-            padding: 0.4rem 1rem;
-            border-radius: 9999px;
-            font-size: 0.78rem;
-            font-weight: 700;
-            color: #64748b;
-            background: transparent;
-            border: 1.5px solid #e2e8f0;
-            text-decoration: none;
-            transition: all 0.2s;
-            cursor: pointer;
         }
+        .step-pill.active {
+            background: #2563eb; color: #fff; box-shadow: 0 4px 12px rgba(37,99,235,0.3);
+        }
+        
+        /* ── EXPLICIT DARK MODE OVERRIDES ── */
+        .dark .dark\:text-white { color: #ffffff !important; }
+        .dark .dark\:text-slate-200 { color: #e2e8f0 !important; }
+        .dark .dark\:text-slate-300 { color: #cbd5e1 !important; }
+        .dark .dark\:text-slate-400 { color: #94a3b8 !important; }
+        .dark .dark\:bg-slate-800\/80 { background-color: rgba(30, 41, 59, 0.8) !important; }
+        .dark .dark\:border-slate-600 { border-color: #475569 !important; }
+        .dark p, .dark h1, .dark h2, .dark h3, .dark li, .dark strong { color: #ffffff !important; }
+        .dark .proc-section { background: rgba(15, 23, 42, 0.8) !important; }
         .dark .step-pill {
-            color: #94a3b8;
-            border-color: rgba(255,255,255,0.1);
+            color: #e2e8f0;
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(255,255,255,0.15);
         }
         .step-pill:hover, .step-pill.active {
             background: #2563eb;
@@ -91,19 +97,26 @@
             scroll-margin-top: 130px;
             background: #fff;
             border-radius: 1.5rem;
-            padding: 2.5rem 2rem;
+            padding: 3rem 2rem;
             border: 1px solid #e2e8f0;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.01);
+            margin-bottom: 3rem;
             position: relative;
             overflow: hidden;
             -webkit-backdrop-filter: blur(16px);
             backdrop-filter: blur(16px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
         }
+        .proc-section > * { width: 100%; }
+        .proc-section h2, .proc-section p.max-w-2xl { margin-left: auto; margin-right: auto; }
+        .proc-section .section-badge { width: auto; margin-left: auto; margin-right: auto; }
         .dark .proc-section {
-            background: rgba(255,255,255,0.1);
-            border-color: rgba(37,99,235,0.3);
-            box-shadow: none;
+            background: rgba(30,41,59,0.7);
+            border-color: rgba(255,255,255,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
         }
         .proc-section::before {
             content: '';
@@ -118,6 +131,7 @@
         #sec-tareas::before   { background: linear-gradient(to bottom, #f59e0b, #f97316); }
         #sec-tests::before    { background: linear-gradient(to bottom, #8b5cf6, #ec4899); }
         #sec-entrevista::before { background: linear-gradient(to bottom, #10b981, #06b6d4); }
+        #sec-envio::before    { background: linear-gradient(to bottom, #ef4444, #f43f5e); }
 
         .section-badge {
             display: inline-flex;
@@ -210,8 +224,11 @@
         /* ── INFOGRAFÍA GALLERY ── */
         .infos-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 1.25rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
         }
         .info-card {
             border-radius: 1.25rem;
@@ -268,10 +285,14 @@
         .dark .test-card p { color: #94a3b8; }
         .test-card .tc-cta {
             margin-top: 1.5rem;
-            display: flex; align-items: center; gap: 0.4rem;
-            color: #7c3aed; font-weight: 700; font-size: 0.9rem;
+            display: flex; align-items: center; justify-content: center; gap: 0.4rem;
+            background: #7c3aed; color: #fff; font-weight: 700; font-size: 0.95rem;
+            padding: 0.75rem 1.5rem; border-radius: 0.75rem;
+            transition: background 0.2s;
         }
-        .dark .tc-cta { color: #a78bfa; }
+        .test-card:hover .tc-cta { background: #6d28d9; color: #fff; }
+        .dark .tc-cta { background: #8b5cf6; color: #fff; }
+        .dark .test-card:hover .tc-cta { background: #7c3aed; color: #fff; }
 
         /* ── AUTH GATE ── */
         .auth-gate {
@@ -315,6 +336,7 @@
             box-shadow: 0 4px 6px -1px rgba(0,0,0,0.07);
             -webkit-backdrop-filter: blur(16px);
             backdrop-filter: blur(16px);
+            display: flex; flex-direction: column; align-items: center; text-align: center;
         }
         .dark .proc-hero {
             background: linear-gradient(to bottom right, rgba(30,58,138,0.9), rgba(15,23,42,0.9));
@@ -403,6 +425,9 @@
         <a href="#sec-entrevista" class="step-pill" data-target="sec-entrevista">
             <span class="step-num">5</span> Entrevista Guiada
         </a>
+        <a href="#sec-envio" class="step-pill" data-target="sec-envio">
+            <span class="step-num">6</span> Envío de Información
+        </a>
     </div>
 
     <main class="flex-grow pb-16 relative z-10" style="padding-top: 6rem;">
@@ -410,8 +435,8 @@
 
             <!-- HERO BANNER -->
             <div class="proc-hero fade-up">
-                <div class="relative z-10">
-                    <a href="articulo25.html" class="inline-flex items-center gap-1.5 text-sm font-semibold mb-4 transition-colors" style="color: #2563eb;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+                <div class="relative z-10 flex flex-col items-center text-center">
+                    <a href="articulo25.html" class="inline-flex items-center justify-center gap-1.5 text-sm font-semibold mb-4 transition-colors" style="color: #2563eb;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
                         <i data-lucide="arrow-left" class="w-4 h-4"></i> Volver a Artículo 25
                     </a>
                     <div class="flex items-center gap-3 mb-3">
@@ -431,7 +456,7 @@
                     <i data-lucide="video" style="width:14px;height:14px;"></i> Paso 1
                 </div>
                 <h2 class="font-display text-2xl md:text-3xl font-black text-slate-900 dark:text-white mb-2">Video de Instrucciones</h2>
-                <p class="text-slate-600 dark:text-gray-400 mb-6 max-w-2xl">Antes de continuar con el proceso, mira detenidamente este video. En él encontrarás todas las indicaciones sobre cómo completar cada etapa del proceso online del Artículo 25 año 2026.</p>
+                <p class="text-slate-700 dark:text-slate-300 mb-6 max-w-2xl">Antes de continuar con el proceso, mira detenidamente este video. En él encontrarás todas las indicaciones sobre cómo completar cada etapa del proceso online del Artículo 25 año 2026.</p>
 
                 <div class="video-wrapper">
                     <!-- Reemplaza el src por la URL de tu video de YouTube o Vimeo -->
@@ -446,8 +471,8 @@
                     </iframe>
                 </div>
 
-                <div class="mt-4 flex items-center gap-2 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700/30 rounded-xl px-4 py-3 text-blue-700 dark:text-blue-300 text-sm font-semibold">
-                    <i data-lucide="info" class="w-4 h-4 flex-shrink-0"></i>
+                <div class="mt-4 flex flex-col items-center justify-center text-center gap-2 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700/30 rounded-xl px-4 py-3 text-blue-700 dark:text-blue-300 text-sm font-semibold">
+                    <i data-lucide="info" class="w-4 h-4 flex-shrink-0 mb-1"></i>
                     <span>Si el video tiene restricciones, ábrelo directamente en YouTube haciendo clic en el ícono de YouTube dentro del reproductor.</span>
                 </div>
             </section>
@@ -460,40 +485,22 @@
                     <i data-lucide="layout-panel-left" style="width:14px;height:14px;"></i> Paso 2
                 </div>
                 <h2 class="font-display text-2xl md:text-3xl font-black text-slate-900 dark:text-white mb-2">Láminas del Taller</h2>
-                <p class="text-slate-600 dark:text-gray-400 mb-6 max-w-2xl">Revisa todas las láminas del taller. Haz clic sobre cualquier imagen para verla ampliada. Tómate el tiempo necesario para leer y comprender cada diapositiva antes de continuar.</p>
+                <p class="text-slate-700 dark:text-slate-300 mb-6 max-w-2xl">Revisa el archivo PDF con las láminas del taller. Tómate el tiempo necesario para leer y comprender cada diapositiva antes de continuar.</p>
 
-                <div class="slides-grid" id="slides-container">
-                    <!-- Las láminas se generan dinámicamente vía JS o puedes reemplazar con imágenes reales -->
-                    <!-- Ejemplo de estructura: agrega tantos slide-card como necesites -->
-                    <div class="slide-card" onclick="openLightbox(this)">
-                        <img src="https://placehold.co/600x400/1d4ed8/ffffff?text=Lámina+1" alt="Lámina 1 del taller">
-                        <div class="slide-label">Lámina 1</div>
-                    </div>
-                    <div class="slide-card" onclick="openLightbox(this)">
-                        <img src="https://placehold.co/600x400/1d4ed8/ffffff?text=Lámina+2" alt="Lámina 2 del taller">
-                        <div class="slide-label">Lámina 2</div>
-                    </div>
-                    <div class="slide-card" onclick="openLightbox(this)">
-                        <img src="https://placehold.co/600x400/1d4ed8/ffffff?text=Lámina+3" alt="Lámina 3 del taller">
-                        <div class="slide-label">Lámina 3</div>
-                    </div>
-                    <div class="slide-card" onclick="openLightbox(this)">
-                        <img src="https://placehold.co/600x400/1d4ed8/ffffff?text=Lámina+4" alt="Lámina 4 del taller">
-                        <div class="slide-label">Lámina 4</div>
-                    </div>
-                    <div class="slide-card" onclick="openLightbox(this)">
-                        <img src="https://placehold.co/600x400/1d4ed8/ffffff?text=Lámina+5" alt="Lámina 5 del taller">
-                        <div class="slide-label">Lámina 5</div>
-                    </div>
-                    <div class="slide-card" onclick="openLightbox(this)">
-                        <img src="https://placehold.co/600x400/1d4ed8/ffffff?text=Lámina+6" alt="Lámina 6 del taller">
-                        <div class="slide-label">Lámina 6</div>
-                    </div>
+                <div class="w-full relative" style="height: 65vh; min-height: 450px; border-radius: 1.25rem; overflow: hidden; background: #e2e8f0; box-shadow: 0 8px 40px rgba(0,0,0,0.15);">
+                    <object data="laminas_taller.pdf" type="application/pdf" class="absolute top-0 left-0 w-full h-full border-none" title="Láminas del Taller">
+                        <div class="flex flex-col items-center justify-center h-full text-center p-6 text-slate-600">
+                            <i data-lucide="file-warning" class="w-12 h-12 mb-3 text-slate-400"></i>
+                            <p>Tu navegador no puede previsualizar el PDF.</p>
+                            <a href="laminas_taller.pdf" target="_blank" class="mt-3 bg-blue-600 text-white px-5 py-2 rounded-lg font-bold">Descargar archivo</a>
+                        </div>
+                    </object>
                 </div>
 
-                <p class="text-xs text-slate-400 dark:text-slate-600 mt-4 text-center">
-                    💡 Haz clic en cualquier lámina para verla en pantalla completa.
-                </p>
+                <div class="mt-4 flex flex-col items-center justify-center text-center gap-2 bg-cyan-50 dark:bg-cyan-900/20 border border-cyan-200 dark:border-cyan-700/30 rounded-xl px-4 py-3 text-cyan-700 dark:text-cyan-300 text-sm font-semibold">
+                    <i data-lucide="download" class="w-4 h-4 flex-shrink-0 mb-1"></i>
+                    <span>Si tienes problemas para visualizar el documento, puedes <a href="laminas_taller.pdf" target="_blank" class="underline">descargarlo aquí</a>.</span>
+                </div>
             </section>
 
             <!-- ─────────────────────────────────── -->
@@ -504,29 +511,28 @@
                     <i data-lucide="image" style="width:14px;height:14px;"></i> Paso 3
                 </div>
                 <h2 class="font-display text-2xl md:text-3xl font-black text-slate-900 dark:text-white mb-2">Tareas Asignadas</h2>
-                <p class="text-slate-600 dark:text-gray-400 mb-6 max-w-2xl">A continuación encontrarás las infografías con las tareas que debes realizar. Lee cada una cuidadosamente. Haz clic para ampliarlas. Las instrucciones de entrega estarán indicadas en cada infografía.</p>
+                <p class="text-slate-700 dark:text-slate-300 mb-6 max-w-2xl">A continuación encontrarás las infografías con las tareas que debes realizar. Lee cada una cuidadosamente. Haz clic para ampliarlas. Las instrucciones de entrega estarán indicadas en cada infografía.</p>
 
                 <div class="infos-grid" id="infos-container">
-                    <!-- Agrega aquí las infografías reales sustituyendo los src -->
                     <div class="info-card" onclick="openLightbox(this)">
-                        <img src="https://placehold.co/500x700/f59e0b/ffffff?text=Tarea+1" alt="Infografía Tarea 1">
-                        <div class="info-label">📋 Tarea 1</div>
+                        <img src="tarea1.jpg" alt="Guía Paso a Paso: ¡Este Soy Yo!" loading="lazy">
+                        <div class="info-label text-center">📋 Tarea 1: ¡Este Soy Yo!</div>
                     </div>
                     <div class="info-card" onclick="openLightbox(this)">
-                        <img src="https://placehold.co/500x700/f59e0b/ffffff?text=Tarea+2" alt="Infografía Tarea 2">
-                        <div class="info-label">📋 Tarea 2</div>
+                        <img src="tarea2.jpg" alt="Guía: Conociendo Mis Valores" loading="lazy">
+                        <div class="info-label text-center">📋 Tarea 2: Valores</div>
                     </div>
                     <div class="info-card" onclick="openLightbox(this)">
-                        <img src="https://placehold.co/500x700/f59e0b/ffffff?text=Tarea+3" alt="Infografía Tarea 3">
-                        <div class="info-label">📋 Tarea 3</div>
+                        <img src="tarea3.jpg" alt="Personajes Admirados: Guía de la Actividad" loading="lazy">
+                        <div class="info-label text-center">📋 Tarea 3: Personajes</div>
                     </div>
                     <div class="info-card" onclick="openLightbox(this)">
-                        <img src="https://placehold.co/500x700/f59e0b/ffffff?text=Tarea+4" alt="Infografía Tarea 4">
-                        <div class="info-label">📋 Tarea 4</div>
+                        <img src="tarea4.jpg" alt="Guía de Investigación UCV: Tu Ruta Académica" loading="lazy">
+                        <div class="info-label text-center">📋 Tarea 4: Ruta Académica</div>
                     </div>
                 </div>
 
-                <p class="text-xs text-slate-400 dark:text-slate-600 mt-4 text-center">
+                <p class="text-xs text-slate-400 dark:text-slate-700 mt-4 text-center">
                     🖼️ Haz clic en cada infografía para ampliarla.
                 </p>
             </section>
@@ -539,13 +545,13 @@
                     <i data-lucide="clipboard-check" style="width:14px;height:14px;"></i> Paso 4
                 </div>
                 <h2 class="font-display text-2xl md:text-3xl font-black text-slate-900 dark:text-white mb-2">Tests a Realizar</h2>
-                <p class="text-slate-600 dark:text-gray-400 mb-3 max-w-2xl">Debes completar los siguientes tests psicológicos y vocacionales. Es necesario que <strong class="text-slate-800 dark:text-white">inicies sesión con tu cuenta de Google</strong> para poder realizarlos y que tus resultados queden registrados.</p>
+                <p class="text-slate-700 dark:text-slate-300 mb-3 max-w-2xl">Debes completar los siguientes tests psicológicos y vocacionales. Es necesario que <strong class="text-slate-800 dark:text-white">inicies sesión con tu cuenta de Google</strong> para poder realizarlos y que tus resultados queden registrados.</p>
 
                 <!-- Auth gate (visible si no está autenticado) -->
                 <div class="auth-gate" id="tests-unauth-proc">
                     <i data-lucide="lock" class="w-12 h-12 text-slate-400 mx-auto mb-4"></i>
                     <h3 class="text-xl font-bold text-slate-800 dark:text-white mb-2">Inicia Sesión para acceder</h3>
-                    <p class="text-slate-600 dark:text-gray-400 mb-6">Debes autenticarte con tu cuenta de Google para realizar los tests y guardar tus respuestas.</p>
+                    <p class="text-slate-700 dark:text-slate-300 mb-6">Debes autenticarte con tu cuenta de Google para realizar los tests y guardar tus respuestas.</p>
                     <button onclick="window.DaiaAuth && window.DaiaAuth.login()" class="inline-flex items-center gap-2 bg-blue-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-blue-700 transition-colors shadow-md">
                         <svg class="w-5 h-5 bg-white rounded-full p-0.5" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/><path fill="none" d="M1 1h22v22H1z"/></svg>
                         Iniciar Sesión con Google
@@ -605,33 +611,62 @@
                     <i data-lucide="mic" style="width:14px;height:14px;"></i> Paso 5
                 </div>
                 <h2 class="font-display text-2xl md:text-3xl font-black text-slate-900 dark:text-white mb-2">Entrevista Guiada</h2>
-                <p class="text-slate-600 dark:text-gray-400 mb-6 max-w-2xl">La última etapa es la entrevista guiada. Debes completar el formulario a continuación con honestidad y con toda la información requerida. Este formulario es confidencial y es parte del proceso de admisión.</p>
+                <p class="text-slate-700 dark:text-slate-300 mb-6 max-w-2xl">La última etapa es la entrevista guiada. Debes completar el formulario a continuación con honestidad y con toda la información requerida. Este formulario es confidencial y es parte del proceso de admisión.</p>
 
                 <div class="entrevista-box">
                     <i data-lucide="file-text" class="w-14 h-14 text-emerald-600 dark:text-emerald-400 mx-auto mb-4"></i>
                     <h3 class="font-display text-xl font-black text-slate-900 dark:text-white mb-3">Formulario de Entrevista Guiada</h3>
-                    <p class="text-slate-600 dark:text-gray-400 mb-2 max-w-lg mx-auto text-sm">Al hacer clic en el botón serás redirigido al formulario de Google. Complétalo con todos tus datos y responde cada pregunta con la mayor precisión posible.</p>
+                    <p class="text-slate-700 dark:text-slate-300 mb-2 max-w-lg mx-auto text-sm">Al hacer clic en el botón serás redirigido al formulario de Google. Complétalo con todos tus datos y responde cada pregunta con la mayor precisión posible.</p>
                     <p class="text-emerald-700 dark:text-emerald-400 font-bold text-sm mb-6">⏱️ Tiempo estimado: 15–25 minutos</p>
                     
-                    <a href="https://forms.gle/TU_FORMULARIO_AQUI" target="_blank" rel="noopener noreferrer"
+                    <a href="https://forms.gle/GDiNov9gkh8veFNs6" target="_blank" rel="noopener noreferrer"
                        id="btn-entrevista"
-                       class="inline-flex items-center gap-3 bg-emerald-600 hover:bg-emerald-700 text-white font-black py-4 px-10 rounded-2xl shadow-xl transition-all duration-300 hover:-translate-y-1 hover:scale-105 text-lg">
+                       class="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-black py-4 px-10 rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:scale-105 text-lg w-full sm:w-auto" style="box-shadow: 0 10px 25px rgba(124, 58, 237, 0.4); border: 2px solid rgba(255,255,255,0.2);">
                         <i data-lucide="external-link" class="w-5 h-5"></i>
                         Completar Entrevista Guiada
                     </a>
 
-                    <p class="text-xs text-slate-400 dark:text-gray-600 mt-5">
-                        Si tienes problemas para acceder al formulario, escríbenos a <strong>daiadducv@gmail.com</strong>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mt-6 font-medium">
+                        Si tienes problemas para acceder al formulario, escríbenos a <strong class="text-slate-900 dark:text-white">daiadducv@gmail.com</strong>
                     </p>
                 </div>
 
                 <!-- Nota importante -->
-                <div class="mt-6 flex items-start gap-3 bg-amber-50 dark:bg-amber-900/15 border border-amber-200 dark:border-amber-700/30 rounded-xl px-5 py-4 text-amber-800 dark:text-amber-300 text-sm">
-                    <i data-lucide="alert-circle" class="w-5 h-5 flex-shrink-0 mt-0.5"></i>
+                <div class="mt-6 flex flex-col items-center justify-center text-center gap-3 bg-amber-50 dark:bg-amber-900/15 border border-amber-200 dark:border-amber-700/30 rounded-xl px-5 py-4 text-amber-800 dark:text-amber-300 text-sm">
+                    <i data-lucide="alert-circle" class="w-5 h-5 flex-shrink-0 mb-1"></i>
                     <div>
                         <p class="font-bold mb-1">Importante: completa todos los pasos</p>
                         <p class="font-normal text-amber-700 dark:text-amber-400">Para que tu proceso esté completo debes haber: visto el video, revisado las láminas, realizado las tareas, completado los 3 tests y respondido la entrevista guiada. El incumplimiento de cualquier etapa puede afectar tu proceso de admisión.</p>
                     </div>
+                </div>
+            </section>
+
+            <!-- ─────────────────────────────────── -->
+            <!--  SECCIÓN 6: ENVÍO DE INFORMACIÓN    -->
+            <!-- ─────────────────────────────────── -->
+            <section class="proc-section fade-up" id="sec-envio">
+                <div class="section-badge bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300">
+                    <i data-lucide="mail" style="width:14px;height:14px;"></i> Paso 6
+                </div>
+                <h2 class="font-display text-2xl md:text-3xl font-black text-slate-900 dark:text-white mb-2">Envío de Información</h2>
+                <p class="text-slate-700 dark:text-slate-300 mb-6 max-w-2xl">Una vez completados todos los pasos anteriores (tareas, tests, y entrevista), debes enviar un correo electrónico confirmando la culminación de tu proceso online.</p>
+
+                <div class="bg-red-50 dark:bg-slate-800/80 border border-red-200 dark:border-slate-600 rounded-2xl p-6 md:p-8 w-full max-w-2xl mx-auto shadow-sm">
+                    <i data-lucide="send" class="w-12 h-12 text-red-600 dark:text-red-400 mx-auto mb-4"></i>
+                    <h3 class="font-display text-lg font-bold text-slate-900 dark:text-white mb-4 text-center">Instrucciones para el Correo</h3>
+                    
+                    <ul class="text-center flex flex-col items-center text-slate-700 dark:text-slate-200 space-y-3 mb-8 text-sm md:text-base w-full">
+                        <li class="flex flex-col items-center justify-center gap-1"><i data-lucide="check-circle-2" class="w-5 h-5 text-red-600 mb-1"></i> <strong class="text-slate-900 dark:text-white">Destinatario:</strong> daiaarticulo25@gmail.com</li>
+                        <li class="flex flex-col items-center justify-center gap-1"><i data-lucide="check-circle-2" class="w-5 h-5 text-red-600 mb-1"></i> <strong class="text-slate-900 dark:text-white">Asunto del correo:</strong> Culminación Proceso Art. 25 - [Tu Nombre y Apellido] - [Tu Disciplina Deportiva]</li>
+                        <li class="flex flex-col items-center justify-center gap-1 max-w-lg"><i data-lucide="check-circle-2" class="w-5 h-5 text-red-600 mb-1"></i> <strong class="text-slate-900 dark:text-white">Cuerpo del mensaje:</strong> Indica tu nombre completo, número de cédula, disciplina deportiva y confirma que has realizado todas las asignaciones, los tests y la entrevista.</li>
+                        <li class="flex flex-col items-center justify-center gap-1 max-w-lg"><i data-lucide="check-circle-2" class="w-5 h-5 text-red-600 mb-1"></i> <strong class="text-slate-900 dark:text-white">Adjuntos:</strong> Si alguna de las tareas o láminas requería un archivo o captura de pantalla, adjúntalo en este mismo correo.</li>
+                    </ul>
+
+                    <a href="mailto:daiaarticulo25@gmail.com?subject=Culminaci%C3%B3n%20Proceso%20Art.%2025%20-%20%5BNombre%5D%20-%20%5BDisciplina%5D" 
+                       class="inline-flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-xl transition-all shadow-md hover:-translate-y-1 w-full sm:w-auto">
+                        <i data-lucide="mail-plus" class="w-5 h-5"></i>
+                        Enviar Correo Ahora
+                    </a>
                 </div>
             </section>
 
@@ -699,9 +734,9 @@
                 </a>
                 <div class="w-full h-px bg-slate-200 dark:bg-slate-700 my-1"></div>
                 <div class="flex gap-5 justify-center w-full">
-                    <a href="https://www.instagram.com/deportesucv/" target="_blank" aria-label="Instagram" class="text-slate-600 hover:text-pink-600 dark:text-slate-400 dark:hover:text-pink-400 transition-colors transform hover:scale-110"><i data-lucide="instagram" class="w-5 h-5"></i></a>
-                    <a href="https://www.facebook.com/p/DAIA-Deportes-UCV-100076199720429/" target="_blank" aria-label="Facebook" class="text-slate-600 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400 transition-colors transform hover:scale-110"><i data-lucide="facebook" class="w-5 h-5"></i></a>
-                    <a href="mailto:daiadducv@gmail.com" aria-label="Email" class="text-slate-600 hover:text-red-500 dark:text-slate-400 dark:hover:text-red-500 transition-colors transform hover:scale-110"><i data-lucide="mail" class="w-5 h-5"></i></a>
+                    <a href="https://www.instagram.com/deportesucv/" target="_blank" aria-label="Instagram" class="text-slate-700 hover:text-pink-600 dark:text-slate-400 dark:hover:text-pink-400 transition-colors transform hover:scale-110"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                    <a href="https://www.facebook.com/p/DAIA-Deportes-UCV-100076199720429/" target="_blank" aria-label="Facebook" class="text-slate-700 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400 transition-colors transform hover:scale-110"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                    <a href="mailto:daiadducv@gmail.com" aria-label="Email" class="text-slate-700 hover:text-red-500 dark:text-slate-400 dark:hover:text-red-500 transition-colors transform hover:scale-110"><i data-lucide="mail" class="w-5 h-5"></i></a>
                 </div>
             </div>
         </div>
@@ -800,7 +835,7 @@
 
             // Sticky step nav active state
             const pills = document.querySelectorAll('.step-pill');
-            const sections = ['sec-video','sec-laminas','sec-tareas','sec-tests','sec-entrevista'];
+            const sections = ['sec-video','sec-laminas','sec-tareas','sec-tests','sec-entrevista','sec-envio'];
             const updateActive = () => {
                 let current = '';
                 sections.forEach(id => {
