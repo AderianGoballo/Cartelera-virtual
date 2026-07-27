@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es" class="scroll-smooth dark">
 <head>
     <meta charset="UTF-8">
@@ -590,7 +590,12 @@
                 const sel = document.querySelector(`input[name="q${q.id}"]:checked`);
                 if (sel) answersToSave[q.id] = sel.value;
             });
-            window.DaiaDB.saveTestResult(currentUserEmail, 'AUTOPERCEPCION', { totalScore: totalScore, answers: answersToSave });
+            window.DaiaDB.saveTestResult(currentUserEmail, 'AUTOPERCEPCION', { 
+                totalScore: totalScore, 
+                category: diag.cat,
+                interpretation: diag.desc,
+                answers: answersToSave 
+            });
         }
     }
 

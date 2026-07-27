@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es" class="scroll-smooth dark">
 <head>
     <meta charset="UTF-8">
@@ -787,7 +787,21 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
 
         if (window.DaiaDB && currentUserEmail && !window.showingPastResults) {
-            window.DaiaDB.saveTestResult(currentUserEmail, 'CASM85', { answers: userAnswers });
+            let detailedAreas = {};
+            for(let i=1; i<=5; i++) {
+                detailedAreas[nombresAreas[i-1]] = {
+                    score: scores[i],
+                    max: maxPuntos[i],
+                    category: getDiagnosticCategory(i, scores[i])
+                };
+            }
+            window.DaiaDB.saveTestResult(currentUserEmail, 'CASM85', { 
+                totalScore: totalScore,
+                globalCategory: globalCat,
+                globalInterpretation: getDiagnosticText(globalCat),
+                areaDetails: detailedAreas,
+                answers: userAnswers 
+            });
         }
     }
 

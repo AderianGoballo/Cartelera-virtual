@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es" class="scroll-smooth dark">
 <head>
     <meta charset="UTF-8">
@@ -1140,9 +1140,123 @@
             let html = `<div class="interpretation-group">
                 <h3 style="color: var(--danger);">Campos de Rechazo o Desinterés (Percentil menor a 30)</h3>
                 <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:15px;">Áreas profesionales y actividades que claramente no encajan con tus gustos actuales.</p>`;
+            let scoreAC = rawScores[i].AC;
+            let scorePR = rawScores[i].PR;
+
+            let pctAC = baremoExcel[i].AC[scoreAC];
+            let pctPR = baremoExcel[i].PR[scorePR];
+            let avgPct = Math.round((pctAC + pctPR) / 2);
+
+            results.push({
+                campoId: i,
+                nombre: camposNombres[i-1],
+                pctAC: pctAC,
+                pctPR: pctPR,
+                avgPct: avgPct,
+                discrepancy: Math.abs(pctAC - pctPR) > 30
+            });
+        }
+
+        renderResults(results);
+    }
+
+    function renderResults(results) {
+        document.getElementById('quiz-view').style.display = 'none';
+        document.getElementById('results-view').style.display = 'block';
+
+        let chartHtml = '';
+        results.forEach(r => {
+            chartHtml += `
+                <div class="chart-row">
+                    <div class="chart-label">${r.nombre}</div>
+                    <div class="bar-container">
+                        <div class="bar bar-ac" style="width: ${r.pctAC}%;">${r.pctAC}</div>
+                        <div class="bar bar-pr" style="width: ${r.pctPR}%;">${r.pctPR}</div>
+                    </div>
+                    <div style="font-size: 0.8rem; text-align: right;">
+                        <span style="color:var(--accent)">${r.pctAC}</span> | <span style="color:var(--primary)">${r.pctPR}</span>
+                    </div>
+                </div>
+            `;
+        });
+        document.getElementById('chart-rows').innerHTML = chartHtml;
+
+        let altos = [], medios = [], bajos = [];
+        
+        let sortedResults = [...results].sort((a,b) => b.avgPct - a.avgPct);
+        
+        sortedResults.forEach(r => {
+            if(r.avgPct >= 70) altos.push(r);
+            else if(r.avgPct >= 30) medios.push(r);
+            else bajos.push(r);
+        });
+
+        const container = document.getElementById('interpretations-container');
+        container.innerHTML = "";
+
+        const createInterpCard = (r, level) => {
+            const info = infoCampos[r.campoId];
+            let desc = "";
+
+            if (level === 'alto') {
+                desc = `Manifiestas un <strong>interés muy marcado</strong> en este campo. Te resultan altamente atractivas actividades como ${info.act}. Esto sugiere una fuerte inclinación vocacional hacia profesiones como <strong>${info.pro}</strong>, donde podrías encontrar gran satisfacción profesional.`;
+            } else if (level === 'medio') {
+                desc = `Muestras un <strong>interés intermedio o mixto</strong>. Es posible que disfrutes puntualmente de algunas tareas vinculadas a ${info.act}, pero tienes reservas, dudas o desconocimiento sobre dedicarte de lleno a profesiones como <strong>${info.pro}</strong>.`;
+            } else {
+                desc = `Manifiestas un <strong>claro desinterés o rechazo</strong>. No te resultan estimulantes las actividades como ${info.act}. Con gran probabilidad, profesiones como <strong>${info.pro}</strong> te resultarían insatisfactorias o ajenas a tu perfil vocacional.`;
+            }
+
+            let discHtml = "";
+            if (r.discrepancy) {
+                let mayor = r.pctAC > r.pctPR ? "las actividades prácticas" : "el prestigio o idea de las profesiones";
+                let menor = r.pctAC < r.pctPR ? "las profesiones asociadas" : "las tareas cotidianas reales";
+                discHtml = `<div class="discrepancy-badge"><strong>¡Atención! Discrepancia significativa:</strong> Te atraen más ${mayor} (PC ${Math.max(r.pctAC, r.pctPR)}) que ${menor} (PC ${Math.min(r.pctAC, r.pctPR)}). Esto indica necesidad de mayor información vocacional sobre la realidad de este campo.</div>`;
+            }
+
+            return `
+                <div class="interp-card">
+                    <h4>${r.nombre} <span class="interp-pct">Promedio: PC ${r.avgPct}</span></h4>
+                    <p style="font-size:0.95rem; line-height: 1.5; color: var(--text-muted);">${desc}</p>
+                    ${discHtml}
+                </div>
+            `;
+        };
+
+        if (altos.length > 0) {
+            let html = `<div class="interpretation-group">
+                <h3 style="color: var(--accent);">Campos de Interés Prioritario (Percentil 70+)</h3>
+                <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:15px;">Estas son las áreas principales hacia las que deberías orientar tu futuro vocacional según tus respuestas.</p>`;
+            altos.forEach(r => html += createInterpCard(r, 'alto'));
+            html += `</div>`;
+            container.innerHTML += html;
+        }
+
+        if (medios.length > 0) {
+            let html = `<div class="interpretation-group">
+                <h3 style="color: var(--warning);">Campos de Interés Moderado/Dudoso (Percentil 30-69)</h3>
+                <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:15px;">Áreas que te generan curiosidad parcial o indiferencia. Podrían ser aficiones o requerir más exploración.</p>`;
+            medios.forEach(r => html += createInterpCard(r, 'medio'));
+            html += `</div>`;
+            container.innerHTML += html;
+        }
+
+        if (bajos.length > 0) {
+            let html = `<div class="interpretation-group">
+                <h3 style="color: var(--danger);">Campos de Rechazo o Desinterés (Percentil menor a 30)</h3>
+                <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:15px;">Áreas profesionales y actividades que claramente no encajan con tus gustos actuales.</p>`;
             bajos.forEach(r => html += createInterpCard(r, 'bajo'));
             html += `</div>`;
             container.innerHTML += html;
+        }
+
+        if (window.DaiaDB && currentUserEmail && !window.showingPastResults) {
+            window.DaiaDB.saveTestResult(currentUserEmail, 'IPP', { 
+                resultsDetailed: results,
+                topInterests: altos,
+                mediumInterests: medios,
+                lowInterests: bajos,
+                answers: userAnswers 
+            });
         }
 
         window.scrollTo({ top: 0, behavior: 'smooth' });
