@@ -485,21 +485,28 @@
                     <i data-lucide="layout-panel-left" style="width:14px;height:14px;"></i> Paso 2
                 </div>
                 <h2 class="font-display text-2xl md:text-3xl font-black text-slate-900 dark:text-white mb-2">Láminas del Taller</h2>
-                <p class="text-slate-700 dark:text-slate-300 mb-6 max-w-2xl">Revisa el archivo PDF con las láminas del taller. Tómate el tiempo necesario para leer y comprender cada diapositiva antes de continuar.</p>
+                <p class="text-slate-700 dark:text-slate-300 mb-6 max-w-2xl">Selecciona el documento que deseas leer y tómate el tiempo necesario para comprender cada diapositiva antes de continuar.</p>
+
+                <!-- Botones para cambiar de PDF -->
+                <div class="flex flex-wrap gap-2 mb-4 justify-center md:justify-start">
+                    <button onclick="changePDF('laminas_taller.pdf', this)" class="pdf-btn active bg-cyan-600 text-white px-4 py-2 rounded-lg font-bold shadow hover:bg-cyan-700 transition">Artículo 25</button>
+                    <button onclick="changePDF('orientacion.pdf', this)" class="pdf-btn bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-white px-4 py-2 rounded-lg font-bold shadow hover:bg-slate-300 dark:hover:bg-slate-600 transition">Orientación Vocacional</button>
+                    <button onclick="changePDF('autoconocimiento.pdf', this)" class="pdf-btn bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-white px-4 py-2 rounded-lg font-bold shadow hover:bg-slate-300 dark:hover:bg-slate-600 transition">Autoconocimiento</button>
+                </div>
 
                 <div class="w-full relative" style="height: 65vh; min-height: 450px; border-radius: 1.25rem; overflow: hidden; background: #e2e8f0; box-shadow: 0 8px 40px rgba(0,0,0,0.15);">
-                    <object data="laminas_taller.pdf" type="application/pdf" class="absolute top-0 left-0 w-full h-full border-none" title="Láminas del Taller">
+                    <object id="pdf-viewer" data="laminas_taller.pdf" type="application/pdf" class="absolute top-0 left-0 w-full h-full border-none" title="Láminas del Taller">
                         <div class="flex flex-col items-center justify-center h-full text-center p-6 text-slate-600">
                             <i data-lucide="file-warning" class="w-12 h-12 mb-3 text-slate-400"></i>
                             <p>Tu navegador no puede previsualizar el PDF.</p>
-                            <a href="laminas_taller.pdf" target="_blank" class="mt-3 bg-blue-600 text-white px-5 py-2 rounded-lg font-bold">Descargar archivo</a>
+                            <a id="pdf-download-link" href="laminas_taller.pdf" target="_blank" class="mt-3 bg-blue-600 text-white px-5 py-2 rounded-lg font-bold">Descargar archivo</a>
                         </div>
                     </object>
                 </div>
 
                 <div class="mt-4 flex flex-col items-center justify-center text-center gap-2 bg-cyan-50 dark:bg-cyan-900/20 border border-cyan-200 dark:border-cyan-700/30 rounded-xl px-4 py-3 text-cyan-700 dark:text-cyan-300 text-sm font-semibold">
                     <i data-lucide="download" class="w-4 h-4 flex-shrink-0 mb-1"></i>
-                    <span>Si tienes problemas para visualizar el documento, puedes <a href="laminas_taller.pdf" target="_blank" class="underline">descargarlo aquí</a>.</span>
+                    <span>Si tienes problemas para visualizar el documento, puedes <a id="pdf-download-text-link" href="laminas_taller.pdf" target="_blank" class="underline">descargarlo aquí</a>.</span>
                 </div>
             </section>
 
