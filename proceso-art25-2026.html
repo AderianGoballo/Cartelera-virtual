@@ -487,6 +487,20 @@
                 <h2 class="font-display text-2xl md:text-3xl font-black text-slate-900 dark:text-white mb-2">Láminas del Taller</h2>
                 <p class="text-slate-700 dark:text-slate-300 mb-6 max-w-2xl">Selecciona el documento que deseas leer y tómate el tiempo necesario para comprender cada diapositiva antes de continuar.</p>
 
+                <!-- Aviso de 3 botones -->
+                <div class="bg-cyan-50 dark:bg-cyan-900/20 border-l-4 border-cyan-500 p-4 mb-6 rounded-r-lg max-w-2xl">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 mt-0.5">
+                            <i data-lucide="info" class="h-5 w-5 text-cyan-600 dark:text-cyan-400"></i>
+                        </div>
+                        <div class="ml-3">
+                            <p class="text-sm text-cyan-800 dark:text-cyan-200">
+                                <strong>¡Importante!</strong> Hay <strong class="font-black text-cyan-900 dark:text-cyan-100">3 presentaciones distintas</strong>. Asegúrate de hacer clic en cada uno de los 3 botones de abajo para leerlas todas.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Botones para cambiar de PDF -->
                 <div class="flex flex-wrap gap-2 mb-4 justify-center md:justify-start">
                     <button onclick="changePDF('laminas_taller.pdf', this)" class="pdf-btn active bg-cyan-600 text-white px-4 py-2 rounded-lg font-bold shadow hover:bg-cyan-700 transition">Artículo 25</button>
@@ -668,6 +682,21 @@
                 </div>
                 <h2 class="font-display text-2xl md:text-3xl font-black text-slate-900 dark:text-white mb-2">Envío de Información</h2>
                 <p class="text-slate-700 dark:text-slate-300 mb-6 max-w-2xl">Una vez completados todos los pasos anteriores (tareas, tests, y entrevista), debes enviar un correo electrónico confirmando la culminación de tu proceso online.</p>
+
+                <!-- Aviso de fecha límite -->
+                <div class="bg-red-50 dark:bg-red-900/20 border-l-4 border-red-500 p-4 mb-8 rounded-r-lg max-w-2xl">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 mt-0.5">
+                            <i data-lucide="calendar-x" class="h-5 w-5 text-red-600 dark:text-red-400"></i>
+                        </div>
+                        <div class="ml-3">
+                            <p class="text-sm text-red-800 dark:text-red-200">
+                                <strong>Fecha Límite:</strong> El plazo máximo para enviar todas tus tareas y culminar el proceso online es el <strong class="font-black text-red-900 dark:text-red-100">27 de agosto del 2026</strong>. No se recibirán recaudos después de esta fecha.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
 
                 <div class="bg-red-50 dark:bg-slate-800/80 border border-red-200 dark:border-slate-600 rounded-2xl p-6 md:p-8 w-full max-w-2xl mx-auto shadow-sm">
                     <i data-lucide="send" class="w-12 h-12 text-red-600 dark:text-red-400 mx-auto mb-4"></i>
