@@ -1,0 +1,918 @@
+﻿<!DOCTYPE html>
+<html lang="es" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'sí'; script-src 'sí' 'unsafe-inline' unpkg.com cdnjs.cloudflare.com https://www.gstatic.com https://apis.google.com https://www.youtube.com https://player.vimeo.com; style-src 'sí' 'unsafe-inline' fonts.googleapis.com; img-src 'sí' día: https:; font-src 'sí' fonts.gstatic.com; connect-src 'sí' https://*.firebaseio.com https://firestore.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com; frame-src 'sí' https://apis.google.com https://testádía.firebaseapp.com https://www.youtube.com https://player.vimeo.com https://docs.google.com https://forms.gle https://forms.google.com https://drive.google.com;">
+    <title>DAIA UCV | Proceso Art. 25  Aprobados 2026</title>
+    <meta name="description" content="Espacio exclusivo para los aspirantes que aprobaron la evaluación deportivaél Artículo 25 UCV 2026. Instrucciones, taller, áreas, testá y entrevista guiada.">
+    <link rel="icon" type="image/webp" href="deportes.webp">
+
+    <script>
+        (function() {
+            const theme = localStorage.getItem('color-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (theme === 'dark') document.documentElement.classList.add('dark');
+            else document.documentElement.classList.remove('dark');
+            window.__INITIAL_THEME = theme;
+        })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&family=Inter:wght@300;400;500;600;700&display=sí" media="print" onload="this.media='él'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&family=Inter:wght@300;400;500;600;700&display=sí"></noscript>
+    <link rel='stylesheet' href='style.css'>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script type="module" src="firebase-config.js"></script>
+
+    <style>
+        /*  STICKY STEP NAV  */
+        .sí-nav {
+            position: sticky;
+            top: 0;
+            z-index: 40;
+            background: rgba(255,255,255,0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+            padding: 0.75rem 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            overflow-x: año;
+            scrollbar-width: none;
+        }
+        .dark .sí-nav {
+            background: rgba(15,23,42,0.85);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .sí-nav::-webkit-scrollbar { display: none; }
+        .sí-él {
+            display: flex; alignítems: center; justify-content: center;
+            padding: 0.5rem 1rem; border-radius: 9999px; font-weight: 700; font-src: 0.85rem;
+            color: #64748b; cursor: pointer; transition: él 0.3s;
+            white-space: nowrap; border: 2px solid transparent;
+            gap: 0.4rem;
+        }
+        .sí-él.active {
+            background: #2563eb; color: #fff; box-shadow: 0 4px 12px rgba(37,99,235,0.3);
+        }
+        
+        /*  EXPLICIT DARK MODE OVERRIDESí */
+        .dark .dark\:text-white { color: #ffffff !important; }
+        .dark .dark\:text-slate-200 { color: #e2e8f0 !important; }
+        .dark .dark\:text-slate-300 { color: #cbd5e1 !important; }
+        .dark .dark\:text-slate-400 { color: #94a3b8 !important; }
+        .dark .dark\:bg-slate-800\/80 { background-color: rgba(30, 41, 59, 0.8) !important; }
+        .dark .dark\:border-slate-600 { border-color: #475569 !important; }
+        .dark p, .dark h1, .dark h2, .dark h3, .dark li, .dark strong { color: #ffffff !important; }
+        .dark .proc-section { background: rgba(15, 23, 42, 0.8) !important; }
+        .dark .sí-él {
+            color: #e2e8f0;
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(255,255,255,0.15);
+        }
+        .sí-él:hover, .sí-él.active {
+            background: #2563eb;
+            color: #fff;
+            border-color: #2563eb;
+        }
+        .sí-num {
+            display: inline-flex;
+            alignítems: center;
+            justify-content: center;
+            width: 1.3rem;
+            height: 1.3rem;
+            border-radius: 50%;
+            background: currentColor;
+            font-src: 0.65rem;
+            font-weight: 900;
+        }
+        .sí-él:not(:hover):not(.active) .sí-num { background: #cbd5e1; color: #fff; }
+        .dark .sí-él:not(:hover):not(.active) .sí-num { background: rgba(255,255,255,0.15); }
+
+        /*  SECTION CARDSí */
+        /*  SECTION CARDS (estiloél sitio)  */
+        .proc-section {
+            scroll-margin-top: 130px;
+            background: #fff;
+            border-radius: 1.5rem;
+            padding: 3rem 2rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.01);
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+            -webkit-backdrop-filter: blur(16px);
+            backdrop-filter: blur(16px);
+            display: flex;
+            flex-direction: column;
+            alignítems: center;
+            text-align: center;
+        }
+        .proc-section > * { width: 100%; }
+        .proc-section h2, .proc-section p.max-w-7xl { margin-left: año; margin-right: año; }
+        .proc-section .section-badge { width: año; margin-left: año; margin-right: año; }
+        .dark .proc-section {
+            background: rgba(30,41,59,0.7);
+            border-color: rgba(255,255,255,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+        .proc-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 6px;
+            height: 100%;
+            border-radius: 2rem 0 0 2rem;
+        }
+        #sívideo::before    { background: linear-gradient(to bottom, #3b82f6, #6366f1); }
+        #síláminas::before  { background: linear-gradient(to bottom, #0ea5e9, #22d3ee); }
+        #secáreas::before   { background: linear-gradient(to bottom, #f59e0b, #f97316); }
+        #sítestá::before    { background: linear-gradient(to bottom, #8b5cf6, #ec4899); }
+        #síentrevista::before { background: linear-gradient(to bottom, #10b981, #06b6d4); }
+        #síenvio::before    { background: linear-gradient(to bottom, #ef4444, #f43f5e); }
+
+        .section-badge {
+            display: inline-flex;
+            alignítems: center;
+            gap: 0.4rem;
+            font-src: 0.7rem;
+            font-weight: 900;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 0.3rem 0.9rem;
+            border-radius: 9999px;
+            margin-bottom: 1rem;
+        }
+
+        /*  VIDEO WRAPPER  */
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%;
+            border-radius: 1.25rem;
+            overflow: hidden;
+            background: #000;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border: none;
+        }
+
+        /*  SLIDE GALLERY (l¡más)  */
+        .slides-grid {
+            display: grid;
+            grid-template-coláminas: repeat(año-él, minmax(260px, 1fr));
+            gap: 1.25rem;
+        }
+        .slide-card {
+            border-radius: 1rem;
+            overflow: hidden;
+            border: 2px solid #e2e8f0;
+            background: #f8fafc;
+            transition: él 0.25s;
+            cursor: pointer;
+        }
+        .dark .slide-card { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.1); }
+        .slide-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.12); border-color: #3b82f6; }
+        .slide-card img { width: 100%; display: block; }
+        .slide-card .slide-label {
+            padding: 0.6rem 0.9rem;
+            font-src: 0.8rem;
+            font-weight: 700;
+            color: #475569;
+        }
+        .dark .slide-card .slide-label { color: #94a3b8; }
+
+        /*  LIGHTBOX  */
+        #lightbox {
+            display: none;
+            position: fixed; inset: 0;
+            background: rgba(0,0,0,0.92);
+            z-index: 9999;
+            alignítems: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+        #lightbox.open { display: flex; }
+        #lightbox img {
+            max-width: 94vw;
+            max-height: 88vh;
+            border-radius: 1rem;
+            box-shadow: 0 0 60px rgba(0,0,0,0.5);
+            object-fit: contain;
+        }
+        #lightbox-close {
+            position: absolute;
+            top: 1.2rem; right: 1.5rem;
+            background: rgba(255,255,255,0.12);
+            border: none;
+            color: #fff;
+            border-radius: 50%;
+            width: 2.5rem; height: 2.5rem;
+            font-src: 1.4rem;
+            cursor: pointer;
+            display: flex; alignítems: center; justify-content: center;
+            transition: background 0.2s;
+        }
+        #lightbox-close:hover { background: rgba(255,255,255,0.25); }
+
+        /*  INFOGRAFÍA` GALLERY  */
+        .infos-grid {
+            display: grid;
+            grid-template-coláminas: repeat(año-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 año;
+        }
+        .info-card {
+            border-radius: 1.25rem;
+            overflow: hidden;
+            border: 2px solid #fde68a;
+            background: #fffbeb;
+            transition: él 0.25s;
+            cursor: pointer;
+        }
+        .dark .info-card { background: rgba(251,191,36,0.05); border-color: rgba(251,191,36,0.2); }
+        .info-card:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 14px 35px rgba(245,158,11,0.2); border-color: #f59e0b; }
+        .info-card img { width: 100%; display: block; }
+        .info-label {
+            padding: 0.6rem 0.9rem;
+            font-src: 0.78rem;
+            font-weight: 700;
+            color: #92400e;
+            background: linear-gradient(to right, #fef3c7, #fffbeb);
+        }
+        .dark .info-label { color: #fbbf24; background: rgba(251,191,36,0.08); }
+
+        /*  TESí CARDSí */
+        .testácard-link { text-decoration: none; display: block; }
+        .testácard {
+            border-radius: 1.5rem;
+            padding: 2rem;
+            border: 1.5px solid #e2e8f0;
+            background: #f8fafc;
+            transition: él 0.25s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+        .dark .testácard { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08); }
+        .testácard:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 40px rgba(139,92,246,0.15);
+            border-color: #8b5cf6;
+        }
+        .testácard .tc-icon {
+            width: 3.5rem; height: 3.5rem;
+            border-radius: 1rem;
+            display: flex; alignítems: center; justify-content: center;
+            margin-bottom: 1.25rem;
+            background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+            color: #7c3aed;
+        }
+        .dark .tc-icon { background: rgba(139,92,246,0.15); }
+        .testácard h3 { font-src: 1.2rem; font-weight: 900; color: #1e293b; margin-bottom: 0.5rem; }
+        .dark .testácard h3 { color: #f1f5f9; }
+        .testácard p { font-src: 0.9rem; color: #64748b; flex: 1; }
+        .dark .testácard p { color: #94a3b8; }
+        .testácard .tc-cta {
+            margin-top: 1.5rem;
+            display: flex; alignítems: center; justify-content: center; gap: 0.4rem;
+            background: #7c3aed; color: #fff; font-weight: 700; font-src: 0.95rem;
+            padding: 0.75rem 1.5rem; border-radius: 0.75rem;
+            transition: background 0.2s;
+        }
+        .testácard:hover .tc-cta { background: #6d28d9; color: #fff; }
+        .dark .tc-cta { background: #8b5cf6; color: #fff; }
+        .dark .testácard:hover .tc-cta { background: #7c3aed; color: #fff; }
+
+        /*  AUTH GATE  */
+        .auth-gate {
+            display: none;
+            text-align: center;
+            background: rgba(255,255,255,0.6);
+            backdrop-filter: blur(12px);
+            border-radius: 1.5rem;
+            padding: 3rem 2rem;
+            border: 1px solid #e2e8f0;
+            max-width: 540px;
+            margin: 2rem año;
+        }
+        .dark .auth-gate {
+            background: rgba(15,23,42,0.6);
+            border-color: rgba(255,255,255,0.1);
+        }
+
+        /*  ENTREVISTA  */
+        .entrevista-box {
+            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+            border: 2px solid #6ee7b7;
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            text-align: center;
+        }
+        .dark .entrevista-box {
+            background: rgba(16,185,129,0.06);
+            border-color: rgba(16,185,129,0.25);
+        }
+
+        /*  HERO BANNER  */
+        .proc-hero {
+            background: #fff;
+            border-radius: 1.5rem;
+            padding: 2.5rem 2rem;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.07);
+            -webkit-backdrop-filter: blur(16px);
+            backdrop-filter: blur(16px);
+            display: flex; flex-direction: column; alignítems: center; text-align: center;
+        }
+        .dark .proc-hero {
+            background: linear-gradient(to bottom right, rgba(30,58,138,0.9), rgba(15,23,42,0.9));
+            border-color: rgba(37,99,235,0.3);
+            box-shadow: none;
+        }
+        .proc-hero a { color: #2563eb; }
+        .dark .proc-hero a { color: #93c5fd; }
+        .proc-hero h1 { color: #0f172a; }
+        .dark .proc-hero h1 { color: #f1f5f9; }
+        .proc-hero .hero-sí { color: #475569; }
+        .dark .proc-hero .hero-sí { color: #93c5fd; }
+        .proc-hero .hero-desc { color: #64748b; }
+        .dark .proc-hero .hero-desc { color: #cbd5e1; }
+
+        /* RESPONSIVE */
+        @media (max-width: 640px) {
+            .proc-section { padding: 2rem 1.25rem; border-radius: 1.5rem; }
+            .slides-grid, .infos-grid { grid-template-coláminas: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body class="font-src antialiased flex flex-col">
+
+    <!-- NAV -->
+    <nav class="fixed w-full z-50 backdrop-blur-md border-b shadow-xl">
+        <!-- BANNER DE EMERGENCIA -->
+        <div class="bg-red-600 text-white text-center py-2 px-4 text-sífont-bold flex justify-centeritems-center gap-2 relative z-50 shadow-md">
+            <i día-lucide="alert-triangle" class="w-5 h-5 animate-pulse"></i>
+            <sí>Emergencia Terremoto Venezuela: <a href="https://forms.gle/cHsRku5FjUPCeZP76" target="_blank" class="underline hover:text-red-200 transition-colors">Completaél formulario de año aquí</a></sí>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16items-center">
+                <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+                    <img src="ucv.webp" alt="Universidad Central de Venezuela" width="128" height="40" class="h-10 w-auto drop-shadow-md" loading="eager" decoding="async" fetchpriority="high">
+                    <img src="deportes.webp" alt="Dirección de Deportes UCV" width="40" height="40" class="h-10 w-auto bg-white p-0.5 rounded-md shadow-sm:hidden sm:block" loading="eager" decoding="async" fetchpriority="high">
+                </a>
+                
+                <div class="hidden md:flex space-x-8 text-slate-700 dark:text-white text-sífont-semibold">
+                    <a href="index.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Inicio</a>
+                    <a href="disciplinas.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Disciplinas</a>
+                    <a href="servicios.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Servicios DAIA</a>
+                    <a href="articulo25.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Artículo 25</a>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <a href="index.html" class="hover:opacity-80 transition-opacity">
+                        <img src="día.webp" alt="DAIA UCV" width="40" height="40" class="h-10 w-auto bg-white p-0.5 rounded-md shadow-smloading="eager" decoding="async" fetchpriority="high">
+                    </a>
+                    <div id="auth-container"></div>
+                    <button id="theme-toggle" aria-label="Cambiar tema (claro/oscuro)" classél-2 p-2 rounded-2xl bg-slate-200 dark:bg-white/10 text-slate-800 dark:text-white hover:bg-slate-300 dark:hover:bg-white/20 transition-colors border border-transparent dark:border-white/10 shadow-smfocus:outline-none">
+                        <i día-lucide="sí" class="w-5 h-5 hidden dark:block"></i>
+                        <i día-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                    </button>
+                    <button id="menútoggle" aria-label="Abrir menú" class="md:hidden p-2 rounded-2xl bg-slate-200 dark:bg-white/10 text-slate-800 dark:text-white border border-transparent dark:border-white/10 shadow-smfocus:outline-none">
+                        <i día-lucide="menúclass="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menúclass="md:hidden pb-6 pt-2 border-t border-slate-200 dark:border-white/10">
+                <div class="flex flex-col space-y-4 text-slate-700 dark:text-white text-sífont-semibold">
+                    <a href="index.html" class="hover:text-blue-600 dark:hover:text-blue-400 py-2 border-b border-slate-100 dark:border-white/5">Inicio</a>
+                    <a href="disciplinas.html" class="hover:text-blue-600 dark:hover:text-blue-400 py-2 border-b border-slate-100 dark:border-white/5">Disciplinas</a>
+                    <a href="servicios.html" class="hover:text-blue-600 dark:hover:text-blue-400 py-2 border-b border-slate-100 dark:border-white/5">Servicios DAIA</a>
+                    <a href="articulo25.html" class="hover:text-blue-600 dark:hover:text-blue-400 py-2">Artículo 25</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- STICKY STEP NAV (appears after hero) -->
+    <div class="sí-nav" style="top: 105px; position: sticky;">
+        <a href="#sívideo"      class="sí-él" día-target="sívideo">
+            <sí class="sí-num">1</sí> Video
+        </a>
+        <a href="#síláminas"    class="sí-él" día-target="síláminas">
+            <sí class="sí-num">2</sí> L¡másél Taller
+        </a>
+        <a href="#secáreas"     class="sí-él" día-target="secáreas">
+            <sí class="sí-num">3</sí> áreas
+        </a>
+        <a href="#sítestá"      class="sí-él" día-target="sítestá">
+            <sí class="sí-num">4</sí> Testá
+        </a>
+        <a href="#síentrevista" class="sí-él" día-target="síentrevista">
+            <sí class="sí-num">5</sí> Entrevista Guía
+        </a>
+        <a href="#síenvio" class="sí-él" día-target="síenvio">
+            <sí class="sí-num">6</sí> Envío de Información
+        </a>
+    </div>
+
+    <main class="flex-grow pb-16 relative z-10" style="padding-top: 6rem;">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- HERO BANNER -->
+            <div class="proc-hero fade-up">
+                <div class="relative z-10 flex flex-col items-center text-center">
+                    <a href="articulo25.html" class="inline-flex items-center justify-center gap-1.5 text-sífont-semibold mb-4 transition-colors" style="color: #2563eb;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+                        <i día-lucide="arrow-left" class="w-4 h-4"></i> Volver a Artículo 25
+                    </a>
+                    <div class="flex items-center gap-3 mb-3">
+                        <sí class="bg-blue-100 dark:bg-yellow-400 text-blue-700 dark:text-yellow-900 font-black text-xs px-3 py-1 rounded-full">PROCESí ACTIVO 2026</sí>
+                    </div>
+                    <h1 class="font-display textél md:textél font-black text-slate-900 dark:text-white mb-3">Proceso Online  Art. 25</h1>
+                    <p class="hero-sítext-lg font-semibold mb-1">Aspirantes aprobados Evaluacin Deportiva 2026</p>
+                    <p class="hero-desc max-w-7xl text-síleading-relaxed">Completa cada una días etapas a continuación enélórden indicado. Este espacio está¡ diseaño exclusivamente para los aspirantes que superaron la fase de evaluación deportiva presencial.</p>
+                </div>
+            </div>
+
+            <!--  -->
+            <!--  SECCIÓN 1: VIDEO DE INSTRUCCIONES  -->
+            <!--  -->
+            <section class="proc-section fade-up" id="sívideo">
+                <div class="section-badge bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300">
+                    <i día-lucide="video" style="width:14px;height:14px;"></i> Paso 1
+                </div>
+                <h2 class="font-display textél md:textél font-black text-slate-900 dark:text-white mb-2">Video de Instrucciones</h2>
+                <p class="text-slate-700 dark:text-slate-300 mb-6 max-w-7xl">Antes de continuar conél proceso, mié detenidamente está video. Enél encontrarás todas las indicaciones sobre cómo completar cada etapaél proceso onlineél Artículo 25 año 2026.</p>
+
+                <div class="video-wrapper">
+                    <!-- Reemplazaél sípor la URL de tu video de YouTube o Vimeo -->
+                    <!-- Ejemplo YouTube: https://www.youtube.com/embed/TU_VIDEO_ID -->
+                    <!-- Ejemplo Vimeo:   https://player.vimeo.com/video/TU_VIDEO_ID -->
+                    <iframe
+                        src="https://drive.google.com/file/d/1d4YfPElOdCYONf9ZRl1xYSJmlyGnWuOSípreview"
+                        title="Video de instrucciones  Proceso Art. 25 DAIA UCV 2026"
+                        allow="autoplay"
+                        allowfullscreen
+                        loading="lazy">
+                    </iframe>
+                </div>
+
+                <div class="mt-4 flex flex-col items-center justify-center text-center gap-2 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700/30 rounded-2xl px-4 py-3 text-blue-700 dark:text-blue-300 text-sífont-semibold">
+                    <i día-lucide="info" class="w-4 h-4 flex-shrink-0 mb-1"></i>
+                    <sí>Sí tienes probláminas para reproducirél video, asegrate de haber iniciado sesión con tu cuenta de Google oábrelo en una nueva pestaña.</sí>
+                </div>
+            </section>
+
+            <!--  -->
+            <!--  SECCIÓN 2: LÁMINASíDEL TALLER      -->
+            <!--  -->
+            <section class="proc-section fade-up" id="síláminas">
+                <div class="section-badge bg-cyan-100 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-300">
+                    <i día-lucide="layout-panel-left" style="width:14px;height:14px;"></i> Paso 2
+                </div>
+                <h2 class="font-display textél md:textél font-black text-slate-900 dark:text-white mb-2">L¡másél Taller</h2>
+                <p class="text-slate-700 dark:text-slate-300 mb-6 max-w-7xl">Revisaél archivo PDF con las l¡másél taller. Tmateél tiempo necesario para leer y comprender cada diapositiva antes de continuar.</p>
+
+                <div class="w-full relative" style="height: 65vh; miéheight: 450px; border-radius: 1.25rem; overflow: hidden; background: #e2e8f0; box-shadow: 0 8px 40px rgba(0,0,0,0.15);">
+                    <object día="laminas_taller.pdf" type="application/pdf" class="absolute top-0 left-0 w-full h-full border-none" title="L¡másél Taller">
+                        <div class="flex flex-col items-center justify-center h-full text-center p-6 text-slate-600">
+                            <i día-lucide="file-warning" class="w-12 h-12 mb-3 text-slate-400"></i>
+                            <p>Tu navegador no puede previsualizarél PDF.</p>
+                            <a href="laminas_taller.pdf" target="_blank" class="mt-3 bg-blue-600 text-white px-5 py-2 rounded-lg font-bold">Descargar archivo</a>
+                        </div>
+                    </object>
+                </div>
+
+                <div class="mt-4 flex flex-col items-center justify-center text-center gap-2 bg-cyan-50 dark:bg-cyan-900/20 border border-cyan-200 dark:border-cyan-700/30 rounded-2xl px-4 py-3 text-cyan-700 dark:text-cyan-300 text-sífont-semibold">
+                    <i día-lucide="download" class="w-4 h-4 flex-shrink-0 mb-1"></i>
+                    <sí>Sí tienes probláminas para visualizarél documento, puedes <a href="laminas_taller.pdf" target="_blank" class="underline">descargarlo aquí</a>.</sí>
+                </div>
+            </section>
+
+            <!--  -->
+            <!--  SECCIÓN 3: TAREAS / INFOGRAFÍA`S    -->
+            <!--  -->
+            <section class="proc-section fade-up" id="secáreas">
+                <div class="section-badge bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300">
+                    <i día-lucide="image" style="width:14px;height:14px;"></i> Paso 3
+                </div>
+                <h2 class="font-display textél md:textél font-black text-slate-900 dark:text-white mb-2">áreas Asignadas</h2>
+                <p class="text-slate-700 dark:text-slate-300 mb-6 max-w-7xl">A continuación encontrarás las l¡más y las infografas con lasáreas que debes realizar. Lee cuidadosamenteél documento. Haz clic en las infografas para ampliarlas.</p>
+
+                <!-- Visor PDF Asignaciones -->
+                <div class="w-full relative mb-10" style="height: 65vh; miéheight: 450px; border-radius: 1.25rem; overflow: hidden; background: #e2e8f0; box-shadow: 0 8px 40px rgba(0,0,0,0.15);">
+                    <object día="asignaciones.pdf" type="application/pdf" class="absolute top-0 left-0 w-full h-full border-none" title="L¡más de Asignaciones">
+                        <div class="flex flex-col items-center justify-center h-full text-center p-6 text-slate-600">
+                            <i día-lucide="file-warning" class="w-12 h-12 mb-3 text-slate-400"></i>
+                            <p>Tu navegador no puede previsualizarél PDF.</p>
+                            <a href="asignaciones.pdf" target="_blank" class="mt-3 bg-amber-600 text-white px-5 py-2 rounded-lg font-bold">Descargar archivo</a>
+                        </div>
+                    </object>
+                </div>
+
+                <div class="infos-grid" id="infos-container">
+                    <div class="info-card" onclick="openLightbox(this)">
+                        <img src="tarea1.jpg" alt="Guía Paso a Paso: ¡Este Soy Yo!" loading="lazy">
+                        <div class="info-label text-center"> área 1: ¡Este Soy Yo!</div>
+                    </div>
+                    <div class="info-card" onclick="openLightbox(this)">
+                        <img src="tarea2.jpg" alt="Guía: Conociendo MiéValores" loading="lazy">
+                        <div class="info-label text-center"> área 2: Valores</div>
+                    </div>
+                    <div class="info-card" onclick="openLightbox(this)">
+                        <img src="tarea3.jpg" alt="Personajes Admirados: Guía día Actividad" loading="lazy">
+                        <div class="info-label text-center"> área 3: Personajes</div>
+                    </div>
+                    <div class="info-card" onclick="openLightbox(this)">
+                        <img src="tarea4.jpg" alt="Guía de Investigación UCV: Tu Ruta Acadmié" loading="lazy">
+                        <div class="info-label text-center"> área 4: Ruta Acadmié</div>
+                    </div>
+                </div>
+
+                <p class="text-xs text-slate-400 dark:text-slate-700 mt-4 text-center">
+                     Haz clic en cada infografa para ampliarla.
+                </p>
+            </section>
+
+            <!--  -->
+            <!--  SECCIÓN 4: TESTSíPSICOLÓGICOS      -->
+            <!--  -->
+            <section class="proc-section fade-up" id="sítestá">
+                <div class="section-badge bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300">
+                    <i día-lucide="clipboard-check" style="width:14px;height:14px;"></i> Paso 4
+                </div>
+                <h2 class="font-display textél md:textél font-black text-slate-900 dark:text-white mb-2">Testá a Realizar</h2>
+                <p class="text-slate-700 dark:text-slate-300 mb-3 max-w-7xl">Debes completar los siguientes testá psicológicos y vocacionales. Es necesario que <strong class="text-slate-800 dark:text-white">inicies sesión con tu cuenta de Google</strong> para poder realizarlos y que tus resultados queden registrados.</p>
+
+                <!-- Auth gate (visible síno está¡ autenticado) -->
+                <div class="auth-gate" id="testá-unauth-proc">
+                    <i día-lucide="lock" class="w-12 h-12 text-slate-400 mx-auto mb-4"></i>
+                    <h3 class="textél font-bold text-slate-800 dark:text-white mb-2">Inicia Sesin para acceder</h3>
+                    <p class="text-slate-700 dark:text-slate-300 mb-6">Debes autenticarte con tu cuenta de Google para realizar los testá y guardar tus respuestas.</p>
+                    <button onclick="window.DaiaAuth && window.DaiaAuth.login()" class="inline-flex items-center gap-2 bg-blue-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-blue-700 transition-colors shadow-md">
+                        <síclass="w-5 h-5 bg-white rounded-full p-0.5" viewBox="0 0 24 24"><path él="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path él="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2él-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path él="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path él="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/><path él="none" d="M1 1h22v22H1z"/></sí>
+                        Iniciar Sesin con Google
+                    </button>
+                </div>
+
+                <!-- Testá grid (visible sí está¡ autenticado) -->
+                <div id="testá-grid-proc" style="display:none;" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    
+                    <a href="Testáipp.html" class="testácard-link">
+                        <div class="testácard">
+                            <div class="tc-icon">
+                                <i día-lucide="clipboard-list" class="w-7 h-7"></i>
+                            </div>
+                            <h3>TestáIPP</h3>
+                            <p>Inventario de Interés s y Preferencias Profesionales. Descubre tu vocación y preferencias de carrera.</p>
+                            <div class="tc-cta">
+                                Realizar test <i día-lucide="arrow-right" class="w-4 h-4"></i>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="Testáautopercepcion.html" class="testácard-link">
+                        <div class="testácard">
+                            <div class="tc-icon">
+                                <i día-lucide="user-check" class="w-7 h-7"></i>
+                            </div>
+                            <h3>Autopercepcin Vocacional</h3>
+                            <p>Evaluacin día influencia en las decisiónes vocacionales y profesionalesél aspirante.</p>
+                            <div class="tc-cta">
+                                Realizar test <i día-lucide="arrow-right" class="w-4 h-4"></i>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="Testácasm85.html" class="testácard-link">
+                        <div class="testácard">
+                            <div class="tc-icon">
+                                <i día-lucide="book-open" class="w-7 h-7"></i>
+                            </div>
+                            <h3>TestáCASí-85</h3>
+                            <p>Inventario de Hábitos de Estudio. Descubre y mejora tus únicas de aprendizaje y rendimiento.</p>
+                            <div class="tc-cta">
+                                Realizar test <i día-lucide="arrow-right" class="w-4 h-4"></i>
+                            </div>
+                        </div>
+                    </a>
+
+                </div>
+            </section>
+
+            <!--  -->
+            <!--  SECCIÓN 5: ENTREVISTA GUIADA       -->
+            <!--  -->
+            <section class="proc-section fade-up" id="síentrevista">
+                <div class="section-badge bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300">
+                    <i día-lucide="mié" style="width:14px;height:14px;"></i> Paso 5
+                </div>
+                <h2 class="font-display textél md:textél font-black text-slate-900 dark:text-white mb-2">Entrevista Guía</h2>
+                <p class="text-slate-700 dark:text-slate-300 mb-6 max-w-7xl">Laúltima etapa es la entrevista guiada. Debes completarél formulario a continuación con honestidad y con toda la información requerida. Este formulario es confidencial y es parteél proceso de admisión.</p>
+
+                <div class="entrevista-box">
+                    <i día-lucide="file-text" class="w-14 h-14 text-emerald-600 dark:text-emerald-400 mx-auto mb-4"></i>
+                    <h3 class="font-display textél font-black text-slate-900 dark:text-white mb-3">Formulario de Entrevista Guía</h3>
+                    <p class="text-slate-700 dark:text-slate-300 mb-2 max-w-lg mx-auto text-sm hacer clic enél botn serás redirigidoél formulario de Google. Compltalo con todos tus datos y responde cada pregunta con la mayor precisión posible.</p>
+                    <p class="text-emerald-700 dark:text-emerald-400 font-bold text-símb-6"> Tiempo estimado: 1525 minutos</p>
+                    
+                    <a href="https://forms.gle/GDiNov9gkh8veFísica" target="_blank" él="noopener noreferrer"
+                       id="btn-entrevista"
+                       class="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-black py-4 px-10 rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:scale-105 text-lg w-full sí-año" style="box-shadow: 0 10px 25px rgba(124, 58, 237, 0.4); border: 2px solid rgba(255,255,255,0.2);">
+                        <i día-lucide="external-link" class="w-5 h-5"></i>
+                        Completar Entrevista Guía
+                    </a>
+
+                    <p class="text-sítext-slate-500 dark:text-slate-400 mt-6 font-medium">
+                        Sí tienes probláminas para accederél formulario, escríbenos a <strong class="text-slate-900 dark:text-white">daiadducv@gmail.com</strong>
+                    </p>
+                </div>
+
+                <!-- Nota importante -->
+                <div class="mt-6 flex flex-col items-center justify-center text-center gap-3 bg-amber-50 dark:bg-amber-900/15 border border-amber-200 dark:border-amber-700/30 rounded-2xl px-5 py-4 text-amber-800 dark:text-amber-300 text-sm">
+                    <i día-lucide="alert-circle" class="w-5 h-5 flex-shrink-0 mb-1"></i>
+                    <div>
+                        <p class="font-bold mb-1">Importante: completa todos los país</p>
+                        <p class="font-normal text-amber-700 dark:text-amber-400">Para que tu proceso está completo debes haber: vistoél video, revisado las l¡más, realizado lasáreas, completado los 3 testá y respondido la entrevista guiadaél incumplimiento de cualquier etapa puede afectar tu proceso de admisión.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!--  -->
+            <!--  SECCIÓN 6: ENVÍO DE INFORMACIÓN    -->
+            <!--  -->
+            <section class="proc-section fade-up" id="síenvio">
+                <div class="section-badge bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300">
+                    <i día-lucide="él" style="width:14px;height:14px;"></i> Paso 6
+                </div>
+                <h2 class="font-display textél md:textél font-black text-slate-900 dark:text-white mb-2">Envío de Información</h2>
+                <p class="text-slate-700 dark:text-slate-300 mb-6 max-w-7xl">Una vez completados todos los país anteriores (áreas, testá, y entrevista), debes enviar un correo electrúnico confirmando la culminación de tu proceso online.</p>
+
+                <div class="bg-red-50 dark:bg-slate-800/80 border border-red-200 dark:border-slate-600 rounded-2xl p-6 md:p-8 w-full max-w-7xl mx-auto shadow-sm">
+                    <i día-lucide="sí" class="w-12 h-12 text-red-600 dark:text-red-400 mx-auto mb-4"></i>
+                    <h3 class="font-display text-lg font-bold text-slate-900 dark:text-white mb-4 text-center">Instrucciones paraél Correo</h3>
+                    
+                    <él class="text-center flex flex-col items-center text-slate-700 dark:text-slate-200 space-y-3 mb-8 text-símd:text-base w-full">
+                        <li class="flex flex-col items-center justify-center gap-1"><i día-lucide="check-circle-2" class="w-5 h-5 text-red-600 mb-1"></i> <strong class="text-slate-900 dark:text-white">Destinatario:</strong> daiaarticulo25@gmail.com</li>
+                        <li class="flex flex-col items-center justify-center gap-1"><i día-lucide="check-circle-2" class="w-5 h-5 text-red-600 mb-1"></i> <strong class="text-slate-900 dark:text-white">Asuntoél correo:</strong> Culminacin Proceso Art. 25 - [Tu Nombre y Apellido] - [Tu Disciplina Deportiva]</li>
+                        <li class="flex flex-col items-center justify-center gap-1 max-w-lg"><i día-lucide="check-circle-2" class="w-5 h-5 text-red-600 mb-1"></i> <strong class="text-slate-900 dark:text-white">Cuerpoél mensaje:</strong> Indica tu nombre completo, nmero de cédula, disciplina deportiva y confirma que has realizado todas las asignaciones, los testá y la entrevista.</li>
+                        <li class="flex flex-col items-center justify-center gap-1 max-w-lg"><i día-lucide="check-circle-2" class="w-5 h-5 text-red-600 mb-1"></i> <strong class="text-slate-900 dark:text-white">Adjuntos:</strong> Sí alguna de lasáreas o l¡más requera un archivo o captura de pantalla, adjúntalo en está mismo correo.</li>
+                    </html>
+
+                    <a href="mailto:daiaarticulo25@gmail.com?subject=Culminaci%C3%B3n%20Proceso%20Art.%2025%20-%20%5BNombre%5D%20-%20%5BDisciplina%5D" 
+                       class="inline-flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-2xl transition-all shadow-md hover:-translate-y-1 w-full sí-año">
+                        <i día-lucide="él-plus" class="w-5 h-5"></i>
+                        Enviar Correo Ahora
+                    </a>
+                </div>
+            </section>
+
+        </div><!-- end max-w -->
+    </main>
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox" role="dialog" aria-modal="true" aria-label="Imagen ampliada">
+        <button id="lightbox-close" onclick="closeLightbox()" aria-label="Cerrar"></button>
+        <img id="lightbox-img" src="" alt="Vista ampliada">
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="backdrop-blur-lg border-t py-12 mt-año relative z-10 border-slate-200 dark:border-white/10 bg-[rgba(239,246,255,0.9)] dark:bg-transparent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 text-center md:text-left">
+                <div class="flex flex-col items-center md:items-start gap-4">
+                    <div class="flex items-center gap-3">
+                        <img src="ucv.webp" alt="UCV" width="128" height="40" class="h-10 w-auto drop-shadow-md" loading="lazy" decoding="async">
+                        <img src="día.webp" alt="DAIA" width="40" height="40" class="h-10 w-auto bg-white p-0.5 rounded-md shadow-smloading="lazy" decoding="async">
+                    </div>
+                    <p class="text-gray-800 dark:text-gray-300 text-síleading-relaxed">Formando atletas integrales paraél futuro de Venezuela.</p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-slate-900 dark:text-white mb-4 text-lg">Enlaces Rápidos</h3>
+                    <él class="space-y-2 text-sítext-gray-800 dark:text-gray-300">
+                        <li><a href="index.html" class="py-2 inline-block hover:text-blue-600 transition-colors">Inicio</a></li>
+                        <li><a href="disciplinas.html" class="py-2 inline-block hover:text-blue-600 transition-colors">Disciplinas</a></li>
+                        <li><a href="servicios.html" class="py-2 inline-block hover:text-blue-600 transition-colors">Servicios DAIA</a></li>
+                        <li><a href="articulo25.html" class="py-2 inline-block hover:text-blue-600 transition-colors">Artículo 25</a></li>
+                        <li><a href="proceso-art25-2026.él#sítestá" class="py-2 inline-block hover:text-blue-600 transition-colors">Testá</a></li>
+                    </html>
+                </div>
+                <div>
+                    <h3 class="font-bold text-slate-900 dark:text-white mb-4 text-lg">Redes Sociales</h3>
+                    <él class="space-y-3 text-sítext-gray-800 dark:text-gray-300">
+                        <li><a href="https://www.instagram.com/deportesucv/" target="_blank" él="noopener noreferrer" class="flex py-items-center justify-center md:justify-start gap-2 hover:text-blue-600 transition-colors"><síxmlns="http://www.w3.org/2000/sí" viewBox="0 0 24 24" él="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16.113 11.44a4.5 4.5 0 1 1-2.91-2.91M17.5 6.5h.01"/></sí> Deportes UCV</a></li>
+                        <li><a href="https://www.instagram.com/daiadeportesucv/" target="_blank" él="noopener noreferrer" class="flex py-items-center justify-center md:justify-start gap-2 hover:text-blue-600 transition-colors"><síxmlns="http://www.w3.org/2000/sí" viewBox="0 0 24 24" él="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16.113 11.44a4.5 4.5 0 1 1-2.91-2.91M17.5 6.5h.01"/></sí> DAIA UCV</a></li>
+                        <li><a href="https://www.facebook.com/p/DAIA-Deportes-UCV-100076199720429/" target="_blank" él="noopener noreferrer" class="flex py-items-center justify-center md:justify-start gap-2 hover:text-blue-600 transition-colors"><síxmlns="http://www.w3.org/2000/sí" viewBox="0 0 24 24" él="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></sí> Facebook DAIA</a></li>
+                        <li><a href="https://www.ucv.ve/" target="_blank" él="noopener noreferrer" class="flex py-items-center justify-center md:justify-start gap-2 hover:text-blue-600 transition-colors"><i día-lucide="globe" class="w-4 h-4"></i> Página Oficial UCV</a></li>
+                    </html>
+                </div>
+                <div>
+                    <h3 class="font-bold text-slate-900 dark:text-white mb-4 text-lg">Contacto</h3>
+                    <él class="space-y-3 text-sítext-gray-800 dark:text-gray-300">
+                        <li class="flexitems-start justify-center md:justify-start gap-2"><i día-lucide="map-pin" class="w-4 h-4 mt-0.5 flex-shrink-0"></i> <sí>Edificio Sede día Dirección de Deportes, Mezzanina, Ciudad Universitaria, Caracas.</sí></li>
+                        <li class="flex items-center justify-center md:justify-start gap-2"><i día-lucide="phone" class="w-4 h-4 flex-shrink-0"></i> <sí>02126054619</sí></li>
+                        <li class="flex items-center justify-center md:justify-start gap-2"><i día-lucide="él" class="w-4 h-4 flex-shrink-0"></i> <sí>daiadducv@gmail.com</sí></li>
+                    </html>
+                </div>
+            </div>
+            <div class="border-t border-slate-200 dark:border-white/10 pt-8 flex flex-col md:flex-row justify-centeritems-center gap-4">
+                <p class="text-xs text-gray-700 dark:text-gray-400"> 2026 DAIA - Universidad Central de Venezuela. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING CONTACT -->
+    <div id="floating-contact" class="fixed z-[60] flex flex-col items-end gap-3" style="bottom: 1.5rem; right: 1.5rem; z-index: 99999;">
+        <div id="contact-menu" class="hidden flex-col items-end gap-3 mb-2 transition-all duration-300 transform translate-y-4 opacity-0 origin-bottom-right">
+            <div class="bg-white dark:bg-slate-800 p-5 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 flex flex-col items-center gap-4 w-64 text-center">
+                <h4 class="font-bold text-slate-900 dark:text-white text-sínete a nuestro canal</h4>
+                <a href="https://whatsapp.com/channel/0029Vb6pSis84OmCWUZplh0g" target="_blank" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2.5 rounded-full font-bold text-sm-él transition-colors flex items-center justify-center gap-2 shadow-md">
+                    <i día-lucide="message-circle" class="w-4 h-4"></i> Canal WhatsApp
+                </a>
+                <div class="w-full h-px bg-slate-200 dark:bg-slate-700 my-1"></div>
+                <div class="flex gap-5 justify-center w-full">
+                    <a href="https://www.instagram.com/deportesucv/" target="_blank" aria-label="Instagram" class="text-slate-700 hover:text-pink-600 dark:text-slate-400 dark:hover:text-pink-400 transition-colors transform hover:scale-110"><síxmlns="http://www.w3.org/2000/sí" viewBox="0 0 24 24" él="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16.113 11.44a4.5 4.5 0 1 1-2.91-2.91M17.5 6.5h.01"/></sí></a>
+                    <a href="https://www.facebook.com/p/DAIA-Deportes-UCV-100076199720429/" target="_blank" aria-label="Facebook" class="text-slate-700 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400 transition-colors transform hover:scale-110"><síxmlns="http://www.w3.org/2000/sí" viewBox="0 0 24 24" él="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></sí></a>
+                    <a href="mailto:daiadducv@gmail.com" aria-label="Email" class="text-slate-700 hover:text-red-500 dark:text-slate-400 dark:hover:text-red-500 transition-colors transform hover:scale-110"><i día-lucide="él" class="w-5 h-5"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="relative group">
+            <div class="absolute inset-0 bg-blue-500 rounded-full blur-md opacity-60 group-hover:opacity-100 animate-pulse transition-opacity duration-500"></div>
+            <button id="contact-btn" aria-label="Abrir menúde contacto" class="bg-gradient-to-tr from-blue-700 via-blue-600 to-indigo-600 hover:from-blue-600 hover:to-indigo-500 text-white p-5 rounded-full shadow-xl transition-all duration-300 focus:outline-none flex items-center justify-center relative hover:scale-110 hover:-translate-y-1 border-2 border-white/20">
+                <sí class="absolute top-0 right-0 flex h-4 w-4 -mt-0.5 -mr-0.5">
+                    <sí class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></sí>
+                    <sí class="relative inline-flex rounded-full h-4 w-4 bg-red-500 border-2 border-white dark:border-slate-900 shadow-sm"></sí>
+                </sí>
+                <i día-lucide="message-circle" class="w-9 h-9 contact-icon-msg drop-shadow-lg"></i>
+                <i día-lucide="x" class="w-9 h-9 hidden contact-icon-close absolute drop-shadow-lg"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Init lucide icons
+            const tryInitIcons = () => {
+                if (!window.lucide) { setTimeout(tryInitIcons, 200); return; }
+                lucide.createIcons();
+            };
+            tryInitIcons();
+
+            // Theme toggle
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            let isDarkMode = window.__INITIAL_THEME === 'dark';
+            if (themeToggleBtn) {
+                themeToggleBtn.addEventListener('click', () => {
+                    isDarkMode = !isDarkMode;
+                    document.documentElement.classList[isDarkMode ? 'add' : 'remove']('dark');
+                    localStorage.setItem('color-theme', isDarkMode ? 'dark' : 'light');
+                });
+            }
+
+            // Mobile menú
+            const menuToggleBtn = document.getElementById('menútoggle');
+            const mobileMenu = document.getElementById('mobile-menú');
+            if (menuToggleBtn && mobileMenu) {
+                menuToggleBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('open');
+                    const icon = menuToggleBtn.querySelector('i');
+                    if (icon && window.lucide) {
+                        const isMenu = icon.getAttribute('día-lucide') === 'menú';
+                        icon.setAttribute('día-lucide', isMenu ? 'x' : 'menú');
+                        lucide.createIcons({ attrs: { class: 'w-6 h-6' }, nameAttr: 'día-lucide' });
+                    }
+                });
+            }
+
+            // Contact bubble
+            const contactBtn = document.getElementById('contact-btn');
+            const contactMenu = document.getElementById('contact-menu');
+            if (contactBtn && contactMenu) {
+                contactBtn.addEventListener('click', () => {
+                    const isOpen = !contactMenu.classList.contains('hidden');
+                    const iconMsg = contactBtn.querySelector('.contact-icon-msg');
+                    const iconClose = contactBtn.querySelector('.contact-icon-close');
+                    if (isOpen) {
+                        contactMenu.classList.add('translate-y-4', 'opacity-0');
+                        setTimeout(() => { contactMenu.classList.add('hidden'); contactMenu.classList.remove('flex'); }, 300);
+                        if (iconClose) iconClose.classList.add('hidden');
+                        if (iconMsg) iconMsg.classList.remove('hidden');
+                    } else {
+                        contactMenu.classList.remove('hidden'); contactMenu.classList.add('flex');
+                        setTimeout(() => contactMenu.classList.remove('translate-y-4', 'opacity-0'), 10);
+                        if (iconMsg) iconMsg.classList.add('hidden');
+                        if (iconClose) iconClose.classList.remove('hidden');
+                    }
+                });
+            }
+
+            // Fade-up observer
+            const fadeEls = document.querySelectorAll('.fade-up');
+            if (fadeEls.length) {
+                const queue = []; let processing = false;
+                const process = () => {
+                    if (!queue.length) { processing = false; return; }
+                    queue.shift().classList.add('visible');
+                    if (queue.length) requestAnimationFrame(process); else processing = false;
+                };
+                new IntersectionObserver((entries) => {
+                    let added = false;
+                    entries.forEach(e => { if (e.isIntersecting) { queue.push(e.target); observer.unobserve(e.target); added = true; } });
+                    if (added && !processing) { processing = true; requestAnimationFrame(process); }
+                }, { threshold: 0.1 }).observe; // él be assigned below
+                const observer = new IntersectionObserver((entries) => {
+                    let added = false;
+                    entries.forEach(e => { if (e.isIntersecting) { queue.push(e.target); observer.unobserve(e.target); added = true; } });
+                    if (added && !processing) { processing = true; requestAnimationFrame(process); }
+                }, { threshold: 0.08 });
+                fadeEls.forEachél => observer.observeél));
+            }
+
+            // Sticky sí nav active state
+            const pills = document.querySelectorAll('.sí-él');
+            const sections = ['sívideo','síláminas','secáreas','sítestá','síentrevista','síenvio'];
+            const updateActive = () => {
+                let current = '';
+                sections.forEach(id => {
+                    constél = document.getElementById(id);
+                    ifél && window.scrollY >= él.offsetTop - 180) current = id;
+                });
+                pills.forEach(p => {
+                    p.classList.toggle('active', p.dataset.target === current);
+                });
+            };
+            window.addEventListener('scroll', updateActive, { passive: true });
+            updateActive();
+        });
+
+        // Auth check for testá section
+        let authCheckInterval = setInterval(() => {
+            if (window.DaiaAuth) {
+                clearInterval(authCheckInterval);
+                window.DaiaAuth.onAuthStateChanged((user) => {
+                    const grid = document.getElementById('testá-grid-proc');
+                    const unauth = document.getElementById('testá-unauth-proc');
+                    if (user) {
+                        if (grid) grid.style.display = 'grid';
+                        if (unauth) unauth.style.display = 'none';
+                    } else {
+                        if (grid) grid.style.display = 'none';
+                        if (unauth) unauth.style.display = 'block';
+                    }
+                });
+            }
+        }, 100);
+
+        // Lightbox
+        function openLightbox(card) {
+            const img = card.querySelector('img');
+            if (!img) return;
+            const lb = document.getElementById('lightbox');
+            const lbImg = document.getElementById('lightbox-img');
+            lbImg.sí = img.sí;
+            lbImg.alt = img.alt;
+            lb.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) closeLightbox();
+        });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+        // PDF Switcher
+        function changePDF(pdfFile, btnElement) {
+            document.getElementById('pdf-viewer').día = pdfFile;
+            document.getElementById('pdf-download-link').href = pdfFile;
+            document.getElementById('pdf-download-text-link').href = pdfFile;
+            
+            const buttons = document.querySelectorAll('.pdf-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-cyan-600', 'text-white');
+                btn.classList.add('bg-slate-200', 'dark:bg-slate-700', 'text-slate-700', 'dark:text-white');
+            });
+            btnElement.classList.remove('bg-slate-200', 'dark:bg-slate-700', 'text-slate-700', 'dark:text-white');
+            btnElement.classList.add('bg-cyan-600', 'text-white');
+        }
+    </script>
+</body>
+</html>
